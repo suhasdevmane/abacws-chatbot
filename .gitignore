@@ -1,0 +1,5 @@
+node_modules
+.rasa/
+.vscode/
+abacws_chatbot_env/
+node_modules/
