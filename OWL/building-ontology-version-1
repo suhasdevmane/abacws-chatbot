@@ -1,0 +1,759 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-8#"
+     xml:base="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-8"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-8"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#belongs_to -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#belongs_to">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#has_node"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.03"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.04"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.06"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.07"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.09"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.10"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.12"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.13"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.60"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.61"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.62"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.64"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.66"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.67"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.68"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.69"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.70"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.03"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+        <rdfs:comment>node benongs to room</rdfs:comment>
+        <rdfs:comment>rooms belongs to zone</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#has_node -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#has_node">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.03"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.04"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.06"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.07"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.09"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.10"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.12"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.13"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.60"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.61"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.62"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.64"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.66"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.67"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.68"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.69"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.70"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.04"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.06"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.07"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.09"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.10"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.12"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.13"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.60"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.61"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.62"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.64"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.66"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.67"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.68"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.69"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.70"/>
+        <rdfs:comment xml:lang="en">room has node</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Air_Quality_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Air_Quality_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">789.34</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#C2H5CH_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#C2H5CH_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#multichannel_gas_sensor_reading"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">91.1</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#CO_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#CO_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#multichannel_gas_sensor_reading"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">223</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#HCHO_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#HCHO_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">234.23</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Laser_PM2.5_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Laser_PM2.5_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.34</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Light_Sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Light_Sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">560</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ2_sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ2_sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">36.55</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ3_sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ3_sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">42.1</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ5_sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ5_sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.53</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ9_sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#MQ9_sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">109.23</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Microphone_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Microphone_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">230.12</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#NO2_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#NO2_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#multichannel_gas_sensor_reading"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">169.2</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#PIR_Sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#PIR_Sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Sunlight_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#Sunlight_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">567.23</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#VOC_and_eCO2_Gas_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#VOC_and_eCO2_Gas_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50.5</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#VOC_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#VOC_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#multichannel_gas_sensor_reading"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">99.12</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#co2_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#co2_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#co2_temperature_and_humidity_reading"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">223.3</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#co2_temperature_and_humidity_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#co2_temperature_and_humidity_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#humidity_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#humidity_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#co2_temperature_and_humidity_reading"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">34.12</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#multichannel_gas_sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#multichannel_gas_sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#oxygen_sensor_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#oxygen_sensor_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">23.5</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#temperature_reading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#temperature_reading">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#co2_temperature_and_humidity_reading"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">26.23</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#abacws -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#abacws">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#smart_buildings"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_01 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_01">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_02 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_02">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_03 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_03">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_04 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_04">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.03"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.04 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.04">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.04"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.06 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.06">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.06"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.07 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.07">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.07"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.09 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.09">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.09"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.10 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.10">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.10"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.12 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.12">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.12"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.13 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.13">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.60 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.60">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.60"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.61 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.61">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.61"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.62 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.62">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.62"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.64 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.64">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.64"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.66 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.66">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.66"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.67 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.67">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.67"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.68 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.68">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.68"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.69 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.69">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.69"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.70 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.70">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.70"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.03 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.03">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.04 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.04">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.06 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.06">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.07 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.07">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.09 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.09">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.10 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.10">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.12 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.12">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.13 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.13">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.60 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.60">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.61 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.61">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.62 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.62">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.64 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.64">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.66 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.66">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.67 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.67">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.68 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.68">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.69 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.69">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.70 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.70">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#school_of_engineering -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#school_of_engineering">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#smart_buildings"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#smart_buildings -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#smart_buildings"/>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_east -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_east">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_north -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_north">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northeast">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northwest -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_northwest">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_south -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_south">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_southeast -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_southeast">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_southwest -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_southwest">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_west -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#zone_west">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#floor_05"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#node_5.03">
+        <rdf:type rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#room_5.03"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

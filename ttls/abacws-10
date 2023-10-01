@@ -1,0 +1,528 @@
+@prefix : <http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-10#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-10> .
+
+<http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-10> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://example.org/abacws#Air_QualityURL
+<http://example.org/abacws#Air_QualityURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#HCHOURL
+<http://example.org/abacws#HCHOURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#Laser2.5URL
+<http://example.org/abacws#Laser2.5URL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#LuxURL
+<http://example.org/abacws#LuxURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#MicrophoneURL
+<http://example.org/abacws#MicrophoneURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#Mq2URL
+<http://example.org/abacws#Mq2URL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#Mq3URL
+<http://example.org/abacws#Mq3URL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#Mq5URL
+<http://example.org/abacws#Mq5URL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#Mq9URL
+<http://example.org/abacws#Mq9URL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#Multichannel_GasURL
+<http://example.org/abacws#Multichannel_GasURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#OxygenURL
+<http://example.org/abacws#OxygenURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#PIRURL
+<http://example.org/abacws#PIRURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#SunlightURL
+<http://example.org/abacws#SunlightURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#Voc_Eco2URL
+<http://example.org/abacws#Voc_Eco2URL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#co2URL
+<http://example.org/abacws#co2URL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#digital_LightURL
+<http://example.org/abacws#digital_LightURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#humidityURL
+<http://example.org/abacws#humidityURL> rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/abacws#temperatureURL
+<http://example.org/abacws#temperatureURL> rdf:type owl:AnnotationProperty .
+
+
+###  https://brickschema.org/schema/Brick#hasName
+<https://brickschema.org/schema/Brick#hasName> rdf:type owl:AnnotationProperty .
+
+
+###  https://brickschema.org/schema/Brick#isPartOf
+<https://brickschema.org/schema/Brick#isPartOf> rdf:type owl:AnnotationProperty .
+
+
+###  https://brickschema.org/schema/Brick#isPointOf
+<https://brickschema.org/schema/Brick#isPointOf> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.abacwscardiff.ac.uk/abacws/hasFloor
+<https://www.abacwscardiff.ac.uk/abacws/hasFloor> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <https://brickschema.org/schema/Brick#Building_abacws> ;
+                                                  rdfs:range <https://brickschema.org/schema/Brick#Floors> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/hasRoom
+<https://www.abacwscardiff.ac.uk/abacws/hasRoom> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <https://www.abacwscardiff.ac.uk/abacws/floor5> ;
+                                                 rdfs:range <https://brickschema.org/schema/Brick#Rooms> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/hasSensor
+<https://www.abacwscardiff.ac.uk/abacws/hasSensor> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.abacwscardiff.ac.uk/abacws/Room5.1> ;
+                                                   rdfs:range <https://brickschema.org/schema/Brick#sensorNode-5.1> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://www.abacwscardiff.ac.uk/abacws/Air_QualityURL
+<https://www.abacwscardiff.ac.uk/abacws/Air_QualityURL> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/HCHOURL
+<https://www.abacwscardiff.ac.uk/abacws/HCHOURL> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Laser2.5URL
+<https://www.abacwscardiff.ac.uk/abacws/Laser2.5URL> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/LuxURL
+<https://www.abacwscardiff.ac.uk/abacws/LuxURL> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/MicrophoneURL
+<https://www.abacwscardiff.ac.uk/abacws/MicrophoneURL> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Mq2URL
+<https://www.abacwscardiff.ac.uk/abacws/Mq2URL> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Mq3URL
+<https://www.abacwscardiff.ac.uk/abacws/Mq3URL> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Mq5URL
+<https://www.abacwscardiff.ac.uk/abacws/Mq5URL> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Mq9URL
+<https://www.abacwscardiff.ac.uk/abacws/Mq9URL> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Multichannel_GasURL
+<https://www.abacwscardiff.ac.uk/abacws/Multichannel_GasURL> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/OxygenURL
+<https://www.abacwscardiff.ac.uk/abacws/OxygenURL> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/PIRURL
+<https://www.abacwscardiff.ac.uk/abacws/PIRURL> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/SunlightURL
+<https://www.abacwscardiff.ac.uk/abacws/SunlightURL> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Voc_Eco2URL
+<https://www.abacwscardiff.ac.uk/abacws/Voc_Eco2URL> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/co2URL
+<https://www.abacwscardiff.ac.uk/abacws/co2URL> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/digital_LightURL
+<https://www.abacwscardiff.ac.uk/abacws/digital_LightURL> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/hasSensorNode
+<https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> rdf:type owl:DatatypeProperty .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/humidityURL
+<https://www.abacwscardiff.ac.uk/abacws/humidityURL> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/temperatureURL
+<https://www.abacwscardiff.ac.uk/abacws/temperatureURL> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:subPropertyOf <https://www.abacwscardiff.ac.uk/abacws/hasSensorNode> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://brickschema.org/schema/Brick#Building_abacws
+<https://brickschema.org/schema/Brick#Building_abacws> rdf:type owl:Class .
+
+
+###  https://brickschema.org/schema/Brick#Floors
+<https://brickschema.org/schema/Brick#Floors> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://brickschema.org/schema/Brick#Building_abacws> .
+
+
+###  https://brickschema.org/schema/Brick#Rooms
+<https://brickschema.org/schema/Brick#Rooms> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://www.abacwscardiff.ac.uk/abacws/floor5> .
+
+
+###  https://brickschema.org/schema/Brick#sensorNode-5.1
+<https://brickschema.org/schema/Brick#sensorNode-5.1> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://www.abacwscardiff.ac.uk/abacws/Room5.1> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/Room5.1
+<https://www.abacwscardiff.ac.uk/abacws/Room5.1> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://brickschema.org/schema/Brick#Rooms> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/floor1
+<https://www.abacwscardiff.ac.uk/abacws/floor1> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://brickschema.org/schema/Brick#Floors> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/floor2
+<https://www.abacwscardiff.ac.uk/abacws/floor2> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://brickschema.org/schema/Brick#Floors> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/floor3
+<https://www.abacwscardiff.ac.uk/abacws/floor3> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://brickschema.org/schema/Brick#Floors> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/floor4
+<https://www.abacwscardiff.ac.uk/abacws/floor4> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://brickschema.org/schema/Brick#Floors> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/floor5
+<https://www.abacwscardiff.ac.uk/abacws/floor5> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://brickschema.org/schema/Brick#Floors> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/room5.2
+<https://www.abacwscardiff.ac.uk/abacws/room5.2> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://brickschema.org/schema/Brick#Rooms> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/room5.3
+<https://www.abacwscardiff.ac.uk/abacws/room5.3> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://brickschema.org/schema/Brick#Rooms> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/room5.4
+<https://www.abacwscardiff.ac.uk/abacws/room5.4> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://brickschema.org/schema/Brick#Rooms> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/room5.5
+<https://www.abacwscardiff.ac.uk/abacws/room5.5> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://brickschema.org/schema/Brick#Rooms> .
+
+
+###  https://www.abacwscardiff.ac.uk/abacws/room5.6
+<https://www.abacwscardiff.ac.uk/abacws/room5.6> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://brickschema.org/schema/Brick#Rooms> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.org/abacws#Building1
+<http://example.org/abacws#Building1> rdf:type owl:NamedIndividual ,
+                                               <https://brickschema.org/schema/Brick#Building_abacws> .
+
+
+###  http://example.org/abacws#Floor1
+<http://example.org/abacws#Floor1> rdf:type owl:NamedIndividual ,
+                                            <https://brickschema.org/schema/Brick#Floors> ;
+                                   <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Building1> .
+
+
+###  http://example.org/abacws#Floor2
+<http://example.org/abacws#Floor2> rdf:type owl:NamedIndividual ,
+                                            <https://brickschema.org/schema/Brick#Floors> ;
+                                   <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Building1> .
+
+
+###  http://example.org/abacws#Floor3
+<http://example.org/abacws#Floor3> rdf:type owl:NamedIndividual ,
+                                            <https://brickschema.org/schema/Brick#Floors> ;
+                                   <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Building1> .
+
+
+###  http://example.org/abacws#Floor4
+<http://example.org/abacws#Floor4> rdf:type owl:NamedIndividual ,
+                                            <https://brickschema.org/schema/Brick#Floors> ;
+                                   <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Building1> .
+
+
+###  http://example.org/abacws#Floor5
+<http://example.org/abacws#Floor5> rdf:type owl:NamedIndividual ,
+                                            <https://brickschema.org/schema/Brick#Floors> ;
+                                   <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Building1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Air_Quality_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Air_Quality_Sensor> rdf:type owl:NamedIndividual ,
+                                                                       <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                              <https://www.abacwscardiff.ac.uk/abacws/Air_QualityURL> ""^^xsd:anyURI ;
+                                                              <http://example.org/abacws#Air_QualityURL> <https://thingsboard.com/2331/co2_val> ;
+                                                              <https://brickschema.org/schema/Brick#hasName> "Room5.1_Air_Quality_Sensor" ;
+                                                              <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Analog_Microphone_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Analog_Microphone_Sensor> rdf:type owl:NamedIndividual ,
+                                                                             <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                                    <https://www.abacwscardiff.ac.uk/abacws/MicrophoneURL> ""^^xsd:anyURI ;
+                                                                    <http://example.org/abacws#MicrophoneURL> <https://thingsboard.com/2331/co2_val> ;
+                                                                    <https://brickschema.org/schema/Brick#hasName> "Room5.1_Analog_Microphone_Sensor" ;
+                                                                    <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Co2_Temperature_Humidity_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Co2_Temperature_Humidity_Sensor> rdf:type owl:NamedIndividual ,
+                                                                                    <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                                           <https://www.abacwscardiff.ac.uk/abacws/co2URL> ""^^xsd:anyURI ;
+                                                                           <https://www.abacwscardiff.ac.uk/abacws/humidityURL> ""^^xsd:anyURI ;
+                                                                           <https://www.abacwscardiff.ac.uk/abacws/temperatureURL> ""^^xsd:anyURI ;
+                                                                           <http://example.org/abacws#co2URL> <https://thingsboard.com/2331/co2_val> ;
+                                                                           <http://example.org/abacws#humidityURL> <http://thingsboard.com/123211/humidity> ;
+                                                                           <http://example.org/abacws#temperatureURL> <http://thingsboard.com/123432/temp> ;
+                                                                           <https://brickschema.org/schema/Brick#hasName> "5.1_co2_temperature_humidity_sensor" ;
+                                                                           <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_HCHO_Sensor
+<http://example.org/abacws#Floor5_Room5.1_HCHO_Sensor> rdf:type owl:NamedIndividual ,
+                                                                <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                       <https://www.abacwscardiff.ac.uk/abacws/HCHOURL> ""^^xsd:anyURI ;
+                                                       <http://example.org/abacws#HCHOURL> <https://thingsboard.com/2331/co2_val> ;
+                                                       <https://brickschema.org/schema/Brick#hasName> "Room5.1_HCHO_Sensor" ;
+                                                       <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Laser2.5_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Laser2.5_Sensor> rdf:type owl:NamedIndividual ,
+                                                                    <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                           <https://www.abacwscardiff.ac.uk/abacws/Laser2.5URL> ""^^xsd:anyURI ;
+                                                           <http://example.org/abacws#Laser2.5URL> <https://thingsboard.com/2331/co2_val> ;
+                                                           <https://brickschema.org/schema/Brick#hasName> "Room5.1_Laser2.5_Sensor" ;
+                                                           <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Lux_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Lux_Sensor> rdf:type owl:NamedIndividual ,
+                                                               <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                      <https://www.abacwscardiff.ac.uk/abacws/LuxURL> ""^^xsd:anyURI ;
+                                                      <http://example.org/abacws#LuxURL> <https://thingsboard.com/2331/co2_val> ;
+                                                      <https://brickschema.org/schema/Brick#hasName> "Room5.1_Lux_Sensor" ;
+                                                      <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Mq2_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Mq2_Sensor> rdf:type owl:NamedIndividual ,
+                                                               <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                      <https://www.abacwscardiff.ac.uk/abacws/Mq2URL> ""^^xsd:anyURI ;
+                                                      <http://example.org/abacws#Mq2URL> <https://thingsboard.com/2331/co2_val> ;
+                                                      <https://brickschema.org/schema/Brick#hasName> "Room5.1_Mq2_Sensor" ;
+                                                      <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Mq3_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Mq3_Sensor> rdf:type owl:NamedIndividual ,
+                                                               <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                      <https://www.abacwscardiff.ac.uk/abacws/Mq3URL> ""^^xsd:anyURI ;
+                                                      <http://example.org/abacws#Mq3URL> <https://thingsboard.com/2331/co2_val> ;
+                                                      <https://brickschema.org/schema/Brick#hasName> "Room5.1_Mq3_Sensor" ;
+                                                      <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Mq5_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Mq5_Sensor> rdf:type owl:NamedIndividual ,
+                                                               <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                      <https://www.abacwscardiff.ac.uk/abacws/Mq5URL> ""^^xsd:anyURI ;
+                                                      <http://example.org/abacws#Mq5URL> <https://thingsboard.com/2331/co2_val> ;
+                                                      <https://brickschema.org/schema/Brick#hasName> "Room5.1_Mq5_Sensor" ;
+                                                      <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Mq9_ensor
+<http://example.org/abacws#Floor5_Room5.1_Mq9_ensor> rdf:type owl:NamedIndividual ,
+                                                              <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                     <https://www.abacwscardiff.ac.uk/abacws/Mq9URL> ""^^xsd:anyURI ;
+                                                     <http://example.org/abacws#Mq9URL> <https://thingsboard.com/2331/co2_val> ;
+                                                     <https://brickschema.org/schema/Brick#hasName> "Room5.1_Mq9_Sensor" ;
+                                                     <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Multichannel_Gas_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Multichannel_Gas_Sensor> rdf:type owl:NamedIndividual ,
+                                                                            <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                                   <https://www.abacwscardiff.ac.uk/abacws/Multichannel_GasURL> ""^^xsd:anyURI ;
+                                                                   <http://example.org/abacws#Multichannel_GasURL> <https://thingsboard.com/2331/co2_val> ;
+                                                                   <https://brickschema.org/schema/Brick#hasName> "Room5.1_Multichannel_Gas_Sensor" ;
+                                                                   <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Oxygen_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Oxygen_Sensor> rdf:type owl:NamedIndividual ,
+                                                                  <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                         <https://www.abacwscardiff.ac.uk/abacws/OxygenURL> ""^^xsd:anyURI ;
+                                                         <http://example.org/abacws#OxygenURL> <https://thingsboard.com/2331/co2_val> ;
+                                                         <https://brickschema.org/schema/Brick#hasName> "Room5.1_Oxygen_Sensor" ;
+                                                         <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_PIR_Sensor
+<http://example.org/abacws#Floor5_Room5.1_PIR_Sensor> rdf:type owl:NamedIndividual ,
+                                                               <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                      <https://www.abacwscardiff.ac.uk/abacws/PIRURL> ""^^xsd:anyURI ;
+                                                      <http://example.org/abacws#PIRURL> <https://thingsboard.com/2331/co2_val> ;
+                                                      <https://brickschema.org/schema/Brick#hasName> "Room5.1_PIR_Sensor" ;
+                                                      <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Sunlight_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Sunlight_Sensor> rdf:type owl:NamedIndividual ,
+                                                                    <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                           <https://www.abacwscardiff.ac.uk/abacws/SunlightURL> ""^^xsd:anyURI ;
+                                                           <http://example.org/abacws#SunlightURL> <https://thingsboard.com/2331/co2_val> ;
+                                                           <https://brickschema.org/schema/Brick#hasName> "Room5.1_Sunlight_Sensor" ;
+                                                           <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_Voc_Eco2_Sensor
+<http://example.org/abacws#Floor5_Room5.1_Voc_Eco2_Sensor> rdf:type owl:NamedIndividual ,
+                                                                    <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                           <https://www.abacwscardiff.ac.uk/abacws/Voc_Eco2URL> ""^^xsd:anyURI ;
+                                                           <http://example.org/abacws#Voc_Eco2URL> <https://thingsboard.com/2331/co2_val> ;
+                                                           <https://brickschema.org/schema/Brick#hasName> "Room5.1_Voc_Eco2_Sensor" ;
+                                                           <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+###  http://example.org/abacws#Floor5_Room5.1_digital_Light_Sensor
+<http://example.org/abacws#Floor5_Room5.1_digital_Light_Sensor> rdf:type owl:NamedIndividual ,
+                                                                         <https://brickschema.org/schema/Brick#sensorNode-5.1> ;
+                                                                <https://www.abacwscardiff.ac.uk/abacws/digital_LightURL> ""^^xsd:anyURI ;
+                                                                <http://example.org/abacws#digital_LightURL> <https://thingsboard.com/2331/co2_val> ;
+                                                                <https://brickschema.org/schema/Brick#hasName> "Room5.1_digital_Light_Sensor" ;
+                                                                <https://brickschema.org/schema/Brick#isPointOf> <http://example.org/abacws#Floor5_Room5.1> .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://example.org/abacws#Floor5_Room5.1> rdfs:comment "this is sensoe node containing set of sensors." ;
+                                           <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.10> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.11> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.12> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.13> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.14> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.15> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.16> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.17> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.18> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.19> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.2> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+<http://example.org/abacws#Floor5_Room5.7> <https://brickschema.org/schema/Brick#isPartOf> <http://example.org/abacws#Floor5> .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

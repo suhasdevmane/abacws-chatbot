@@ -1,0 +1,1613 @@
+@prefix : <http://abacwsbuilding.cardiff.ac.uk/abacws#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bldg: <http://abacwsbuilding.cardiff.ac.uk/abacws#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@base <http://abacwsbuilding.cardiff.ac.uk/abacws> .
+
+<http://abacwsbuilding.cardiff.ac.uk/abacws> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  https://brickschema.org/schema/Brick#isPartOf
+brick:isPartOf rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Equipment
+bldg:Equipment rdf:type owl:Class ;
+               rdfs:subClassOf brick:Room ;
+               rdfs:label "Equipment" ;
+               <http://www.w3.org/2004/02/skos/core#definition> "This Equipment consist of several sensors including air quality, lighting and environmental sensors."@en .
+
+
+###  https://brickschema.org/schema/Brick#Floor
+brick:Floor rdf:type owl:Class .
+
+
+###  https://brickschema.org/schema/Brick#Room
+brick:Room rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Floor0
+bldg:Floor0 rdf:type owl:NamedIndividual ,
+                     brick:Floor .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Floor1
+bldg:Floor1 rdf:type owl:NamedIndividual ,
+                     brick:Floor .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Floor2
+bldg:Floor2 rdf:type owl:NamedIndividual ,
+                     brick:Floor .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Floor3
+bldg:Floor3 rdf:type owl:NamedIndividual ,
+                     brick:Floor .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Floor4
+bldg:Floor4 rdf:type owl:NamedIndividual ,
+                     brick:Floor .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Floor5
+bldg:Floor5 rdf:type owl:NamedIndividual ,
+                     brick:Floor .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.01
+bldg:Room0.01 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.04
+bldg:Room0.04 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.05
+bldg:Room0.05 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.06
+bldg:Room0.06 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.07
+bldg:Room0.07 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.08
+bldg:Room0.08 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 ,
+                             bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.10
+bldg:Room0.10 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.17
+bldg:Room0.17 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.18
+bldg:Room0.18 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.19
+bldg:Room0.19 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.20
+bldg:Room0.20 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.29
+bldg:Room0.29 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.31
+bldg:Room0.31 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.32
+bldg:Room0.32 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.33
+bldg:Room0.33 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room0.34
+bldg:Room0.34 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor0 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.04
+bldg:Room1.04 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.06
+bldg:Room1.06 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.07
+bldg:Room1.07 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.08
+bldg:Room1.08 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.09
+bldg:Room1.09 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.25
+bldg:Room1.25 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.26
+bldg:Room1.26 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.34
+bldg:Room1.34 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.37
+bldg:Room1.37 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.38
+bldg:Room1.38 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.39
+bldg:Room1.39 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.40
+bldg:Room1.40 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room1.41
+bldg:Room1.41 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor1 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.01
+bldg:Room2.01 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.02
+bldg:Room2.02 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.03
+bldg:Room2.03 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.04
+bldg:Room2.04 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.05
+bldg:Room2.05 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.06
+bldg:Room2.06 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.07
+bldg:Room2.07 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.08
+bldg:Room2.08 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.09
+bldg:Room2.09 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.10
+bldg:Room2.10 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.11
+bldg:Room2.11 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.12
+bldg:Room2.12 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.13
+bldg:Room2.13 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.14
+bldg:Room2.14 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.15
+bldg:Room2.15 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.17
+bldg:Room2.17 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.18
+bldg:Room2.18 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.19
+bldg:Room2.19 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.20
+bldg:Room2.20 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.21
+bldg:Room2.21 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.22
+bldg:Room2.22 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.24
+bldg:Room2.24 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.26
+bldg:Room2.26 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.34
+bldg:Room2.34 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.35
+bldg:Room2.35 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.36
+bldg:Room2.36 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.44
+bldg:Room2.44 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.47
+bldg:Room2.47 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.48
+bldg:Room2.48 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.49
+bldg:Room2.49 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.50
+bldg:Room2.50 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.52
+bldg:Room2.52 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.53
+bldg:Room2.53 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.54
+bldg:Room2.54 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.55
+bldg:Room2.55 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.56
+bldg:Room2.56 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.57
+bldg:Room2.57 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.58
+bldg:Room2.58 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.59
+bldg:Room2.59 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.60
+bldg:Room2.60 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.61
+bldg:Room2.61 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.62
+bldg:Room2.62 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.63
+bldg:Room2.63 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.64
+bldg:Room2.64 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.65
+bldg:Room2.65 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.66
+bldg:Room2.66 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room2.67
+bldg:Room2.67 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor2 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.01
+bldg:Room3.01 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.02
+bldg:Room3.02 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.03
+bldg:Room3.03 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.04
+bldg:Room3.04 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.05
+bldg:Room3.05 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.06
+bldg:Room3.06 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.07
+bldg:Room3.07 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.08
+bldg:Room3.08 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.09
+bldg:Room3.09 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.10
+bldg:Room3.10 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.11
+bldg:Room3.11 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.12
+bldg:Room3.12 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.13
+bldg:Room3.13 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.14
+bldg:Room3.14 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.15
+bldg:Room3.15 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.16
+bldg:Room3.16 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.17
+bldg:Room3.17 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.18
+bldg:Room3.18 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.20
+bldg:Room3.20 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.22
+bldg:Room3.22 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.26
+bldg:Room3.26 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.27
+bldg:Room3.27 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.36
+bldg:Room3.36 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.37
+bldg:Room3.37 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.38
+bldg:Room3.38 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.46
+bldg:Room3.46 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.48
+bldg:Room3.48 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.50
+bldg:Room3.50 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.51
+bldg:Room3.51 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.52
+bldg:Room3.52 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.53
+bldg:Room3.53 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.54
+bldg:Room3.54 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.56
+bldg:Room3.56 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.57
+bldg:Room3.57 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.58
+bldg:Room3.58 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.59
+bldg:Room3.59 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.60
+bldg:Room3.60 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.61
+bldg:Room3.61 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.62
+bldg:Room3.62 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.63
+bldg:Room3.63 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.64
+bldg:Room3.64 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.65
+bldg:Room3.65 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.66
+bldg:Room3.66 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.67
+bldg:Room3.67 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.68
+bldg:Room3.68 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.69
+bldg:Room3.69 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.70
+bldg:Room3.70 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room3.71
+bldg:Room3.71 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor3 ,
+                             bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.01
+bldg:Room4.01 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.02
+bldg:Room4.02 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.03
+bldg:Room4.03 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.05
+bldg:Room4.05 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.06
+bldg:Room4.06 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.07
+bldg:Room4.07 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.08
+bldg:Room4.08 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.09
+bldg:Room4.09 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.10
+bldg:Room4.10 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.11
+bldg:Room4.11 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.12
+bldg:Room4.12 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.13
+bldg:Room4.13 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.14
+bldg:Room4.14 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.15
+bldg:Room4.15 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.16
+bldg:Room4.16 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.18
+bldg:Room4.18 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.19
+bldg:Room4.19 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.20
+bldg:Room4.20 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.21
+bldg:Room4.21 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.22
+bldg:Room4.22 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.23
+bldg:Room4.23 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.24
+bldg:Room4.24 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.34
+bldg:Room4.34 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.35
+bldg:Room4.35 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.36
+bldg:Room4.36 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.38
+bldg:Room4.38 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.44
+bldg:Room4.44 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.47
+bldg:Room4.47 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.49
+bldg:Room4.49 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.50
+bldg:Room4.50 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.51
+bldg:Room4.51 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.52
+bldg:Room4.52 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.53
+bldg:Room4.53 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.55
+bldg:Room4.55 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.56
+bldg:Room4.56 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.57
+bldg:Room4.57 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.58
+bldg:Room4.58 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.59
+bldg:Room4.59 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.60
+bldg:Room4.60 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room4.61
+bldg:Room4.61 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor4 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.01
+bldg:Room5.01 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.02
+bldg:Room5.02 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.03
+bldg:Room5.03 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.04
+bldg:Room5.04 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.05
+bldg:Room5.05 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.06
+bldg:Room5.06 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.07
+bldg:Room5.07 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.09
+bldg:Room5.09 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.10
+bldg:Room5.10 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.11
+bldg:Room5.11 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.12
+bldg:Room5.12 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.13
+bldg:Room5.13 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.14
+bldg:Room5.14 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.15
+bldg:Room5.15 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.16
+bldg:Room5.16 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.17
+bldg:Room5.17 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.18
+bldg:Room5.18 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.20
+bldg:Room5.20 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.21
+bldg:Room5.21 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.22
+bldg:Room5.22 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.23
+bldg:Room5.23 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.26
+bldg:Room5.26 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.34
+bldg:Room5.34 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.35
+bldg:Room5.35 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.36
+bldg:Room5.36 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.44
+bldg:Room5.44 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.45
+bldg:Room5.45 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.48
+bldg:Room5.48 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.49
+bldg:Room5.49 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.50
+bldg:Room5.50 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.51
+bldg:Room5.51 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.52
+bldg:Room5.52 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.53
+bldg:Room5.53 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.54
+bldg:Room5.54 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.56
+bldg:Room5.56 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.57
+bldg:Room5.57 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.58
+bldg:Room5.58 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.59
+bldg:Room5.59 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.60
+bldg:Room5.60 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.61
+bldg:Room5.61 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.62
+bldg:Room5.62 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.63
+bldg:Room5.63 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.64
+bldg:Room5.64 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.65
+bldg:Room5.65 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.66
+bldg:Room5.66 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.67
+bldg:Room5.67 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.68
+bldg:Room5.68 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.69
+bldg:Room5.69 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.70
+bldg:Room5.70 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+###  http://abacwsbuilding.cardiff.ac.uk/abacws#Room5.71
+bldg:Room5.71 rdf:type owl:NamedIndividual ,
+                       brick:Room ;
+              brick:isPartOf bldg:Floor5 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( bldg:Floor0
+                        bldg:Floor1
+                        bldg:Floor2
+                        bldg:Floor3
+                        bldg:Floor4
+                        bldg:Floor5
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( bldg:Floor0
+                        bldg:Floor1
+                        bldg:Floor2
+                        bldg:Floor3
+                        bldg:Floor4
+                        bldg:Floor5
+                        bldg:Room0.01
+                        bldg:Room0.04
+                        bldg:Room0.05
+                        bldg:Room0.06
+                        bldg:Room0.07
+                        bldg:Room0.08
+                        bldg:Room0.10
+                        bldg:Room0.17
+                        bldg:Room0.18
+                        bldg:Room0.19
+                        bldg:Room0.20
+                        bldg:Room0.29
+                        bldg:Room0.31
+                        bldg:Room0.32
+                        bldg:Room0.33
+                        bldg:Room0.34
+                        bldg:Room1.04
+                        bldg:Room1.06
+                        bldg:Room1.07
+                        bldg:Room1.08
+                        bldg:Room1.09
+                        bldg:Room1.25
+                        bldg:Room1.26
+                        bldg:Room1.34
+                        bldg:Room1.37
+                        bldg:Room1.38
+                        bldg:Room1.39
+                        bldg:Room1.40
+                        bldg:Room1.41
+                        bldg:Room2.01
+                        bldg:Room2.02
+                        bldg:Room2.03
+                        bldg:Room2.04
+                        bldg:Room2.05
+                        bldg:Room2.06
+                        bldg:Room2.07
+                        bldg:Room2.08
+                        bldg:Room2.09
+                        bldg:Room2.10
+                        bldg:Room2.11
+                        bldg:Room2.12
+                        bldg:Room2.13
+                        bldg:Room2.14
+                        bldg:Room2.15
+                        bldg:Room2.17
+                        bldg:Room2.18
+                        bldg:Room2.19
+                        bldg:Room2.20
+                        bldg:Room2.21
+                        bldg:Room2.22
+                        bldg:Room2.24
+                        bldg:Room2.26
+                        bldg:Room2.34
+                        bldg:Room2.35
+                        bldg:Room2.36
+                        bldg:Room2.44
+                        bldg:Room2.47
+                        bldg:Room2.48
+                        bldg:Room2.49
+                        bldg:Room2.50
+                        bldg:Room2.52
+                        bldg:Room2.53
+                        bldg:Room2.54
+                        bldg:Room2.55
+                        bldg:Room2.56
+                        bldg:Room2.57
+                        bldg:Room2.58
+                        bldg:Room2.59
+                        bldg:Room2.60
+                        bldg:Room2.61
+                        bldg:Room2.62
+                        bldg:Room2.63
+                        bldg:Room2.64
+                        bldg:Room2.65
+                        bldg:Room2.66
+                        bldg:Room2.67
+                        bldg:Room3.01
+                        bldg:Room3.02
+                        bldg:Room3.03
+                        bldg:Room3.04
+                        bldg:Room3.05
+                        bldg:Room3.06
+                        bldg:Room3.07
+                        bldg:Room3.08
+                        bldg:Room3.09
+                        bldg:Room3.10
+                        bldg:Room3.11
+                        bldg:Room3.12
+                        bldg:Room3.13
+                        bldg:Room3.14
+                        bldg:Room3.15
+                        bldg:Room3.16
+                        bldg:Room3.17
+                        bldg:Room3.18
+                        bldg:Room3.20
+                        bldg:Room3.22
+                        bldg:Room3.26
+                        bldg:Room3.27
+                        bldg:Room3.36
+                        bldg:Room3.37
+                        bldg:Room3.38
+                        bldg:Room3.46
+                        bldg:Room3.48
+                        bldg:Room3.50
+                        bldg:Room3.51
+                        bldg:Room3.52
+                        bldg:Room3.53
+                        bldg:Room3.54
+                        bldg:Room3.56
+                        bldg:Room3.57
+                        bldg:Room3.58
+                        bldg:Room3.59
+                        bldg:Room3.60
+                        bldg:Room3.61
+                        bldg:Room3.62
+                        bldg:Room3.63
+                        bldg:Room3.64
+                        bldg:Room3.65
+                        bldg:Room3.66
+                        bldg:Room3.67
+                        bldg:Room3.68
+                        bldg:Room3.69
+                        bldg:Room3.70
+                        bldg:Room3.71
+                        bldg:Room4.01
+                        bldg:Room4.02
+                        bldg:Room4.03
+                        bldg:Room4.05
+                        bldg:Room4.06
+                        bldg:Room4.07
+                        bldg:Room4.08
+                        bldg:Room4.09
+                        bldg:Room4.10
+                        bldg:Room4.11
+                        bldg:Room4.12
+                        bldg:Room4.13
+                        bldg:Room4.14
+                        bldg:Room4.15
+                        bldg:Room4.16
+                        bldg:Room4.18
+                        bldg:Room4.19
+                        bldg:Room4.20
+                        bldg:Room4.21
+                        bldg:Room4.22
+                        bldg:Room4.23
+                        bldg:Room4.24
+                        bldg:Room4.34
+                        bldg:Room4.35
+                        bldg:Room4.36
+                        bldg:Room4.38
+                        bldg:Room4.44
+                        bldg:Room4.47
+                        bldg:Room4.49
+                        bldg:Room4.50
+                        bldg:Room4.51
+                        bldg:Room4.52
+                        bldg:Room4.53
+                        bldg:Room4.55
+                        bldg:Room4.56
+                        bldg:Room4.57
+                        bldg:Room4.58
+                        bldg:Room4.59
+                        bldg:Room4.60
+                        bldg:Room4.61
+                        bldg:Room5.01
+                        bldg:Room5.02
+                        bldg:Room5.03
+                        bldg:Room5.04
+                        bldg:Room5.05
+                        bldg:Room5.06
+                        bldg:Room5.07
+                        bldg:Room5.09
+                        bldg:Room5.10
+                        bldg:Room5.11
+                        bldg:Room5.12
+                        bldg:Room5.13
+                        bldg:Room5.14
+                        bldg:Room5.15
+                        bldg:Room5.16
+                        bldg:Room5.17
+                        bldg:Room5.18
+                        bldg:Room5.20
+                        bldg:Room5.21
+                        bldg:Room5.22
+                        bldg:Room5.23
+                        bldg:Room5.26
+                        bldg:Room5.34
+                        bldg:Room5.35
+                        bldg:Room5.36
+                        bldg:Room5.44
+                        bldg:Room5.45
+                        bldg:Room5.48
+                        bldg:Room5.49
+                        bldg:Room5.50
+                        bldg:Room5.51
+                        bldg:Room5.52
+                        bldg:Room5.53
+                        bldg:Room5.54
+                        bldg:Room5.56
+                        bldg:Room5.57
+                        bldg:Room5.58
+                        bldg:Room5.59
+                        bldg:Room5.60
+                        bldg:Room5.61
+                        bldg:Room5.62
+                        bldg:Room5.63
+                        bldg:Room5.64
+                        bldg:Room5.65
+                        bldg:Room5.66
+                        bldg:Room5.67
+                        bldg:Room5.68
+                        bldg:Room5.69
+                        bldg:Room5.70
+                        bldg:Room5.71
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

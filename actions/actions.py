@@ -1,0 +1,96 @@
+
+
+from typing import Any, Text, Dict, List
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+import requests
+import subprocess
+from SPARQLWrapper import SPARQLWrapper, JSON
+import json
+import csv
+
+class action_give_temp(Action):
+    def name(self) -> Text:
+        return "action_asked_temperature"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        #---------------------------
+        url = "https://thingsboard.cs.cf.ac.uk/api/plugins/telemetry/DEVICE/9c563630-0f75-11ee-bf90-a16a1a9e1e0a/values/timeseries?keys=K1"
+        payload = {}
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdWhhc0FiYWN3c0xpdmluZ0xhYkBjYXJkaWZmLmFjLnVrIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiIzNTg1MzkzMC1kYjc2LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJmaXJzdE5hbWUiOiJTdWhhcyIsImxhc3ROYW1lIjoiRGV2bWFuZSIsImVuYWJsZWQiOnRydWUsImlzUHVibGljIjpmYWxzZSwidGVuYW50SWQiOiJmOTFlNDU5MC1kYjc1LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJjdXN0b21lcklkIjoiMTM4MTQwMDAtMWRkMi0xMWIyLTgwODAtODA4MDgwODA4MDgwIiwiaXNzIjoidGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE2OTQ3OTc4NjYsImV4cCI6MTY5NDgwNjg2Nn0.q3pBa_KnVyaStqr1MiCWW81OpxCR7scfhdSXFigj4WM72m8_G2iJoblLZ7V7J7-P8i3VqFhx3dAkD3UuH73P8g'
+        }
+        response = requests.request(
+            "GET", url, headers=headers, data=payload)
+        print('status code:', response.status_code)
+        print(response.text)
+        temp = json.loads(response.text)["K1"][0]["value"]
+
+        if not temp:
+            dispatcher.utter_message(
+                text="could'nt get current temperature. please try again")
+        else:
+            dispatcher.utter_message(
+                text=" temperature is {} degrees".format(temp))
+        return []
+
+
+
+
+class action_give_report(Action):
+    def name(self) -> Text:
+        return "action_asked_report"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        endpoint_url= "http://localhost:3030/ds/sparql"
+        sparql_query = """
+            PREFIX brick: <https://brickschema.org/schema/Brick#>
+            PREFIX brick1: <https://brickschema.org/schema/1.0.2/building_example#>
+            SELECT * WHERE {
+                brick1:ahu_A1 brick:feeds ?obj .
+            } LIMIT 5
+        """
+        def execute_sparql_query(sparql_query, endpoint_url):
+                sparql = SPARQLWrapper(endpoint_url)
+                sparql.setQuery(sparql_query)
+                sparql.setReturnFormat(JSON)
+                results = sparql.query().convert()
+                return results
+        ans = execute_sparql_query(sparql_query, endpoint_url)
+        headers = ans['head']['vars']
+        data_rows = []
+        for binding in ans['results']['bindings']:
+            row = [binding.get(var, {}).get('value', '') for var in headers]
+            data_rows.append(row)
+        with open('output.csv', mode='w', newline='', encoding='utf-8') as csv_file:
+            csv_writer = csv.writer(csv_file)
+            csv_writer.writerow(headers)
+            csv_writer.writerows(data_rows)
+        print('CSV file saved as: output.csv')
+        
+        dispatcher.utter_message(attachment="output.csv")
+        return []
+    
+class action_asked_entities(Action):
+    def name(self) -> Text:
+        return "action_asked_entities"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        ent = tracker.latest_message['entities'];                 
+        dispatcher.utter_message(
+                text=("your entities are: ")
+        )
+        dispatcher.utter_message(
+                text=(ent)
+        )
+        
+        return []
