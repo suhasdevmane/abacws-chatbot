@@ -45,15 +45,18 @@ pgadmin
       - PGADMIN_DEFAULT_PASSWORD=admin
 
 The default PostgreSQL user is thingsboard, default password is postgres. Please, put your credentials here instead of default.
+to look your ip address us : ipconfig 
+and to know your containers ip address use : docker inspect <container_name>
 
-
-login succeeed -
+login succeeed if -
 name: <any name you want>
 host: host.docker.internal
 database: postgres
 user: postgres
 password: admin
 PORT-5432
+
+
 
 Device-01
 device token- CFhCbxXIY5a7uYyII0v3
@@ -63,3 +66,11 @@ mosquitto_pub -d -q 1 -h localhost -p 1883 -t v1/devices/me/telemetry -u CFhCbxX
 Device-02-off
 curl -v -X POST http://localhost:8080/api/v1/MyJExSz1fCxSyQLmaHxD/telemetry --header Content-Type:application/json --data "{temperature:25}"
 mosquitto_pub -d -q 1 -h localhost -p 1883 -t v1/devices/me/telemetry -u MyJExSz1fCxSyQLmaHxD -m "{temperature:25}"
+
+
+apache-jena-fuski-server 
+
+add server to the vs code
+1. name- any display name
+endpoint- http://localhost:3030/abacws-sensor-network/sparql
+usrname- adminpassword- Suhas@551993
