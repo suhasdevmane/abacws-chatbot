@@ -25,6 +25,16 @@ services:
       - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
       - PGADMIN_DEFAULT_PASSWORD=admin
 
+  jena-fuski:
+    image: stain/jena-fuseki
+    ports:
+      - "3030:3030"
+    volumes:
+      - ./data:/data
+    environment:
+      - ADMIN_PASSWORD=Suhas@551993
+    restart: always
+
 volumes:
   mytb-data:
     external: true

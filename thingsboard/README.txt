@@ -27,7 +27,7 @@ tenant@thingsboard.org / tenant
 customer@thingsboard.org / customer
 
 docker Thingsboard local
-tenant- suhasdevmanemech@gmail.com
+tenant- suhasdevmane@gmail.com
 pass - Suhas@551993
 
 docker compose up -d            #to up docker compose
@@ -47,11 +47,19 @@ pgadmin
 The default PostgreSQL user is thingsboard, default password is postgres. Please, put your credentials here instead of default.
 
 
-Device-01
-device token- 8lufFlQrrhMpJ4F5GHwm
-curl -v -X POST http://localhost:8080/api/v1/8lufFlQrrhMpJ4F5GHwm/telemetry --header Content-Type:application/json --data "{temperature:25}"
-mosquitto_pub -d -q 1 -h localhost -p 1883 -t v1/devices/me/telemetry -u 8lufFlQrrhMpJ4F5GHwm -m "{temperature:25}"
+login succeeed -
+name: <any name you want>
+host: host.docker.internal
+database: postgres
+user: postgres
+password: admin
+PORT-5432
 
-Device-02
+Device-01
+device token- CFhCbxXIY5a7uYyII0v3
+curl -v -X POST http://localhost:8080/api/v1/CFhCbxXIY5a7uYyII0v3/telemetry --header Content-Type:application/json --data "{temperature:25}"
+mosquitto_pub -d -q 1 -h localhost -p 1883 -t v1/devices/me/telemetry -u CFhCbxXIY5a7uYyII0v3 -m "{temperature:23}"
+
+Device-02-off
 curl -v -X POST http://localhost:8080/api/v1/MyJExSz1fCxSyQLmaHxD/telemetry --header Content-Type:application/json --data "{temperature:25}"
 mosquitto_pub -d -q 1 -h localhost -p 1883 -t v1/devices/me/telemetry -u MyJExSz1fCxSyQLmaHxD -m "{temperature:25}"
