@@ -37,6 +37,38 @@ docker compose stop mytb
 docker compose start mytb
 
 
+lOGIN TO SHELL
+
+docker exec --user="root" -it b9440731d41b /bin/bash
+apt-get update
+apt-get install vim
+
+docker exec -it <CONTAINER ID/NAME>> env        # this wul 
+
+docker exec -it <CONTAINER ID/NAME>> /bin/bash
+
+=============================
+psql command line
+
+SELECT * FROM device;
+
+
+thingsboard itself has postgress installed. 
+default username - thingsboard
+default password- postgres
+
+default username - postgres         #NA
+default password- postgres          #
+
+
+to change postgress password inside the thingsboard-postgress use 
+1. docker exec -it <container_name or id of thingsbaord/tb-postgress> bash 
+2. psql 
+3. show data_directory;
+4. \password thingsboard    # to change password for user thingsboard
+5. \q to exit psql
+
+
 
 
 pgadmin
@@ -44,7 +76,9 @@ pgadmin
       - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
       - PGADMIN_DEFAULT_PASSWORD=admin
 
-The default PostgreSQL user is thingsboard, default password is postgres. Please, put your credentials here instead of default.
+The default PostgreSQL user is thingsboard, changed password is Suhas@551993. 
+Please, put your credentials here instead of default.
+
 to look your ip address us : ipconfig 
 and to know your containers ip address use : docker inspect <container_name>
 
@@ -53,7 +87,7 @@ name: <any name you want>
 host: host.docker.internal
 database: postgres
 user: postgres
-password: admin
+password: postgres
 PORT-5432
 
 
@@ -70,7 +104,15 @@ mosquitto_pub -d -q 1 -h localhost -p 1883 -t v1/devices/me/telemetry -u MyJExSz
 
 apache-jena-fuski-server 
 
-add server to the vs code
+connect fuseki server to the vs code
 1. name- any display name
 endpoint- http://localhost:3030/abacws-sensor-network/sparql
-usrname- adminpassword- Suhas@551993
+usrname- admin
+password- Suhas@551993
+
+=======================
+timescaledb
+
+docker exec -it timescaledb psql -U postgres        # to run psql from docker contaner
+\q to exit psql
+
