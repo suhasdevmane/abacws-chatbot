@@ -42,6 +42,8 @@ lOGIN TO SHELL
 docker exec --user="root" -it b9440731d41b /bin/bash
 apt-get update
 apt-get install vim
+apt-get update -y
+apt-get install -y iputils-pi
 
 docker exec -it <CONTAINER ID/NAME>> env        # this wul 
 
@@ -79,8 +81,43 @@ pgadmin
 The default PostgreSQL user is thingsboard, changed password is Suhas@551993. 
 Please, put your credentials here instead of default.
 
+
+networking
+read https://docs.docker.com/engine/tutorials/networkingcontainers/#:~:text=Docker%20networking%20allows%20you%20to,web%20app%20to%20the%20my_bridge%20.
+
+a] Inspecting the network is an easy way to find out the container's IP address.
+ docker network inspect bridge
+b] remove a container from a network 
+ docker network disconnect <network name -default is bridge> <container id or name >
+c] Create your own bridge network
+- A bridge network is limited to a single host running Docker Engine. An overlay network can include multiple hosts and is a more advanced topic. 
+- For this example, create a bridge network:
+ docker network create -d bridge <network name- e.g. my_bridge>    # -d flag tells Docker to use the bridge driver for the new network
+d] list the networks
+ docker network ls
+e] Add containers to a network
+docker run -d --net=my_bridge --name db training/postgres
+docker run -d --net=my_bridge --name <container name lor id> <image>
+f] If you inspect your my_bridge you can see it has a container attached. You can also inspect your container to see where it is connected:
+ docker inspect --format='{{json .NetworkSettings.Networks}}'  db
+g] get ip address of a container
+ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container name or id>
+
+
+
+
+
+
+
+
+
 to look your ip address us : ipconfig 
 and to know your containers ip address use : docker inspect <container_name>
+
+
+
+
+
 
 login succeeed if -
 name: <any name you want>
