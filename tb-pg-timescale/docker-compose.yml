@@ -1,62 +1,44 @@
 version: "3"
-
 services:
-  thingsboard:
-    restart: always
-    image: "thingsboard/tb-postgres"
+  timescaledb:
+    image: timescale/timescaledb:/timescaledb-2.12.0-pg14
+    container_name: timescaledb
+    environment:
+      POSTGRES_DB: thingsboard
+      POSTGRES_USER: thingsboard
+      POSTGRES_PASSWORD: thingsboardpassword
     ports:
-      - "8080:9090"
+      - "5432:5432" # Map the PostgreSQL port to the host machine
+    networks:
+      - thingsboard-network
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+
+  thingsboard:
+    image: thingsboard/tb-postgres
+    container_name: thingsboard
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://timescaledb:5432/thingsboard
+      SPRING_DATASOURCE_USERNAME: thingsboard
+      SPRING_DATASOURCE_PASSWORD: thingsboardpassword
+    ports:
+      - "9090:9090" # Map ThingsBoard port to the host machine
       - "1883:1883"
       - "7070:7070"
       - "5683-5688:5683-5688/udp"
-    environment:
-      TB_QUEUE_TYPE: in-memory
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/thingsboard
-      SPRING_DATASOURCE_PASSWORD: postgres
-      SPRING_DATASOURCE_USERNAME: postgres
     volumes:
       - thingsboard-data:/data
       - thingsboard-logs:/var/log/thingsboard
-    links:
-      - postgres
+    networks:
+      - thingsboard-network
     depends_on:
-      - postgres
-    networks:
-      - tb-net
-
-  timescaledb:
-    image: "timescale/timescaledb:latest-pg14"
-    container_name: timescaledb
-    environment:
-      - POSTGRES_PASSWORD=timescale
-      - POSTGRES_USER=timescale
-      - POSTGRES_DB=timescaledb
-    ports:
-      - "5432:5432" # PostgreSQL Port
-    volumes:
-      - timescaledb-data:/var/lib/postgresql/data
-    networks:
-      - tb-net
-
-  postgres:
-    image: "postgres:14"
-    container_name: postgres
-    environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=thingsboard
-    ports:
-      - "5433:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    networks:
-      - tb-net
+      - timescaledb
 
 networks:
-  tb-net:
+  thingsboard-network:
+
 volumes:
-  timescaledb-data:
-  postgres-data:
+  timescaledb_data:
   thingsboard-data:
     external: true
   thingsboard-logs:

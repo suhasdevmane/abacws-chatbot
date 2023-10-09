@@ -37,6 +37,8 @@ docker compose stop mytb
 docker compose start mytb
 
 
+
+
 lOGIN TO SHELL
 
 docker exec --user="root" -it b9440731d41b /bin/bash
@@ -71,7 +73,9 @@ to change postgress password inside the thingsboard-postgress use
 5. \q to exit psql
 
 
+copu files to change configuration
 
+docker cp 82ef4aab77f1:/etc/thingsboard/conf/thingsboard.yml "C:/_PHD_/Github/abacws-chatbot/tb-pg-timescale/" 
 
 pgadmin
     environment:
@@ -152,4 +156,10 @@ timescaledb
 
 docker exec -it timescaledb psql -U postgres        # to run psql from docker contaner
 \q to exit psql
+
+docker exec -it timescaledb psql --version
+timescaledb:
+  image: timescale/timescaledb:2.5.0-pg14
+  # Rest of your configuration...
+
 
