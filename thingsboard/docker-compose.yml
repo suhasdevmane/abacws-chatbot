@@ -28,6 +28,7 @@ services:
       - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
       - "traefik.http.routers.abacws-visualiser.entrypoints=https"
       - "traefik.http.routers.abacws-visualiser.tls=true"
+
   thingsboard:
     restart: always
     image: "thingsboard/tb-postgres"
