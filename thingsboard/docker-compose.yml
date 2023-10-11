@@ -6,12 +6,17 @@ services:
     restart: always
     volumes:
       - ./mongo:/data/db
+    networks:
+      - my_bridge
+
   api:
     image: ghcr.io/randomman552/abacws-data-vis:api-latest
     container_name: abacws-api
     restart: always
     depends_on:
       - mongo
+    networks:
+      - my_bridge
 
   visualiser:
     image: ghcr.io/randomman552/abacws-data-vis:visualiser-latest
@@ -28,6 +33,8 @@ services:
       - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
       - "traefik.http.routers.abacws-visualiser.entrypoints=https"
       - "traefik.http.routers.abacws-visualiser.tls=true"
+    networks:
+      - my_bridge
 
   thingsboard:
     restart: always

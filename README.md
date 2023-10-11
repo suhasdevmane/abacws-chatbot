@@ -7,7 +7,6 @@ This repository contains the API and the Visualiser tool, both of which are depl
 
 Production deployments for these tools can be found at the following locations:
 - [API](https://abacws.ggrainger.uk/api/)
-
 - [Visualiser](https://abacws.ggrainger.uk/)
 
 ## Docs
@@ -19,8 +18,8 @@ You can view the documentation for the two separate services in their respective
 I recommend using docker compose to deploy this to your own server alongside [traefik](https://traefik.io/traefik/).\
 An example compose file can be seen below.
 
-
-```
+```yml
+version: '3.8'
 services:
   mongo:
     image: mongo
@@ -76,7 +75,7 @@ Execute the following command to run this docker directly:
 $ docker run -it -p 9090:9090 -p 1883:1883 -p 7070:7070 -p 5683-5688:5683-5688/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb-postgres
 
 Where:
-
+```
 docker run - run this container
 -it - attach a terminal session with current ThingsBoard process output
 -p 9090:9090 - connect local port 9090 to exposed internal HTTP port 9090
@@ -88,12 +87,16 @@ v ~/.mytb-logs:/var/log/thingsboard - mounts the host’s dir ~/.mytb-data to Th
 --name mytb - friendly local name of this machine
 --restart always - automatically start ThingsBoard in case of system reboot and restart in case of failure.
 thingsboard/tb-postgres - docker image
-After executing this command you can open http://{yor-host-ip}:9090 in your browser. You should see ThingsBoard login page. Use the following default credentials:
+```
 
+After executing this command you can open http://{yor-host-ip}:9090 in your browser. You should see ThingsBoard login page. Use the following default credentials:
+```
 Systen Administrator: sysadmin@thingsboard.org / sysadmin
 Tenant Administrator: tenant@thingsboard.org / tenant
 Customer User: customer@thingsboard.org / customer
 You can always change passwords for each account in account profile page.
+```
+
 
 You can detach from session terminal with Ctrl-p Ctrl-q - the container will keep running in the background.
 
