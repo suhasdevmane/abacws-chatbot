@@ -1,14 +1,19 @@
-name: Push Visualiser Docker
+name: Push Visualiser Docker on Comment
+
 on:
-  push:
-    branches: [main]
-    tags:
-      - "v*"
+  issue_comment:
+    types:
+      - created
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Check Comment
+        id: check_comment
+        run: echo ::set-output name=contains_build_visualiser::$(echo "${{ github.event.comment.body }}" | grep -c 'build-visualiser')
+
       - name: Checkout repository with lfs
         uses: actions/checkout@v2
         with:
@@ -36,3 +41,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+        if: steps.check_comment.outputs.contains_build_visualiser == '1'
