@@ -118,8 +118,33 @@ For example. I have used network called 'Network abacws-chatbot_my_bridge' in do
 
 To Run All containers run :
 ```
-docker compose up -d
+docker compose up -d 
 ```
+To inspect IP addresses assigned to your containers run: 
+```
+docker network inspect your_network_name
+
+e.g. docker network inspect abacws-chatbot_my_bridge
+```
+To extract the container IDs from the JSON output, ru :
+```
+docker network inspect your_network_name | jq -r '.[0].Containers | keys[]'
+docker network inspect abacws-chatbot_my_bridge | jq -r '.[0].Containers | keys[]'
+
+```
+For windows,  run :
+```
+FOR /f "tokens=*" %i IN ('docker ps -q') DO docker inspect -f "{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" %i
+```
+
+To see Containier ID , their anmes and network connected, run :
+```
+docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Networks}}"
+
+```
+
+
+
 
 To Create a image of the API for 3d Visulisation in github, comment 'build-api' triggers the build process of API using github actions. \
 To Create a image of the visuliser for 3d Visulisation in github, comment 'build-visualiser' triggers the build process of visuliser using github actions. 
@@ -127,3 +152,6 @@ To Create a image of the visuliser for 3d Visulisation in github, comment 'build
 
 Owner: Suhas Devmane\
 Contact: suhasdevmane@outlook.com
+
+
+

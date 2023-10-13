@@ -46,6 +46,8 @@ apt-get update
 apt-get install vim
 apt-get update -y
 apt-get install -y iputils-pi
+apt-get update && apt-get install -y iputils-ping
+
 
 docker exec -it <CONTAINER ID/NAME>> env        # this wul 
 
@@ -162,4 +164,9 @@ timescaledb:
   image: timescale/timescaledb:2.5.0-pg14
   # Rest of your configuration...
 
+
+Adjust JWT token expiry in thingsboard cnfiguration file.
+```
+docker exec -it <thingsboard container id>> /bin/bash
+```
 

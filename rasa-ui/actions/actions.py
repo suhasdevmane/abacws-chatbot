@@ -20,7 +20,7 @@ class action_give_temp(Action):
         payload = {}
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdWhhc0FiYWN3c0xpdmluZ0xhYkBjYXJkaWZmLmFjLnVrIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiIzNTg1MzkzMC1kYjc2LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJmaXJzdE5hbWUiOiJTdWhhcyIsImxhc3ROYW1lIjoiRGV2bWFuZSIsImVuYWJsZWQiOnRydWUsImlzUHVibGljIjpmYWxzZSwidGVuYW50SWQiOiJmOTFlNDU5MC1kYjc1LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJjdXN0b21lcklkIjoiMTM4MTQwMDAtMWRkMi0xMWIyLTgwODAtODA4MDgwODA4MDgwIiwiaXNzIjoidGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE2OTcxOTQyOTMsImV4cCI6MTY5NzIwMzI5M30.CEJRGkkEBvKTQw2XEc3u3O-L0a7D7NcpF3I4l9Q5VjJUoqYVEJRffWuu5AHvbmzYDg9EGu3Has8pkonWZaT5_A'
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdWhhc0FiYWN3c0xpdmluZ0xhYkBjYXJkaWZmLmFjLnVrIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiIzNTg1MzkzMC1kYjc2LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJmaXJzdE5hbWUiOiJTdWhhcyIsImxhc3ROYW1lIjoiRGV2bWFuZSIsImVuYWJsZWQiOnRydWUsImlzUHVibGljIjpmYWxzZSwidGVuYW50SWQiOiJmOTFlNDU5MC1kYjc1LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJjdXN0b21lcklkIjoiMTM4MTQwMDAtMWRkMi0xMWIyLTgwODAtODA4MDgwODA4MDgwIiwiaXNzIjoidGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE2OTcyMTgxNzIsImV4cCI6MTY5NzIyNzE3Mn0.8EA9m5S8dbDJKH4TsLcVZSDd-GFojiJ41jOyLOnuLuMe4_vQTS1gisdZA_M-XSpQxFo4X9y8qq-g6yaQDF5kqQ'
         }
         response = requests.request(
             "GET", url, headers=headers, data=payload)

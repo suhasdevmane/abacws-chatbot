@@ -38,8 +38,9 @@ services:
     networks:
       - abacws-chatbot_my_bridge
   thingsboard:
-    restart: always
     image: "thingsboard/tb-postgres"
+    container_name: thingsboard-abacws
+    restart: always
     ports:
       - "8080:9090"
       - "1883:1883"
@@ -81,6 +82,7 @@ services:
 
   jena-fuski:
     image: stain/jena-fuseki
+    container_name: jena-fuseki-rdf-store
     ports:
       - "3030:3030"
     volumes:
@@ -93,6 +95,7 @@ services:
 
   timescaledb:
     image: "timescale/timescaledb:latest-pg14"
+    container_name: timescaledb
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
@@ -109,6 +112,7 @@ services:
 
   rasa:
     image: rasa/rasa:3.6.12-full
+    container_name: rasa
     ports:
       - "5005:5005"
     volumes:
@@ -128,6 +132,7 @@ services:
   action_server:
     build:
       context: ./rasa-ui/actions/
+    container_name: rasa_action_server
     ports:
       - "5055:5055"
     volumes:
@@ -138,6 +143,7 @@ services:
   web_ui:
     build:
       context: ./rasa-ui/ui
+    container_name: rasa-web-ui
     ports:
       - "8082:80"
     depends_on:
