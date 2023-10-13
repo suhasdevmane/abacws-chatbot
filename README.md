@@ -98,21 +98,6 @@ You can always change passwords for each account in account profile page.
 ```
 
 
-You can detach from session terminal with Ctrl-p Ctrl-q - the container will keep running in the background.
-
-To reattach to the terminal (to see ThingsBoard logs) run:
-
-$ docker attach mytb \
-
-To stop the container:\
-
-$ docker stop mytb\
-
-To start the container:\
-
-$ docker start mytb\
-
-
 All API's and Services are available in following ports:
 
 8090 : Abacws 3D Live visulisation.\
@@ -130,6 +115,11 @@ to access all API and Services, attach all container with a same network. You ca
 docker network create <network_name>
 ```
 For example. I have used network called 'Network abacws-chatbot_my_bridge' in docker-compose file.
+
+To Run All containers run :
+```
+docker compose up -d
+```
 
 To Create a image of the API for 3d Visulisation in github, comment 'build-api' triggers the build process of API using github actions. \
 To Create a image of the visuliser for 3d Visulisation in github, comment 'build-visualiser' triggers the build process of visuliser using github actions. 
