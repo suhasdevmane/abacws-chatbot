@@ -5,29 +5,29 @@ services:
     container_name: abacws-chatbot-mongo
     restart: always
     volumes:
-      - ./mongo:/data/db
+      - mongo-data:/data/db
     networks:
       - my_bridge
 
   api:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:api-latest
+    image: ghcr.io/suhasdevmane/abacws-chatbot:api-main
     container_name: abacws-api
     restart: always
     depends_on:
       - mongo
     volumes:
-      - ./api/src/api/data:/api/api/data
+      - api-data:/api/api/data
     networks:
       - my_bridge
 
   visualiser:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-latest
+    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-main
     container_name: abacws-visualiser
     restart: always
     depends_on:
       - api
     ports: #enable this for local run port 8080
-      - 8081:80
+      - 8090:80
     # Traefik is recommended, you can set up a NGINX or Apache proxy instead, but traefik is much easier.
     labels:
       - "traefik.enable=true"
@@ -84,7 +84,7 @@ services:
 #     ports:
 #       - "3030:3030"
 #     volumes:
-#       - ./data:/data
+#       - jena-data:/data
 #     environment:
 #       - ADMIN_PASSWORD=Suhas@551993
 #     restart: always
@@ -107,12 +107,15 @@ services:
 #     networks:
 #       - my_bridge
 
-# networks:
-#   my_bridge:
-# volumes:
-#   thingsboard-data:
-#     external: true
-#   thingsboard-logs:
-#     external: true
-#   timescaledb-data:
-#   postgres-data:
+networks:
+  my_bridge:
+volumes:
+  # thingsboard-data:
+  #   external: true
+  # thingsboard-logs:
+  #   external: true
+  # timescaledb-data:
+  # postgres-data:
+  mongo-data:
+  api-data:
+  # jena-data:
