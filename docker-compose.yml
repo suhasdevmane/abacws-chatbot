@@ -7,7 +7,7 @@ services:
     volumes:
       - mongo-data:/data/db
     networks:
-      - my_bridge
+      - abacws-chatbot_my_bridge
 
   api:
     image: ghcr.io/suhasdevmane/abacws-chatbot:api-main
@@ -18,7 +18,7 @@ services:
     volumes:
       - api-data:/api/api/data
     networks:
-      - my_bridge
+      - abacws-chatbot_my_bridge
 
   visualiser:
     image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-main
@@ -36,86 +36,125 @@ services:
       - "traefik.http.routers.abacws-visualiser.entrypoints=https"
       - "traefik.http.routers.abacws-visualiser.tls=true"
     networks:
-      - my_bridge
-#   thingsboard:
-#     restart: always
-#     image: "thingsboard/tb-postgres"
-#     ports:
-#       - "8080:9090"
-#       - "1883:1883"
-#       - "7070:7070"
-#       - "5683-5688:5683-5688/udp"
-#     environment:
-#       TB_QUEUE_TYPE: in-memory
-#     volumes:
-#       - thingsboard-data:/data
-#       - thingsboard-logs:/var/log/thingsboard
-#     networks:
-#       - my_bridge
+      - abacws-chatbot_my_bridge
+  thingsboard:
+    restart: always
+    image: "thingsboard/tb-postgres"
+    ports:
+      - "8080:9090"
+      - "1883:1883"
+      - "7070:7070"
+      - "5683-5688:5683-5688/udp"
+    environment:
+      TB_QUEUE_TYPE: in-memory
+    volumes:
+      - thingsboard-data:/data
+      - thingsboard-logs:/var/log/thingsboard
+    networks:
+      - abacws-chatbot_my_bridge
 
-#   pgadmin:
-#     restart: always
-#     image: "dpage/pgadmin4"
-#     container_name: pgadmin
-#     ports:
-#       - "5050:80"
-#     environment:
-#       - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
-#       - PGADMIN_DEFAULT_PASSWORD=admin
-#     networks:
-#       - my_bridge
+  pgadmin:
+    restart: always
+    image: "dpage/pgadmin4"
+    container_name: pgadmin
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    networks:
+      - abacws-chatbot_my_bridge
 
-#   postgres:
-#     image: "postgres:14"
-#     container_name: postgres
-#     environment:
-#       - POSTGRES_PASSWORD=postgres
-#       - POSTGRES_USER=postgres
-#       - POSTGRES_DB=thingsboard
-#     # ports:
-#     #   - "5433:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
-#     volumes:
-#       - postgres-data:/var/lib/postgresql/data
-#     networks:
-#       - my_bridge
+  postgres:
+    image: "postgres:14"
+    container_name: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=thingsboard
+    # ports:
+    #   - "5433:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - abacws-chatbot_my_bridge
 
-#   jena-fuski:
-#     image: stain/jena-fuseki
-#     ports:
-#       - "3030:3030"
-#     volumes:
-#       - jena-data:/data
-#     environment:
-#       - ADMIN_PASSWORD=Suhas@551993
-#     restart: always
-#     networks:
-#       - my_bridge
+  jena-fuski:
+    image: stain/jena-fuseki
+    ports:
+      - "3030:3030"
+    volumes:
+      - jena-data:/data
+    environment:
+      - ADMIN_PASSWORD=Suhas@551993
+    restart: always
+    networks:
+      - abacws-chatbot_my_bridge
 
-#   timescaledb:
-#     image: "timescale/timescaledb:latest-pg14"
-#     environment:
-#       - POSTGRES_PASSWORD=postgres
-#       - POSTGRES_USER=postgres
-#       - POSTGRES_DB=thingsboard
-#     ports:
-#       - "5432:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
-#     volumes:
-#       - timescaledb-data:/var/lib/postgresql/data
-#     depends_on:
-#       - thingsboard
-#     command: ["-c", "shared_preload_libraries=timescaledb"]
-#     networks:
-#       - my_bridge
+  timescaledb:
+    image: "timescale/timescaledb:latest-pg14"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=thingsboard
+    ports:
+      - "5432:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
+    volumes:
+      - timescaledb-data:/var/lib/postgresql/data
+    depends_on:
+      - thingsboard
+    command: ["-c", "shared_preload_libraries=timescaledb"]
+    networks:
+      - abacws-chatbot_my_bridge
+
+  rasa:
+    image: rasa/rasa:3.6.12-full
+    ports:
+      - "5005:5005"
+    volumes:
+      - "./rasa-ui/:/app/"
+      - "./rasa-ui/config.yml:/app/config.yml"
+      - "./rasa-ui/credentials.yml:/app/credentials.yml"
+      - "./rasa-ui/endpoints.yml:/app/endpoints.yml"
+    command:
+      # - train
+      - run
+      - --cors
+      - "*"
+      - --enable-api
+    networks:
+      - abacws-chatbot_my_bridge
+
+  action_server:
+    build:
+      context: ./rasa-ui/actions/
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./rasa-ui/actions:/app/actions
+    networks:
+      - abacws-chatbot_my_bridge
+
+  web_ui:
+    build:
+      context: ./rasa-ui/ui
+    ports:
+      - "8082:80"
+    depends_on:
+      - action_server
+      - rasa
+    networks:
+      - abacws-chatbot_my_bridge
 
 networks:
-  my_bridge:
+  abacws-chatbot_my_bridge:
 volumes:
-  # thingsboard-data:
-  #   external: true
-  # thingsboard-logs:
-  #   external: true
-  # timescaledb-data:
-  # postgres-data:
+  thingsboard-data:
+    external: true
+  thingsboard-logs:
+    external: true
+  timescaledb-data:
+  postgres-data:
   mongo-data:
   api-data:
-  # jena-data:
+  jena-data:

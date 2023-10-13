@@ -102,19 +102,36 @@ You can detach from session terminal with Ctrl-p Ctrl-q - the container will kee
 
 To reattach to the terminal (to see ThingsBoard logs) run:
 
-$ docker attach mytb
+$ docker attach mytb \
 
-To stop the container:
+To stop the container:\
 
-$ docker stop mytb
+$ docker stop mytb\
 
-To start the container:
+To start the container:\
 
-$ docker start mytb
-
-
+$ docker start mytb\
 
 
+All API's and Services are available in following ports:\
+
+8090 : Abacws 3D Live visulisation.\
+8090/api/ : Abacws 3D backend data API to perform queries.\
+8080 : IoT sensor data platform, Thingsboard GUI.\
+8080/swagger-ui/ : Thingsboard data query API for all devices and sensors.\
+5050 :  PgAdmin GUI to connect thingsboard PostgreSQL database.\
+3030 : Apache Jena Fusuki Server to host PDF data and to perform queries.\
+5005 :  Rasa Server Host.\
+5055 : Rasa Action Server Host.\
+8082 : Access Rasa Chatbot WEB UI to talk to the abacws.\
+
+to access all API and Services, attach all container with a same network. You can create a network my \
+``` docker network create <network_name>
+```
+For example. I have used network called 'Network abacws-chatbot_my_bridge' in docker-compose file.
+
+To Create a image of the API for 3d Visulisation in github, comment 'build-api' triggers the build process of API using github actions. \
+To Create a image of the visuliser for 3d Visulisation in github, comment 'build-visualiser' triggers the build process of visuliser using github actions. \
 
 
 Owner: Suhas Devmane
