@@ -45,7 +45,7 @@ class action_give_report(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        endpoint_url = "http://localhost:3030/ds/sparql"
+        endpoint_url = "http://jena-fuski:3030/ds/sparql"
         sparql_query = """
             PREFIX brick: <https://brickschema.org/schema/Brick#>
             PREFIX brick1: <https://brickschema.org/schema/1.0.2/building_example#>

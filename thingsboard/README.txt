@@ -42,6 +42,11 @@ docker compose start mytb
 lOGIN TO SHELL
 
 docker exec --user="root" -it b9440731d41b /bin/bash
+docker exec --user="root" -it thingsbaord /bin/bash
+
+copy conf file
+docker cp bf52d15ee378:/etc/thingsboard/conf/thingsboard.yml ./thingsboard/          #replace container id
+
 apt-get update
 apt-get install vim
 apt-get update -y
@@ -51,12 +56,30 @@ apt-get update && apt-get install -y iputils-ping
 
 docker exec -it <CONTAINER ID/NAME>> env        # this wul 
 
-docker exec -it <CONTAINER ID/NAME>> /bin/bash
+docker exec -it <CONTAINER ID/NAME>> /bin/bash   # opens thingsboard@containerid:/$ psql
 
 =============================
-psql command line
+psql command line       
 
-SELECT * FROM device;
+
+List all databases - \l
+Switch to another database - \c <db-name>
+List database tables - \dt
+Describe a table - \d <table-name>
+List all schemas - \dn
+List users and their roles - \du
+Retrieve a specific user - \du <username>
+List all functions - \df 
+List all views - \dv
+Save query results to a file - \o <file-name>
+see installed extension  -  \dx 
+find available relations  - \d
+Quit psql - \q
+
+
+
+
+thingsboard=# SELECT * FROM device;             #lists all devices
 
 
 thingsboard itself has postgress installed. 
@@ -119,6 +142,44 @@ g] get ip address of a container
 
 to look your ip address us : ipconfig 
 and to know your containers ip address use : docker inspect <container_name>
+-===================================================================
+=================================================================
+C:\_PHD_\Github\abacws-chatbot\thingsboard>docker exec -it timescale psql -U postgres   
+psql (14.9)
+Type "help" for help.
+
+postgres=# \l
+                                  List of databases
+    Name     |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-------------+----------+----------+------------+------------+-----------------------
+ example     | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0   | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+             |          |          |            |            | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+             |          |          |            |            | postgres=CTc/postgres
+ thingsboard | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+(5 rows)
+
+postgres=# \c thingsboard 
+You are now connected to database "thingsboard" as user "postgres".
+thingsboard=# CREATE EXTENSION IF NOT EXISTS timescaledb;
+NOTICE:  extension "timescaledb" already exists, skipping
+CREATE EXTENSION
+thingsboard=# psql -U postgres -h localhost thingsboard
+thingsboard-# \dx
+                                                List of installed extensions
+    Name     | Version |   Schema   |                                      Description
+-------------+---------+------------+--------------------------------------------------------------------------------------- 
+ plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+ timescaledb | 2.12.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)  
+(2 rows)
+
+
+================================================================
+
+
+
 
 
 
@@ -169,4 +230,55 @@ Adjust JWT token expiry in thingsboard cnfiguration file.
 ```
 docker exec -it <thingsboard container id>> /bin/bash
 ```
+
+========================================= timescaledb ==============================
+
+1. used image
+  timescale:
+    image: "timescale/timescaledb:latest-pg14"
+    container_name: timescale
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=thingsboard
+    ports:
+      - "5433:5432"
+    volumes:
+      - timescaledb-data:/var/lib/postgresql/data
+    command: ["-c", "shared_preload_libraries=timescaledb"]
+    networks:
+      - abacws-chatbot_my_bridge
+
+networks:
+  abacws-chatbot_my_bridge:
+volumes:
+  timescaledb-data:
+
+  2. login into container psql 
+     
+     docker exec -it timescale psql -U postgres        <timescalle is a container name> <postgres is user>
+
+  3. login to psql from any terminal command line
+   
+    psql -p 5433 -h localhost -U postgres        
+
+  4. run query to see installed version of postgres 
+
+    select version();
+
+  5. create a database
+  
+     postgres=# create database thingsboard;
+
+6. enter into the database
+
+  postgres=# \c thingsboard
+
+7. Create extension
+
+ thingsboard=# CREATE EXTENSION IF NOT EXISTS timescaledb;
+
+ 8. List available extension in the database
+
+  thingsboard=# \dx
 

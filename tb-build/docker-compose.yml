@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  thingsboard:
+    build: . # Use the Dockerfile in the current directory
+    container_name: thingsboard
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_TS_TYPE=timescale
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://timescale:5432/thingsboard # Use the database container name
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - postgres
+
+  timescale:
+    image: "timescale/timescaledb:latest-pg12"
+    container_name: timescale
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432" # Map PostgreSQL port to the host
+
+# Add a section for TimescaleDB if needed
