@@ -1,7 +1,9 @@
 version: "3"
 services:
-  thingsboard:
-    build:
-      context: .
+  adminer:
+    image: adminer
+    restart: always
+    # depends_on:
+    #   - mytb
     ports:
-      - "8080:9090"
+      - 8282:8080

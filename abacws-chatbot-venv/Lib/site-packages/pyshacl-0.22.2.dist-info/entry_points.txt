@@ -1,0 +1,5 @@
+[console_scripts]
+pyshacl=pyshacl.cli:main
+pyshacl_server=pyshacl.http:cli
+pyshacl_validate=pyshacl.cli:main
+

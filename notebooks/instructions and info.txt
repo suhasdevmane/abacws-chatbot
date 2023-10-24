@@ -1,0 +1,8 @@
+
+open admirel at localhost:8888
+run query ;
+
+SELECT * FROM ts_kv WHERE entity_id = '8f6fd960-6f21-11ee-acb9-cf4e84cef63d'
+
+
+COPY (SELECT * FROM ts_kv WHERE entity_id = '8f6fd960-6f21-11ee-acb9-cf4e84cef63d') TO '/path/to/exported_data.csv' DELIMITER ',' CSV HEADER;

@@ -1,0 +1,4 @@
+[console_scripts]
+brick_validate=brickschema.bin.brick_validate:main
+brickify=brickschema.brickify.main:app
+

@@ -1,0 +1,3 @@
+[rdf.plugins.store]
+SQLAlchemy = rdflib_sqlalchemy.store:SQLAlchemy
+

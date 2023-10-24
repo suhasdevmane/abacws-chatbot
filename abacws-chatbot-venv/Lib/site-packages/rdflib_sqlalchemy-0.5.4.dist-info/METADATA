@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: rdflib-sqlalchemy
+Version: 0.5.4
+Summary: rdflib extension adding SQLAlchemy as an AbstractSQLStore back-end store
+Home-page: http://github.com/RDFLib/rdflib-sqlalchemy
+Author: Graham Higgins, Adam Ever-Hadani
+Author-email: gjhiggins@gmail.com, adamhadani@globality.com
+License: BSD
+Download-URL: https://github.com/RDFLib/rdflib-sqlalchemy/zipball/master
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+License-File: LICENSE.txt
+Requires-Dist: SQLAlchemy (<2.0.0,>=1.1.4)
+Requires-Dist: alembic (>=0.8.8)
+Requires-Dist: rdflib (>=4.0)
+Requires-Dist: six (>=1.10.0)
+
+
+    SQLAlchemy store formula-aware implementation.
+    It stores its triples in the following partitions:
+
+    * Asserted non rdf:type statements
+    * Asserted rdf:type statements (in a table which models Class membership).
+      The motivation for this partition is primarily improved query speed and
+      scalability as most graphs will always have more rdf:type statements than
+      others.
+    * All Quoted statements
+
+    In addition it persists namespace mappings in a separate table
+    
+

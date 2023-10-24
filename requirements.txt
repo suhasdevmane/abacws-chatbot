@@ -10,3 +10,4 @@ svgling
 SPARQLWrapper
 subprocess.run
 brickschema[all]
+psycopg2

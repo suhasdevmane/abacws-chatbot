@@ -16,17 +16,17 @@ class action_give_temp(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # ---------------------------
-        url = "https://thingsboard.cs.cf.ac.uk/api/plugins/telemetry/DEVICE/fef50770-57f1-11ee-8714-19d56ba0c4fd/values/timeseries?keys=G"
+        url = "http://thingsboardhost:9090/api/plugins/telemetry/DEVICE/349ecb90-6f21-11ee-acb9-cf4e84cef63d/values/timeseries?keys=D1"
         payload = {}
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdWhhc0FiYWN3c0xpdmluZ0xhYkBjYXJkaWZmLmFjLnVrIiwic2NvcGVzIjpbIlRFTkFOVF9BRE1JTiJdLCJ1c2VySWQiOiIzNTg1MzkzMC1kYjc2LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJmaXJzdE5hbWUiOiJTdWhhcyIsImxhc3ROYW1lIjoiRGV2bWFuZSIsImVuYWJsZWQiOnRydWUsImlzUHVibGljIjpmYWxzZSwidGVuYW50SWQiOiJmOTFlNDU5MC1kYjc1LTExZWMtOTY0NC0zZDY2MDFiMTlmMmMiLCJjdXN0b21lcklkIjoiMTM4MTQwMDAtMWRkMi0xMWIyLTgwODAtODA4MDgwODA4MDgwIiwiaXNzIjoidGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE2OTcyMTgxNzIsImV4cCI6MTY5NzIyNzE3Mn0.8EA9m5S8dbDJKH4TsLcVZSDd-GFojiJ41jOyLOnuLuMe4_vQTS1gisdZA_M-XSpQxFo4X9y8qq-g6yaQDF5kqQ'
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdWhhc2Rldm1hbmVtYWlsQGdtYWlsLmNvbSIsInVzZXJJZCI6ImZkNDE4NDMwLTZmMjAtMTFlZS1hY2I5LWNmNGU4NGNlZjYzZCIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwic2Vzc2lvbklkIjoiNjg3M2NlNzQtYWM2NS00ZTU3LTlmYWUtNzhjMDIzMzAwZDExIiwiaXNzIjoidGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE2OTc4MDE4NTYsImV4cCI6MTY5ODQwNjY1NiwiZmlyc3ROYW1lIjoic3VoYXMiLCJsYXN0TmFtZSI6ImRldm1hbmUiLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiYmRlNTZjNzAtNmYyMC0xMWVlLWFjYjktY2Y0ZTg0Y2VmNjNkIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCJ9.gjcvL3FBHpaQ1svem4_mYCl-IBmdCuIJ76OYEqySqqmNikG1HSt5x05UUy2YOqx-ZXB6VLwesGdJiLMbEJ7Eew'
         }
         response = requests.request(
             "GET", url, headers=headers, data=payload)
         print('status code:', response.status_code)
         print(response.text)
-        temp = json.loads(response.text)["G"][0]["value"]
+        temp = json.loads(response.text)["D1"][0]["value"]
 
         if not temp:
             dispatcher.utter_message(

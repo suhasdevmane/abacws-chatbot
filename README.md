@@ -1,6 +1,27 @@
 This project is under development.
 
 
+Create a python virtual environment to access different APIs.
+```
+python -m venv ./abacws-chatbot-venv
+```
+to activate environment
+```
+./abacwsenvs/Scripts/activate
+c:/_PHD_/Github/abacws-chatbot/abacws-chatbot-venv/Scripts/activate.bat
+```
+
+Upgrade pip
+```
+ python.exe -m pip install --upgrade pip
+```
+
+Install dependencies
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+
+
+
 # Abacws Data Visualiser
 Web application made to visualise IoT data for devices in the Abacws building at Cardiff University.\
 This repository contains the API and the Visualiser tool, both of which are deployed using [docker](https://www.docker.com/).
@@ -142,6 +163,332 @@ To see Containier ID , their anmes and network connected, run :
 docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Networks}}"
 
 ```
+
+
+
+REF - https://thingsboard.io/docs/user-guide/install/docker-windows/
+Prerequisites
+    : DOCKER DESKTOP
+
+Running
+Depending on the database used there are three type of ThingsBoard single instance docker images:
+
+thingsboard/tb-postgres - single instance of ThingsBoard with PostgreSQL database.
+
+Recommended option for small servers with at least 1GB of RAM and minimum load (few messages per second). 2-4GB is recommended.
+
+thingsboard/tb-cassandra - single instance of ThingsBoard with Cassandra database.
+
+The most performant and recommended option but requires at least 6GB of RAM. 8GB is recommended.
+
+thingsboard/tb - single instance of ThingsBoard with embedded HSQLDB database.
+
+Note: Not recommended for any evaluation or production usage and is used only for development purposes and automatic tests.
+
+
+
+=============================
+# Thingsboard Credentials
+
+sysadmin- use default credentials
+sysadmin@thingsboard.org / sysadmin
+tenant@thingsboard.org / tenant
+customer@thingsboard.org / customer
+
+docker Thingsboard local
+tenant- suhasdevmanemail@gmail.com
+pass - Suhas@551993
+
+docker compose up -d            #to up docker compose
+docker compose down             # to stop docker-compose 
+docker compose logs -f mytb    #to see logs
+docker compose stop mytb
+docker compose start mytb
+
+docker volumes are saved at \\wsl.localhost\docker-desktop-data\data\docker\volumes\mytb-data\_data\db
+ref - https://www.jianshu.com/p/9f2cd43098bb
+===========================
+
+# lOGIN TO SHELL
+login to the docker container as a root usser to make changes. Use the docker conytainer id to wnter inside the docker.
+```
+docker exec --user="root" -it b9440731d41b /bin/bash
+docker exec --user="root" -it thingsbaord /bin/bash
+```
+to copy the configuration file from the docker container to the local repository use cp commandfor example 
+```
+copy conf file
+docker cp bf52d15ee378:/etc/thingsboard/conf/thingsboard.yml ./thingsboard/          #replace container id
+```
+to install required packages to make changes install necessory packages after accessing the container as room user
+
+vim /var/lib/docker/containers/6b88c0c9d4a6a7c290c976265b0357187d69a572402b5889ea7d501fbbcf5da1/hostconfig.json
+
+ref：https://www.jianshu.com/p/9f2cd43098bb
+
+apt-get update
+apt-get install vim
+apt-get update -y
+apt-get install -y iputils-pi
+apt-get update && apt-get install -y iputils-ping
+
+```
+to see the different files inside the container use command 
+```
+docker exec -it <CONTAINER ID/NAME>> env        # this wul 
+
+docker exec -it <CONTAINER ID/NAME>> /bin/bash   # opens thingsboard@containerid:/$ psql
+```
+=============================
+
+# psql command line       
+
+once you enter to the spql command line tool inside the docker container, you use following spql command to explore the postgresql database.
+```
+List all databases - \l
+Switch to another database - \c <db-name>
+List database tables - \dt
+Describe a table - \d <table-name>
+List all schemas - \dn
+List users and their roles - \du
+Retrieve a specific user - \du <username>
+List all functions - \df 
+List all views - \dv
+Save query results to a file - \o <file-name>
+see installed extension  -  \dx 
+find available relations  - \d
+Quit psql - \q
+```
+to the the list of available devices inside the thingsboard dtabase use
+```
+thingsboard=# SELECT * FROM device;             #lists all devices
+```
+
+
+thingsboard itself has postgress installed. the defaults are follows 
+- Maintenance database - thingsboard
+- default username - thingsboard
+- default password- postgres
+- hostname - host.docker.internal
+you should change the passwords.
+      
+
+
+
+To change postgress password inside the thingsboard-postgress use 
+```postgresdefault
+1. docker exec -it <container_name or id of thingsbaord/tb-postgress> bash 
+2. psql 
+3. show data_directory;
+4. \password thingsboard    # to change password for user thingsboard
+5. \q to exit psql
+```
+
+copy files from the container to the local repository, to change configuration
+```
+docker cp 82ef4aab77f1:/etc/thingsboard/conf/thingsboard.yml "C:/_PHD_/Github/abacws-chatbot/tb-pg-timescale/" 
+```docker cp f5adf293b941:/etc/postgresql/12/main/postgresql.conf "C:/_PHD_/Github/abacws-chatbot/"
+Some configurations are need to be changed or should be passed in the docker-compose file.
+```
+pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+```
+
+
+networking
+read https://docs.docker.com/engine/tutorials/networkingcontainers/#:~:text=Docker%20networking%20allows%20you%20to,web%20app%20to%20the%20my_bridge%20.
+
+a] Inspecting the network is an easy way to find out the container's IP address.
+```
+ docker network inspect bridge
+```
+b] remove a container from a network 
+ ```
+ docker network disconnect <network name -default is bridge> <container id or name >
+ ```
+c] Create your own bridge network
+- A bridge network is limited to a single host running Docker Engine. An overlay network can include multiple hosts and is a more advanced topic. 
+- For this example, create a bridge network:
+ ```
+ docker network create -d bridge <network name- e.g. my_bridge>    # -d flag tells Docker to use the bridge driver for the new network
+```
+d] list the networks
+ ```
+ docker network ls
+ ```
+e] Add containers to a network
+``` 
+docker run -d --net=my_bridge --name db training/postgres
+docker run -d --net=my_bridge --name <container name lor id> <image>
+```
+f] If you inspect your my_bridge you can see it has a container attached. You can also inspect your container to see where it is connected:
+ ```
+ docker inspect --format='{{json .NetworkSettings.Networks}}'  db
+```
+g] get ip address of a container
+ ```
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container name or id>
+```
+
+
+To look your ip address use simple command
+```
+ipconfig
+``` 
+and to know your containers ip address use 
+``` 
+docker inspect <container_name>
+```
+
+To adjust the memory usage of docker , in windows add the configuration in the location C:\Users\c21054458\.wslconfig file and restart docker desktop. 
+-===================================================================
+=================================================================
+My output looks as follows: 
+
+C:\_PHD_\Github\abacws-chatbot\thingsboard>docker exec -it timescale psql -U postgres   
+psql (14.9)
+Type "help" for help.
+
+postgres=# \l
+                                  List of databases
+    Name     |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-------------+----------+----------+------------+------------+-----------------------
+ example     | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres    | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0   | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+             |          |          |            |            | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+             |          |          |            |            | postgres=CTc/postgres
+ thingsboard | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+(5 rows)
+
+postgres=# \c thingsboard 
+You are now connected to database "thingsboard" as user "postgres".
+thingsboard=# CREATE EXTENSION IF NOT EXISTS timescaledb;
+NOTICE:  extension "timescaledb" already exists, skipping
+CREATE EXTENSION
+thingsboard=# psql -U postgres -h localhost thingsboard
+thingsboard-# \dx
+                                                List of installed extensions
+    Name     | Version |   Schema   |                                      Description
+-------------+---------+------------+--------------------------------------------------------------------------------------- 
+ plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+ timescaledb | 2.12.0  | public     | Enables scalable inserts and complex queries for time-series data (Community Edition)  
+(2 rows)
+
+
+================================================================
+
+login succeeed if -
+name: <any name you want>
+host: host.docker.internal
+database: postgres
+user: postgres
+password: postgres
+PORT-5432
+
+
+
+Node_5.01
+device token- bW9z8pFxLGQWmmRauup6
+curl -v -X POST http://localhost:8080/api/v1/bW9z8pFxLGQWmmRauup6/telemetry --header Content-Type:application/json --data "{temperature:25}"
+mosquitto_pub -d -q 1 -h host.docker.internal -p 1883 -t v1/devices/me/telemetry -u bW9z8pFxLGQWmmRauup6 -m "{temperature:25}"
+mosquitto_pub -d -q 1 -h 192.168.1.85 -p 1883 -t v1/devices/me/telemetry -u bW9z8pFxLGQWmmRauup6 -m "{temperature:25}"
+
+
+Node_5.02
+device token - IUj42BykCyPsRoq17HqY
+curl -v -X POST http://localhost:8080/api/v1/IUj42BykCyPsRoq17HqY/telemetry --header Content-Type:application/json --data "{temperature:25}"
+mosquitto_pub -d -q 1 -h host.docker.internal -p 1883 -t v1/devices/me/telemetry -u IUj42BykCyPsRoq17HqY -m "{temperature:25}"
+
+Do not forget to add firewall rule to accept the incoming traffic from outside ip to port 1883. in windows add a inbound rule to accept the traffic to port 1883 in firewall settings. follow instruction https://www.youtube.com/watch?v=GBUVyu69Qsk
+=======================
+
+# apache-jena-fuski-server 
+
+connect fuseki server to the vs code
+1. name- any display name
+endpoint- http://localhost:3030/abacws-sensor-network/sparql
+usrname- admin
+password- Suhas@551993
+
+=======================
+# Timescaledb
+
+docker exec -it timescaledb psql -U postgres        # to run psql from docker contaner
+\q to exit psql
+
+docker exec -it timescaledb psql --version
+timescaledb:
+  image: timescale/timescaledb:2.5.0-pg14
+  # Rest of your configuration...
+
+
+Adjust JWT token expiry in thingsboard cnfiguration file.
+```
+docker exec -it <thingsboard container id>> /bin/bash
+```
+
+========================================= timescaledb ==============================
+
+1. used image
+  timescale:
+    image: "timescale/timescaledb:latest-pg14"
+    container_name: timescale
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=thingsboard
+    ports:
+      - "5433:5432"
+    volumes:
+      - timescaledb-data:/var/lib/postgresql/data
+    command: ["-c", "shared_preload_libraries=timescaledb"]
+    networks:
+      - abacws-chatbot_my_bridge
+
+networks:
+  abacws-chatbot_my_bridge:
+volumes:
+  timescaledb-data:
+
+  2. login into container psql 
+     
+     docker exec -it timescale psql -U postgres        <timescalle is a container name> <postgres is user>
+    docker exec -it 26d02ee6c574 psql -U thingsboard  <thingsboard is User>
+
+  3. login to psql from any terminal command line
+   
+    psql -p 5433 -h localhost -U postgres        
+
+  4. run query to see installed version of postgres 
+
+    select version();
+
+  5. create a database
+  
+     postgres=# create database thingsboard;
+
+6. enter into the database
+
+  postgres=# \c thingsboard
+
+7. Create extension
+
+ thingsboard=# CREATE EXTENSION IF NOT EXISTS timescaledb;
+
+ 8. List available extension in the database
+
+thingsboard=# \dx
+
+
+
+  # This project is maintained by Suhas Devmane and under the PhD research project.
+  Please Contact DevamneSp1@cardiff@ac.uk
+
+
 
 
 
