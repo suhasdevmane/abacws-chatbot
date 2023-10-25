@@ -12,9 +12,6 @@ services:
 
   api:
     image: ghcr.io/suhasdevmane/abacws-chatbot:api-latest
-    # image: abacws-chatbot-api:latest
-    # build:
-    #   context: ./api/
     container_name: abacws-api
     hostname: apihost
     restart: always
