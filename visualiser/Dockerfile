@@ -4,6 +4,7 @@ FROM node:current-alpine AS node
 COPY . /app
 WORKDIR /app
 RUN npm i
+RUN npx browserslist@latest --update-db
 RUN npm run build
 # Remove non-production node modules after build
 RUN rm -rf node_modules
