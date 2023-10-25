@@ -1,19 +1,14 @@
-name: Push API Docker on Comment
-
+name: Push API Docker
 on:
-  issue_comment:
-    types:
-      - created
+  push:
+    branches: [main]
+    tags:
+      - "v*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check Comment
-        id: check_comment
-        run: echo ::set-output name=contains_build_api::$(echo "${{ github.event.comment.body }}" | grep -c 'build-api')
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -39,4 +34,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-        if: steps.check_comment.outputs.contains_build_api == '1'

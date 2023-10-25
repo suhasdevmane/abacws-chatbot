@@ -11,7 +11,7 @@ services:
       - my_bridge
 
   api:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:api-main
+    image: ghcr.io/suhasdevmane/abacws-chatbot:api-latest
     # image: abacws-chatbot-api:latest
     # build:
     #   context: ./api/
@@ -29,23 +29,23 @@ services:
     networks:
       - my_bridge
 
-  # visualiser:
-  #   image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-main
-  #   container_name: abacws-visualiser
-  #   hostname: visualiserhost
-  #   restart: always
-  #   depends_on:
-  #     - api
-  #   ports:
-  #     - 8090:80
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
-  #     - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
-  #     - "traefik.http.routers.abacws-visualiser.entrypoints=https"
-  #     - "traefik.http.routers.abacws-visualiser.tls=true"
-  #   networks:
-  #     - my_bridge
+  visualiser:
+    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-latest
+    container_name: abacws-visualiser
+    hostname: visualiserhost
+    restart: always
+    depends_on:
+      - api
+    ports:
+      - 8090:80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
+      - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
+      - "traefik.http.routers.abacws-visualiser.entrypoints=https"
+      - "traefik.http.routers.abacws-visualiser.tls=true"
+    networks:
+      - my_bridge
 
   # mytb:
   #   restart: always
