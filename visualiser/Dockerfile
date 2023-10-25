@@ -1,9 +1,10 @@
 # Build layer
-FROM node:current-alpine AS node
+FROM node:current-alpine3.18 AS node
 
 COPY . /app
 WORKDIR /app
 RUN npm i
+RUN npx browserslist@latest --update-db
 RUN npm run build
 # Remove non-production node modules after build
 RUN rm -rf node_modules
