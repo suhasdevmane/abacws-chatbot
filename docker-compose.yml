@@ -11,8 +11,8 @@ services:
       - my_bridge
 
   api:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:api-main
-    image: abacws-chatbot-api:latest
+    image: ghcr.io/suhasdevmane/abacws-chatbot:api-main
+    # image: abacws-chatbot-api:latest
     # build:
     #   context: ./api/
     container_name: abacws-api
