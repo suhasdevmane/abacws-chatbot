@@ -28,6 +28,8 @@ jobs:
           images: ghcr.io/${{ github.actor }}/Abacws-chatbot
           flavor: |
             prefix=visualiser-,onlatest=true
+          tags: |
+            v.1.0.0
 
       - name: Build and push
         uses: docker/build-push-action@v2
