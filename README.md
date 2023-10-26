@@ -503,4 +503,4 @@ Contact: suhasdevmane@outlook.com
 
 
 or build custom api
-// docker cp api\src\api\data\devices.json abaws-api:/api/api/data/devices.json
+// docker cp api\src\api\data\devices.json :/api/api/data/devices.json

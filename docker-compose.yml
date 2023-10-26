@@ -11,11 +11,12 @@ services:
       - my_bridge
 
   api:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:api-main   #or use build
-    build:
-      context: ./api/
-      dockerfile: Dockerfile
+    image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.0.0 #or use build
+    # build:
+    #   context: ./api/
+    #   dockerfile: Dockerfile
     hostname: apihost
+    container_name: abacws-api
     restart: always
     depends_on:
       - mongo
@@ -24,16 +25,15 @@ services:
     ports:
       - 8091:5000
     volumes:
-      # - api-data:/api/api/data
       - ./api/src/api/data:/api/api/data
     networks:
       - my_bridge
 
   visualiser:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-main          # or use build
-    build:
-      context: ./visualiser/
-      dockerfile: Dockerfile
+    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0 # or use build
+    # build:
+    #   context: ./visualiser/
+    #   dockerfile: Dockerfile
     container_name: abacws-visualiser
     hostname: visualiserhost
     restart: always
