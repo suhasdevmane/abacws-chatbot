@@ -1,5 +1,5 @@
 # Build layer
-FROM node:current-alpine AS node
+FROM node:16 AS node
 
 COPY . /api
 WORKDIR /api
