@@ -11,7 +11,7 @@ services:
       - my_bridge
 
   api:
-    # image: ghcr.io/suhasdevmane/abacws:api-main   #or use build
+    # image: ghcr.io/suhasdevmane/abacws-chatbot:api-main   #or use build
     build:
       context: ./api/
       dockerfile: Dockerfile
@@ -30,7 +30,7 @@ services:
       - my_bridge
 
   visualiser:
-    # image: ghcr.io/suhasdevmane/abacws:visualiser-main          # or use build
+    # image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-main          # or use build
     build:
       context: ./visualiser/
       dockerfile: Dockerfile
