@@ -141,6 +141,7 @@ services:
     restart: always
     ports:
       - "8888:8888"
+      - "8089:8089" #to see ontology
     volumes:
       - ./notebooks:/home/jovyan/work
     environment:
