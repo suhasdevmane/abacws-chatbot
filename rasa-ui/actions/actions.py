@@ -20,7 +20,7 @@ class action_give_temp(Action):
         payload = {}
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdWhhc2Rldm1hbmVtYWlsQGdtYWlsLmNvbSIsInVzZXJJZCI6ImZkNDE4NDMwLTZmMjAtMTFlZS1hY2I5LWNmNGU4NGNlZjYzZCIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwic2Vzc2lvbklkIjoiNjg3M2NlNzQtYWM2NS00ZTU3LTlmYWUtNzhjMDIzMzAwZDExIiwiaXNzIjoidGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE2OTc4MDE4NTYsImV4cCI6MTY5ODQwNjY1NiwiZmlyc3ROYW1lIjoic3VoYXMiLCJsYXN0TmFtZSI6ImRldm1hbmUiLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiYmRlNTZjNzAtNmYyMC0xMWVlLWFjYjktY2Y0ZTg0Y2VmNjNkIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCJ9.gjcvL3FBHpaQ1svem4_mYCl-IBmdCuIJ76OYEqySqqmNikG1HSt5x05UUy2YOqx-ZXB6VLwesGdJiLMbEJ7Eew'
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdWhhc2Rldm1hbmVtYWlsQGdtYWlsLmNvbSIsInVzZXJJZCI6ImZkNDE4NDMwLTZmMjAtMTFlZS1hY2I5LWNmNGU4NGNlZjYzZCIsInNjb3BlcyI6WyJURU5BTlRfQURNSU4iXSwic2Vzc2lvbklkIjoiZWFlY2NmZjktYWQ5MS00NDAyLTg2NmMtM2U5ZmI5NTlkMGRmIiwiaXNzIjoidGhpbmdzYm9hcmQuaW8iLCJpYXQiOjE2OTgzOTk5NTksImV4cCI6MTY5OTAwNDc1OSwiZmlyc3ROYW1lIjoic3VoYXMiLCJsYXN0TmFtZSI6ImRldm1hbmUiLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiYmRlNTZjNzAtNmYyMC0xMWVlLWFjYjktY2Y0ZTg0Y2VmNjNkIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCJ9.3Vs64kAL_CCi3XFSVDInn24Jq7FqiVOKSGUTGLrSRPd9ReGLSLQDpjw_rRNRgmeKXdWGdC1jKpqKpArgzykxBA'
         }
         response = requests.request(
             "GET", url, headers=headers, data=payload)

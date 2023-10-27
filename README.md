@@ -186,7 +186,6 @@ thingsboard/tb - single instance of ThingsBoard with embedded HSQLDB database.
 Note: Not recommended for any evaluation or production usage and is used only for development purposes and automatic tests.
 
 
-
 =============================
 # Thingsboard Credentials
 
@@ -196,7 +195,7 @@ tenant@thingsboard.org / tenant
 customer@thingsboard.org / customer
 
 docker Thingsboard local
-tenant- suhasdevmanemail@gmail.com
+tenant login id- suhasdevmanemail@gmail.com
 pass - Suhas@551993
 
 docker compose up -d            #to up docker compose

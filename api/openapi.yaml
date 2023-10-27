@@ -28,11 +28,9 @@ servers:
   - url: ./
     description: >
       Relative url
-
-  - url: https://abacws.ggrainger.uk/api
-    description: >
-      Production deployment
-
+  # - url: https://abacws.ggrainger.uk/api
+  #   description: >
+  #     Production deployment
   - url: http://localhost:5000/api
     description: >
       Local development server.
