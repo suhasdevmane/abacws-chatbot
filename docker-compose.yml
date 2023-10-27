@@ -163,6 +163,7 @@ services:
   #     - my_bridge
 
   # web_ui:
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main        # or build locally
   #   build:
   #     context: ./rasa-ui/ui
   #   container_name: rasa-web-ui
@@ -176,10 +177,8 @@ services:
   #     - my_bridge
 
   jupyter:
-    # image: jupyter/minimal-notebook:python-3.10
     build:
-      context: .
-      dockerfile: ./notebooks/Dockerfile
+      context: ./notebooks/
     container_name: jupyter_notebook
     hostname: jupyter-notebook-host
     restart: always
