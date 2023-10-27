@@ -395,7 +395,7 @@ device token- bW9z8pFxLGQWmmRauup6
 curl -v -X POST http://localhost:8080/api/v1/bW9z8pFxLGQWmmRauup6/telemetry --header Content-Type:application/json --data "{temperature:25}"
 mosquitto_pub -d -q 1 -h host.docker.internal -p 1883 -t v1/devices/me/telemetry -u bW9z8pFxLGQWmmRauup6 -m "{temperature:25}"
 mosquitto_pub -d -q 1 -h 192.168.1.85 -p 1883 -t v1/devices/me/telemetry -u bW9z8pFxLGQWmmRauup6 -m "{temperature:25}"
-
+10.10.212.208
 
 Node_5.02
 device token - IUj42BykCyPsRoq17HqY
@@ -503,3 +503,7 @@ Contact: suhasdevmane@outlook.com
 
 or build custom api
 // docker cp api\src\api\data\devices.json :/api/api/data/devices.json
+
+my ARCCA host
+username - ubuntu
+key - abacws-smart-building.pem
