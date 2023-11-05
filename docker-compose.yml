@@ -133,9 +133,9 @@ services:
       - my_bridge
 
   jupyter:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main
-    build:
-      context: ./notebooks/
+    image: 7499968836/jupyter_notebook:latest
+    # build:
+    #   context: ./notebooks/
     container_name: jupyter_notebook
     hostname: jupyter-notebook-host
     restart: always
