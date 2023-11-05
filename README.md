@@ -516,3 +516,19 @@ cd existing_repo
 git remote add origin https://gitlab.com/IOTGarage/talking-buildings.git
 git branch -M main
 git push -uf origin main
+
+for gitlab :
+git commit -m "initial commit"
+git status
+git push -uf origin main
+git config --global user.name "devmanesp1@cardiff.ac.uk"
+git config --global user.email "devmanesp1@cardiff.ac.uk"
+git config --global --list
+>git status
+git remote show origin
+>git push origin main
+git pull
+git branch --set-upstream-to=origin/main main
+git pull --allow-unrelated-histories
+git pull
+git push origin main
