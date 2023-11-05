@@ -11,7 +11,7 @@ services:
       - my_bridge
 
   api:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.0.0 #or use build
+    image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.0.0
     # build:
     #   context: ./api/
     #   dockerfile: Dockerfile
@@ -30,7 +30,7 @@ services:
       - my_bridge
 
   visualiser:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0 # or use build
+    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
     # build:
     #   context: ./visualiser/
     #   dockerfile: Dockerfile
@@ -106,9 +106,9 @@ services:
       - my_bridge
 
   action_server:
-    build:
-      context: ./rasa-ui/actions/
-    # image:
+    # build:
+    #   context: ./rasa-ui/actions/
+    image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-main
     container_name: rasa_action_server
     hostname: actionserverhost
     ports:
@@ -119,9 +119,9 @@ services:
       - my_bridge
 
   web_ui:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
-    build:
-      context: ./rasa-ui/ui
+    image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
+    # build:
+    #   context: ./rasa-ui/ui
     container_name: rasa-web-ui
     hostname: webuihost
     ports:
@@ -133,9 +133,9 @@ services:
       - my_bridge
 
   jupyter:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main
-    # build:
-    #   context: ./notebooks/
+    # image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main
+    build:
+      context: ./notebooks/
     container_name: jupyter_notebook
     hostname: jupyter-notebook-host
     restart: always
@@ -164,51 +164,53 @@ services:
     networks:
       - my_bridge
 
-  # pgadmin:
-  #   restart: always
-  #   image: "dpage/pgadmin4"
-  #   container_name: pgadmin
-  #   hostname: pgadminhost
-  #   ports:
-  #     - "5050:80"
-  #   environment:
-  #     - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
-  #     - PGADMIN_DEFAULT_PASSWORD=admin
-  #   networks:
-  #     - my_bridge
+#=================================================================
+# pgadmin:
+#   restart: always
+#   image: "dpage/pgadmin4"
+#   container_name: pgadmin
+#   hostname: pgadminhost
+#   ports:
+#     - "5050:80"
+#   environment:
+#     - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
+#     - PGADMIN_DEFAULT_PASSWORD=admin
+#   networks:
+#     - my_bridge
 
-  # postgres:
-  #   image: "postgres:14"
-  #   container_name: postgres
-  #   hostname: postgreshost
-  #   environment:
-  #     - POSTGRES_PASSWORD=postgres
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_DB=thingsboard
-  #   # ports:
-  #   #   - "5433:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
-  #   volumes:
-  #     - postgres-data:/var/lib/postgresql/data
-  #   networks:
-  #     - my_bridge
+# postgres:
+#   image: "postgres:14"
+#   container_name: postgres
+#   hostname: postgreshost
+#   environment:
+#     - POSTGRES_PASSWORD=postgres
+#     - POSTGRES_USER=postgres
+#     - POSTGRES_DB=thingsboard
+#   # ports:
+#   #   - "5433:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
+#   volumes:
+#     - postgres-data:/var/lib/postgresql/data
+#   networks:
+#     - my_bridge
 
-  # timescaledb:
-  #   image: "timescale/timescaledb:latest-pg12"
-  #   container_name: timescaledb
-  #   hostname: timescalehost
-  #   environment:
-  #     - POSTGRES_PASSWORD=postgres
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_DB=thingsboard
-  #   ports:
-  #     - "5432:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
-  #   volumes:
-  #     - timescaledb-data:/var/lib/postgresql/data
-  #   depends_on:
-  #     - thingsboard
-  #   command: ["-c", "shared_preload_libraries=timescaledb"]
-  #   networks:
-  #     - my_bridge
+# timescaledb:
+#   image: "timescale/timescaledb:latest-pg12"
+#   container_name: timescaledb
+#   hostname: timescalehost
+#   environment:
+#     - POSTGRES_PASSWORD=postgres
+#     - POSTGRES_USER=postgres
+#     - POSTGRES_DB=thingsboard
+#   ports:
+#     - "5432:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
+#   volumes:
+#     - timescaledb-data:/var/lib/postgresql/data
+#   depends_on:
+#     - thingsboard
+#   command: ["-c", "shared_preload_libraries=timescaledb"]
+#   networks:
+#     - my_bridge
+# =============================================================
 networks:
   my_bridge:
 volumes:
@@ -219,5 +221,5 @@ volumes:
   mytb-logs:
     external: true
   jena-data:
-  # timescaledb-data:
-  # postgres-data:
+# timescaledb-data:
+# postgres-data:

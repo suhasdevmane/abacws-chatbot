@@ -17,7 +17,7 @@
 #         with:
 #           registry: ghcr.io
 #           username: ${{ github.actor }}
-#           password: ${{ secrets.GIT_PAT }}
+#           password: ${{ secrets.GHCR_LOGIN }}
 
 #       - name: Extract metadata (tags, labels) for Docker
 #         id: meta
