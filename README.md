@@ -1,6 +1,8 @@
 This project is under development.
 
 
+
+
 Create a python virtual environment to access different APIs.
 ```
 python -m venv ./abacws-chatbot-venv
@@ -507,3 +509,10 @@ or build custom api
 my ARCCA host
 username - ubuntu
 key - abacws-smart-building.pem
+
+
+to add git/la/hub files
+cd existing_repo
+git remote add origin https://gitlab.com/IOTGarage/talking-buildings.git
+git branch -M main
+git push -uf origin main
