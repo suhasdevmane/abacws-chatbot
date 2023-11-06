@@ -133,6 +133,7 @@ All API's and Services are available in following ports:
 5055 : Rasa Action Server Host.\
 8082 : Access Rasa Chatbot WEB UI to talk to the abacws.
 
+
 to access all API and Services, attach all container with a same network. You can create a network using command 
 ``` 
 docker network create <network_name>
@@ -516,7 +517,7 @@ cd existing_repo
 git remote add origin https://gitlab.com/IOTGarage/talking-buildings.git
 git branch -M main
 git push -uf origin main
-
+                                                                      
 for gitlab :
 git commit -m "initial commit"
 git status
@@ -528,7 +529,7 @@ git config --global --list
 git remote show origin
 >git push origin main
 git pull
-git branch --set-upstream-to=origin/main main
+git branch --set-upstream-to=origin/main main                      #use to set your origin to main as default
 git pull --allow-unrelated-histories
 git pull
 git push origin main
