@@ -141,7 +141,7 @@ router.get("/", listDevices);
 router.get("/:deviceName", getDevice);
 
 router.get("/:deviceName/data", getData);
-router.put("/:deviceName/data", apiKeyAuth, addData);
+router.put("/:deviceName/data", addData);
 
 router.get("/:deviceName/history", getHistoricalData);
-router.delete("/:deviceName/history", apiKeyAuth, deleteData);
+router.delete("/:deviceName/history", deleteData);

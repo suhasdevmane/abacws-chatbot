@@ -9,12 +9,11 @@ services:
       - mongo-data:/data/db
     networks:
       - my_bridge
-
   api:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.0.0
-    # build:
-    #   context: ./api/
-    #   dockerfile: Dockerfile
+    # image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.0.0
+    build:
+      context: ./api/
+      dockerfile: Dockerfile
     hostname: apihost
     container_name: abacws-api
     restart: always
@@ -30,10 +29,10 @@ services:
       - my_bridge
 
   visualiser:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
-    # build:
-    #   context: ./visualiser/
-    #   dockerfile: Dockerfile
+    # image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
+    build:
+      context: ./visualiser/
+      dockerfile: Dockerfile
     container_name: abacws-visualiser
     hostname: visualiserhost
     restart: always
@@ -71,66 +70,66 @@ services:
     networks:
       - my_bridge
 
-  jena-fuseki:
-    image: stain/jena-fuseki
-    container_name: jena-fuseki-rdf-store
-    hostname: jenahost
-    ports:
-      - "3030:3030"
-    volumes:
-      - jena-data:/data
-    environment:
-      - ADMIN_PASSWORD=Suhas@551993
-    restart: always
-    networks:
-      - my_bridge
+  # jena-fuseki:
+  #   image: stain/jena-fuseki
+  #   container_name: jena-fuseki-rdf-store
+  #   hostname: jenahost
+  #   ports:
+  #     - "3030:3030"
+  #   volumes:
+  #     - jena-data:/data
+  #   environment:
+  #     - ADMIN_PASSWORD=Suhas@551993
+  #   restart: always
+  #   networks:
+  #     - my_bridge
 
-  rasa:
-    image: rasa/rasa:3.6.12-full
-    container_name: rasa
-    hostname: rasahost
-    ports:
-      - "5005:5005"
-    volumes:
-      - "./rasa-ui/:/app/"
-      - "./rasa-ui/config.yml:/app/config.yml"
-      - "./rasa-ui/credentials.yml:/app/credentials.yml"
-      - "./rasa-ui/endpoints.yml:/app/endpoints.yml"
-    command:
-      # - train
-      - run
-      - --cors
-      - "*"
-      - --enable-api
-    networks:
-      - my_bridge
+  # rasa:
+  #   image: rasa/rasa:3.6.12-full
+  #   container_name: rasa
+  #   hostname: rasahost
+  #   ports:
+  #     - "5005:5005"
+  #   volumes:
+  #     - "./rasa-ui/:/app/"
+  #     - "./rasa-ui/config.yml:/app/config.yml"
+  #     - "./rasa-ui/credentials.yml:/app/credentials.yml"
+  #     - "./rasa-ui/endpoints.yml:/app/endpoints.yml"
+  #   command:
+  #     # - train
+  #     - run
+  #     - --cors
+  #     - "*"
+  #     - --enable-api
+  #   networks:
+  #     - my_bridge
 
-  action_server:
-    # build:
-    #   context: ./rasa-ui/actions/
-    image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-main
-    container_name: rasa_action_server
-    hostname: actionserverhost
-    ports:
-      - "5055:5055"
-    volumes:
-      - ./rasa-ui/actions:/app/actions
-    networks:
-      - my_bridge
+  # action_server:
+  #   # build:
+  #   #   context: ./rasa-ui/actions/
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-main
+  #   container_name: rasa_action_server
+  #   hostname: actionserverhost
+  #   ports:
+  #     - "5055:5055"
+  #   volumes:
+  #     - ./rasa-ui/actions:/app/actions
+  #   networks:
+  #     - my_bridge
 
-  web_ui:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
-    # build:
-    #   context: ./rasa-ui/ui
-    container_name: rasa-web-ui
-    hostname: webuihost
-    ports:
-      - "8082:80"
-    depends_on:
-      - action_server
-      - rasa
-    networks:
-      - my_bridge
+  # web_ui:
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
+  #   # build:
+  #   #   context: ./rasa-ui/ui
+  #   container_name: rasa-web-ui
+  #   hostname: webuihost
+  #   ports:
+  #     - "8082:80"
+  #   depends_on:
+  #     - action_server
+  #     - rasa
+  #   networks:
+  #     - my_bridge
 
   jupyter:
     image: 7499968836/jupyter_notebook:latest
@@ -152,17 +151,17 @@ services:
     networks:
       - my_bridge
 
-  adminer:
-    image: adminer
-    restart: always
-    container_name: adminer
-    hostname: adminerhost
-    depends_on:
-      - mytb
-    ports:
-      - 8282:8080
-    networks:
-      - my_bridge
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   container_name: adminer
+  #   hostname: adminerhost
+  #   depends_on:
+  #     - mytb
+  #   ports:
+  #     - 8282:8080
+  #   networks:
+  #     - my_bridge
 
 #=================================================================
 # pgadmin:

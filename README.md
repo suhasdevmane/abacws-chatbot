@@ -533,3 +533,8 @@ git branch --set-upstream-to=origin/main main                      #use to set y
 git pull --allow-unrelated-histories
 git pull
 git push origin main
+
+
+
+
+curl -X 'PUT' 'http://localhost:8090/api/devices/node_5.05/data' -H 'accept: */*' -H 'Content-Type: application/json' -d '{ "temperature": {"value": 21, units": °C"}}'
