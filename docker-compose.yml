@@ -10,7 +10,7 @@ services:
     networks:
       - my_bridge
   api:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.0.0
+    # image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
     build:
       context: ./api/
       dockerfile: Dockerfile
