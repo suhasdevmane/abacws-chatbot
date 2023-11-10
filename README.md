@@ -538,3 +538,8 @@ git push origin main
 
 
 curl -X 'PUT' 'http://localhost:8090/api/devices/node_5.05/data' -H 'accept: */*' -H 'Content-Type: application/json' -d '{ "temperature": {"value": 21, units": °C"}}'
+
+
+
+
+ssh -i ".ssh/abacws-smat-building.pem" ubuntu@abaces-smart-building.arcca.cloud
