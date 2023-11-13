@@ -1,53 +1,53 @@
 version: "3.0"
 services:
-  mongo:
-    image: mongo
-    container_name: abacws-chatbot-mongo
-    hostname: mongohost
-    restart: always
-    volumes:
-      - mongo-data:/data/db
-    networks:
-      - my_bridge
-  api:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
-    build:
-      context: ./api/
-      dockerfile: Dockerfile
-    hostname: apihost
-    container_name: abacws-api
-    restart: always
-    depends_on:
-      - mongo
-    environment:
-      - API_PORT=5000
-    ports:
-      - 8091:5000
-    volumes:
-      - ./api/src/api/data:/api/api/data
-    networks:
-      - my_bridge
+  # mongo:
+  #   image: mongo
+  #   container_name: abacws-chatbot-mongo
+  #   hostname: mongohost
+  #   restart: always
+  #   volumes:
+  #     - mongo-data:/data/db
+  #   networks:
+  #     - my_bridge
+  # api:
+  #   # image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
+  #   build:
+  #     context: ./api/
+  #     dockerfile: Dockerfile
+  #   hostname: apihost
+  #   container_name: abacws-api
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     - API_PORT=5000
+  #   ports:
+  #     - 8091:5000
+  #   volumes:
+  #     - ./api/src/api/data:/api/api/data
+  #   networks:
+  #     - my_bridge
 
-  visualiser:
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
-    build:
-      context: ./visualiser/
-      dockerfile: Dockerfile
-    container_name: abacws-visualiser
-    hostname: visualiserhost
-    restart: always
-    depends_on:
-      - api
-    ports:
-      - 8090:80
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
-      - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
-      - "traefik.http.routers.abacws-visualiser.entrypoints=https"
-      - "traefik.http.routers.abacws-visualiser.tls=true"
-    networks:
-      - my_bridge
+  # visualiser:
+  #   # image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
+  #   build:
+  #     context: ./visualiser/
+  #     dockerfile: Dockerfile
+  #   container_name: abacws-visualiser
+  #   hostname: visualiserhost
+  #   restart: always
+  #   depends_on:
+  #     - api
+  #   ports:
+  #     - 8090:80
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
+  #     - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
+  #     - "traefik.http.routers.abacws-visualiser.entrypoints=https"
+  #     - "traefik.http.routers.abacws-visualiser.tls=true"
+  #   networks:
+  #     - my_bridge
 
   mytb:
     restart: always
@@ -213,12 +213,12 @@ services:
 networks:
   my_bridge:
 volumes:
-  mongo-data:
-  api-data:
+  # mongo-data:
+  # api-data:
   mytb-data:
     external: true
   mytb-logs:
     external: true
-  jena-data:
+  # jena-data:
 # timescaledb-data:
 # postgres-data:

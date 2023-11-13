@@ -542,4 +542,32 @@ curl -X 'PUT' 'http://localhost:8090/api/devices/node_5.05/data' -H 'accept: */*
 
 
 
+Hosting Abacws 3d tool on ARCCA
+TO SHOW NETWORKS USE=>  nmcli -p device show
+
+to check public ip address => curl ifconfig.me     or wget -qO- ifconfig.me
+
+
 ssh -i ".ssh/abacws-smat-building.pem" ubuntu@abaces-smart-building.arcca.cloud
+10.0.3.48
+172.17.0.1
+172.18.0.1
+
+ssh -i ".ssh/abacws-visualizer.pem" ubuntu@abacws-visualizer.arcca.cloud
+10.0.3.45 172.19.0.1 172.17.0.1
+
+
+https://7465-3-252-98-203.ngrok.io
+
+
+curl -s https://checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'  
+dig +short myip.opendns.com @resolver1.opendns.com      3.252.98.203
+$ host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | awk '{print $4}'
+ wget -qO- http://ipecho.net/plain | xargs echo
+
+ ngrok http 8080
+
+  docker run -it -e NGROK_AUTHTOKEN=2XzP2J1VpPiGZlzfOf2igFdIjhh_hg4kYbuU19h1UaoaSp8v ngrok/ngrok http 8080
+  ngrok config add-authtoken 2XzP2J1VpPiGZlzfOf2igFdIjhh_hg4kYbuU19h1UaoaSp8v  
+
+   https://6320-34-254-240-101.ngrok-free.app
