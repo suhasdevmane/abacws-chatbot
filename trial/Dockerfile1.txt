@@ -1,0 +1,21 @@
+# Use Ubuntu as the base image
+FROM ubuntu:latest
+
+# Update package list and install necessary dependencies
+RUN apt-get update && \
+    apt-get install -y openjdk-11-jdk
+
+# Set environment variables
+ENV FUSEKI_HOME /apache-jena-fuseki
+ENV PATH $FUSEKI_HOME:$PATH
+
+# Download and extract Apache Jena Fuseki 4.9.0
+ADD https://dlcdn.apache.org/jena/binaries/apache-jena-fuseki-4.9.0.tar.gz /tmp/
+RUN tar -zxvf /tmp/apache-jena-fuseki-4.9.0.tar.gz -C / && \
+    mv /apache-jena-fuseki-4.9.0 $FUSEKI_HOME
+
+# Expose the default Fuseki port
+EXPOSE 3030
+
+# Start Fuseki on container startup
+CMD ["/bin/bash", "-c", "cd $FUSEKI_HOME && ./fuseki-server --mem /dataset"]

@@ -1,0 +1,14 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "from rdflib import Graph\r\n\r\n# Create a Graph\r\ng = Graph()\r\n\r\n# Parse in an RDF file hosted on the Internet\r\ng.parse(\"http://www.w3.org/People/Berners-Lee/card\")\r\n\r\n# Loop through each triple in the graph (subj, pred, obj)\r\nfor subj, pred, obj in g:\r\n    # Check if there is at least one triple in the Graph\r\n    if (subj, pred, obj) not in g:\r\n       raise Exception(\"It better be!\")\r\n\r\n# Print the number of \"triples\" in the Graph\r\nprint(f\"Graph g has {len(g)} statements.\")\r\n# Prints: Graph g has 86 statements.\r\n\r\n# Print out the entire Graph in the RDF Turtle format\r\nprint(g.serialize(format=\"turtle\"))",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "from rdflib import Graph",
+    "metadata": {}
+  }
+]

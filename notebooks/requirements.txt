@@ -1,0 +1,11 @@
+SpeechRecognition==3.10.0
+nltk==3.8.1
+rdflib==6.2.0
+npm==0.1.1
+requests==2.31.0
+spacy==3.7.2
+svgling==0.4.0
+SPARQLWrapper==2.0.0
+run-subprocess==0.9.1
+psycopg2==2.9.9
+paho-mqtt==1.6.1

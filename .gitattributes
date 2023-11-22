@@ -1,0 +1,4 @@
+*.glb filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+notebooks/14.tb-2-jena-timeseries.ipynb filter=lfs diff=lfs merge=lfs -text
+.ipynb filter=lfs diff=lfs merge=lfs -text

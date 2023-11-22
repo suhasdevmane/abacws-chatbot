@@ -1,0 +1,49 @@
+# run this file if you want ot run webchat
+
+version: "3.0"
+services:
+  rasa:
+    image: rasa/rasa:3.6.12-full
+    # image: docker pull harshmanvar/docker-ml-faq-rasa:webchat or docker pull harshmanvar/docker-ml-faq-rasa:3.5.2
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/app
+    command: train --domain domain.yml --data data --out models
+  webchat:
+    build:
+      context: .
+      dockerfile: Dockerfile-webchat
+    ports:
+      - 8080:80
+
+
+
+#2
+version: "3.8"
+services:
+  rasa:
+    image: rasa/rasa:3.6.12-full
+    restart: always
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/app
+    command:
+      - run
+    networks:
+      - my_bridge
+
+  action-server:
+    # image: rasa/rasa-sdk:latest
+    build: .
+    restart: always
+    volumes:
+      - ./actions:/app/actions
+    ports:
+      - 5055:5055
+    networks:
+      - my_bridge
+
+networks:
+  my_bridge:

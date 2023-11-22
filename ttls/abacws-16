@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-16#"
+     xml:base="http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-16"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-16"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-15#Sensors -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-15#Sensors">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Building_abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-15#sensorNode-5.2 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-15#sensorNode-5.2">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-15#Sensors"/>
+    </owl:Class>
+    
+
+
+    <!-- https://brickschema.org/schema/Brick#Building_abacws -->
+
+    <owl:Class rdf:about="https://brickschema.org/schema/Brick#Building_abacws"/>
+    
+
+
+    <!-- https://brickschema.org/schema/Brick#Floors -->
+
+    <owl:Class rdf:about="https://brickschema.org/schema/Brick#Floors">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Building_abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- https://brickschema.org/schema/Brick#Rooms -->
+
+    <owl:Class rdf:about="https://brickschema.org/schema/Brick#Rooms">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Building_abacws"/>
+    </owl:Class>
+    
+
+
+    <!-- https://brickschema.org/schema/Brick#sensorNode-5.1 -->
+
+    <owl:Class rdf:about="https://brickschema.org/schema/Brick#sensorNode-5.1">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/c21054458/ontologies/2023/8/abacws-15#Sensors"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/Room5.1 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/Room5.1">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Rooms"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/floor1 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/floor1">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Floors"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/floor2 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/floor2">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Floors"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/floor3 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/floor3">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Floors"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/floor4 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/floor4">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Floors"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/floor5 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/floor5">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Floors"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/room5.2 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/room5.2">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Rooms"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/room5.3 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/room5.3">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Rooms"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/room5.4 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/room5.4">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Rooms"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/room5.5 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/room5.5">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Rooms"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.abacwscardiff.ac.uk/abacws/room5.6 -->
+
+    <owl:Class rdf:about="https://www.abacwscardiff.ac.uk/abacws/room5.6">
+        <rdfs:subClassOf rdf:resource="https://brickschema.org/schema/Brick#Rooms"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
