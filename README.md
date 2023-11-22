@@ -547,6 +547,10 @@ TO SHOW NETWORKS USE=>  nmcli -p device show
 
 to check public ip address => curl ifconfig.me     or wget -qO- ifconfig.me
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
 ssh -i ".ssh/abacws-smat-building.pem" ubuntu@abaces-smart-building.arcca.cloud
 10.0.3.48
 172.17.0.1
@@ -555,6 +559,10 @@ ssh -i ".ssh/abacws-smat-building.pem" ubuntu@abaces-smart-building.arcca.cloud
 ssh -i ".ssh/abacws-visualizer.pem" ubuntu@abacws-visualizer.arcca.cloud
 10.0.3.45 172.19.0.1 172.17.0.1
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
 https://7465-3-252-98-203.ngrok.io
 
 
@@ -568,6 +576,10 @@ $ host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | aw
   docker run -it -e NGROK_AUTHTOKEN=2XzP2J1VpPiGZlzfOf2igFdIjhh_hg4kYbuU19h1UaoaSp8v ngrok/ngrok http 8080
   ngrok config add-authtoken 2XzP2J1VpPiGZlzfOf2igFdIjhh_hg4kYbuU19h1UaoaSp8v  
 
+<<<<<<< HEAD
    https://6320-34-254-240-101.ngrok-free.app
 
    sudo socat TCP-LISTEN:80,fork TCP:localhost:80
+=======
+   https://6320-34-254-240-101.ngrok-free.app
+>>>>>>> a87451a74cf694501bd10423e05429b753c9f08b

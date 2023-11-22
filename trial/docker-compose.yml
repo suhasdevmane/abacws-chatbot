@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: "3"
 
 services:
@@ -32,3 +33,24 @@ networks:
 volumes:
   jena-data:
   fuseki:
+=======
+version: "3.0"
+services:
+  jena-fuseki:
+    image: stain/jena-fuseki
+    container_name: jena-fuseki-rdf-store
+    hostname: jenahost
+    ports:
+      - "3030:3030"
+    volumes:
+      - jena-data:/data
+    environment:
+      - ADMIN_PASSWORD=Suhas@551993
+    restart: always
+    networks:
+      - my_bridge
+networks:
+  my_bridge:
+volumes:
+  jena-data:
+>>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
