@@ -1,14 +1,13 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-sparql = SPARQLWrapper(
-    "http://localhost:3030/#/dataset/ds/query"
-)
+sparql = SPARQLWrapper("http://localhost:3030/#/dataset/ds/query")
 sparql.setReturnFormat(JSON)
 
 # gets the first 3 geological ages
 # from a Geological Timescale database,
 # via a SPARQL endpoint
-sparql.setQuery("""
+sparql.setQuery(
+    """
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
     PREFIX brick: <https://brickschema.org/schema/Brick#>

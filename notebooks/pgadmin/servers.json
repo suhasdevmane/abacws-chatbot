@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "thingsboard_server",
+      "Group": "Server Group 1",
+      "Host": "mytb",
+      "Port": 5432,
+      "MaintenanceDB": "thingsboard",
+      "Username": "thingsboard",
+      "Password": "postgres",
+      "SSLMode": "prefer"
+    }
+  }
+}

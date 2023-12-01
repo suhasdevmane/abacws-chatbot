@@ -4,7 +4,8 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 sparql = SPARQLWrapper("http://localhost:3030/#/dataset/ds/query")
 
 # Query for the description of "Capsaicin", filtered by language
-sparql.setQuery("""
+sparql.setQuery(
+    """
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
     PREFIX brick: <https://brickschema.org/schema/Brick#>
@@ -14,7 +15,8 @@ sparql.setQuery("""
     SELECT * WHERE {
         ?sub brick:hasPoint ?obj .
     } LIMIT 100
-""")
+"""
+)
 
 # Convert results to JSON format
 sparql.setReturnFormat(JSON)

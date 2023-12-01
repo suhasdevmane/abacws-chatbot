@@ -47,7 +47,7 @@ To expose Fuseki on a different port, simply modify first part of `-p`:
 
 
 To load RDF graphs, you will need to log in as the `admin` user. To see the
-automatically generated admin password, see the output from above, or
+automatically generated admin password, see the output frrm above, or
 use `docker logs` with the name of your container.
 
 Note that the password is only generated on the first run, e.g. when the

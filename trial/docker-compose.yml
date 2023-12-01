@@ -1,56 +1,49 @@
-<<<<<<< HEAD
-version: "3"
-
-services:
-  fuseki-db:
-    image: busybox
-    container_name: jena-fuseki-db
-    volumes:
-      - jena-data:/fuseki
-    command: tail -f /dev/null # Keep the container running in the background
-    networks:
-      - my_bridge
-
-  jena-fuseki:
-    image: stain/jena-fuseki
-    container_name: jena-fuseki-rdf-store
-    ports:
-      - "3030:3030"
-    volumes_from:
-      - fuseki-db
-    volumes:
-      - ./trial/dataset:/fuseki-data
-    restart: always
-    environment:
-      - ADMIN_PASSWORD=Suhas@551993
-    user: "root" # Specify the user as root
-    networks:
-      - my_bridge
-
-networks:
-  my_bridge:
-
-volumes:
-  jena-data:
-  fuseki:
-=======
 version: "3.0"
 services:
-  jena-fuseki:
-    image: stain/jena-fuseki
-    container_name: jena-fuseki-rdf-store
-    hostname: jenahost
+  thingsboard2:
+    # restart: always
+    # image: "thingsboard-jupyter:1.0"
+    # image: 7499968836/my-thingsboard:1.0
+    image: mytb-timescale:1.0.0
+    container_name: thingsboard2
+    hostname: thingsboardhost
     ports:
-      - "3030:3030"
-    volumes:
-      - jena-data:/data
+      - "8088:9090"
+      # - "1883:1883"
+      - "7075:7070"
+      # - "5683-5688:5683-5688/udp"
+      - "8089:8081"
     environment:
-      - ADMIN_PASSWORD=Suhas@551993
-    restart: always
+      TB_QUEUE_TYPE: in-memory
+    volumes:
+      - ~/.thingsboard-data:/data
+      - ~/.thingsboard-logs:/var/log/thingsboards
     networks:
       - my_bridge
+
+  # timescaledb:
+  #   image: "timescale/timescaledb:latest-pg12"
+  #   container_name: timescaledb
+  #   hostname: timescaledb
+  #   environment:
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_DB=thingsboard
+  #   ports:
+  #     - "5432:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
+  #   volumes:
+  #     - timescaledb-data:/var/lib/postgresql/data
+  #   depends_on:
+  #     - thingsboard
+  #   command: ["-c", "shared_preload_libraries=timescaledb"]
+  #   networks:
+  #     - my_bridge
+# =======================
 networks:
   my_bridge:
 volumes:
-  jena-data:
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
+  thingsboard-data:
+    external: true
+  thingsboard-logs:
+    external: true
+  # timescaledb-data:

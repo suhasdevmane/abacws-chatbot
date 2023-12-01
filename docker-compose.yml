@@ -11,17 +11,10 @@ services:
   #   networks:
   #     - my_bridge
   # api:
-<<<<<<< HEAD
   #   image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
   #   # build:
   #   #   context: ./api/
   #   #   dockerfile: Dockerfile
-=======
-  #   # image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
-  #   build:
-  #     context: ./api/
-  #     dockerfile: Dockerfile
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
   #   hostname: apihost
   #   container_name: abacws-api
   #   restart: always
@@ -37,17 +30,10 @@ services:
   #     - my_bridge
 
   # visualiser:
-<<<<<<< HEAD
   #   image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
   #   # build:
   #   #   context: ./visualiser/
   #   #   dockerfile: Dockerfile
-=======
-  #   # image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
-  #   build:
-  #     context: ./visualiser/
-  #     dockerfile: Dockerfile
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
   #   container_name: abacws-visualiser
   #   hostname: visualiserhost
   #   restart: always
@@ -68,7 +54,7 @@ services:
   mytb:
     restart: always
     # image: "thingsboard-jupyter:1.0"
-    image: 7499968836/my-thingsboard:1.0
+    image: 7499968836/my-thingsboard:1.1
     container_name: thingsboard
     hostname: thingsboardhost
     ports:
@@ -160,6 +146,7 @@ services:
   #   networks:
   #     - my_bridge
 
+  # ============================ jupyter ===============
   jupyter:
     image: 7499968836/jupyter_notebook:latest
     # build:
@@ -180,32 +167,36 @@ services:
     networks:
       - my_bridge
 
-  # adminer:
-  #   image: adminer
-  #   restart: always
-  #   container_name: adminer
-  #   hostname: adminerhost
-  #   depends_on:
-  #     - mytb
-  #   ports:
-  #     - 8282:8080
-  #   networks:
-  #     - my_bridge
+  adminer:
+    image: adminer
+    restart: always
+    container_name: adminer
+    hostname: adminerhost
+    depends_on:
+      - mytb
+    ports:
+      - 8282:8080
+    networks:
+      - my_bridge
 
-#=============================== ADD ONNs ===========================
+  #=============================== ADD ONNs ===========================
 
-# pgadmin:
-#   restart: always
-#   image: "dpage/pgadmin4"
-#   container_name: pgadmin
-#   hostname: pgadminhost
-#   ports:
-#     - "5050:80"
-#   environment:
-#     - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
-#     - PGADMIN_DEFAULT_PASSWORD=admin
-#   networks:
-#     - my_bridge
+  pgadmin:
+    restart: always
+    image: "dpage/pgadmin4"
+    container_name: pgadmin
+    hostname: pgadminhost
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_ADDRESS=0.0.0.0
+      - PGADMIN_SERVER_JSON_FILE=/pgadmin4/servers.json
+    volumes:
+      - ./notebooks/pgadmin/servers.json:/pgadmin4/servers.json
+    networks:
+      - my_bridge
 
 # postgres:
 #   image: "postgres:14"

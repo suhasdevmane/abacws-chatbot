@@ -9,3 +9,8 @@ SPARQLWrapper==2.0.0
 run-subprocess==0.9.1
 psycopg2==2.9.9
 paho-mqtt==1.6.1
+brickschema==0.7.1
+pandas==2.1.3
+plotly-express==0.4.1
+reasonable==0.2.6
+prettytable==3.9.0
