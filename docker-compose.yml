@@ -1,9 +1,6 @@
 version: "3.0"
 services:
-<<<<<<< HEAD
   # ================ 3D Visuliser tool ================
-=======
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
   # mongo:
   #   image: mongo
   #   container_name: abacws-chatbot-mongo
@@ -67,11 +64,7 @@ services:
   #   networks:
   #     - my_bridge
 
-<<<<<<< HEAD
   # ================== thingsboard ==================
-
-=======
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
   mytb:
     restart: always
     # image: "thingsboard-jupyter:1.0"
@@ -93,7 +86,6 @@ services:
     networks:
       - my_bridge
 
-<<<<<<< HEAD
   # ====================== Jena Fuseki =================
   fuseki-db:
     image: busybox
@@ -121,22 +113,6 @@ services:
       - my_bridge
 
   #   ============ Rasa ===========
-=======
-  # jena-fuseki:
-  #   image: stain/jena-fuseki
-  #   container_name: jena-fuseki-rdf-store
-  #   hostname: jenahost
-  #   ports:
-  #     - "3030:3030"
-  #   volumes:
-  #     - jena-data:/data
-  #   environment:
-  #     - ADMIN_PASSWORD=Suhas@551993
-  #   restart: always
-  #   networks:
-  #     - my_bridge
-
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
   # rasa:
   #   image: rasa/rasa:3.6.12-full
   #   container_name: rasa
@@ -216,12 +192,8 @@ services:
   #   networks:
   #     - my_bridge
 
-<<<<<<< HEAD
 #=============================== ADD ONNs ===========================
 
-=======
-#=================================================================
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
 # pgadmin:
 #   restart: always
 #   image: "dpage/pgadmin4"
@@ -268,10 +240,6 @@ services:
 #   networks:
 #     - my_bridge
 # =============================================================
-<<<<<<< HEAD
-
-=======
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
 networks:
   my_bridge:
 volumes:
@@ -281,11 +249,7 @@ volumes:
     external: true
   mytb-logs:
     external: true
-<<<<<<< HEAD
   jena-data:
   fuseki:
-=======
-  # jena-data:
->>>>>>> a87451a74cf694501bd10423e05429b753c9f08b
 # timescaledb-data:
 # postgres-data:
