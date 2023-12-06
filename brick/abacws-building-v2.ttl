@@ -4671,6 +4671,22 @@ bldg:Room5.34 a brick:Room ;
         bldg:west-Zone ;
     brick:hasPoint bldg:airq5.34,
         bldg:voc5.34 ;
+        bldg:c2h5ch5.34,
+        bldg:co5.34,
+        bldg:cotwo5.34,
+        bldg:dust5.34,
+        bldg:hcho5.34,
+        bldg:hum5.34,
+        bldg:light5.34,
+        bldg:mqfive5.34,
+        bldg:mqnine5.34,
+        bldg:mqthree5.34,
+        bldg:mqtwo5.34,
+        bldg:notwo5.34,
+        bldg:oxy5.34,
+        bldg:pir5.34,
+        bldg:sound5.34,
+        bldg:temp5.34,
     brick:isPartOf bldg:Floor5 .
 
 bldg:Room5.35 a brick:Room ;

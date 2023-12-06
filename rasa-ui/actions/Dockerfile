@@ -1,5 +1,5 @@
 # Use an official Rasa SDK image as a parent image
-FROM rasa/rasa-sdk:latest
+FROM rasa/rasa-sdk:3.6.2
 
 # Set the working directory to /app
 WORKDIR /app

@@ -1,0 +1,3 @@
+:tdbDataset  rdf:type  tdb:DatasetTDB ;
+    tdb:location "jdbc:postgresql://thingsboard:5432/thingsboard" ;
+.
