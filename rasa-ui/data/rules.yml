@@ -1,30 +1,32 @@
 version: "3.1"
 
 rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - rule: gives temperature
+    steps:
+      - intent: asked_temperature
+      - action: action_asked_temperature
 
-- rule: gives temperature
-  steps:
-  - intent: asked_temperature
-  - action: action_asked_temperature
+  - rule: gives report
+    steps:
+      - intent: asked_report
+      - action: action_asked_report
 
-- rule: gives temperature
-  steps:
-  - intent: asked_report
-  - action: action_asked_report
+  - rule: gives entities
+    steps:
+      - intent: asked_entities
+      - action: action_asked_entities
 
-- rule: gives entities
-  steps:
-  - intent: asked_entities
-  - action: action_asked_entities
-
-  
+  - rule: Execute custom action
+    steps:
+      - intent: action_intent
+      - action: custom_action

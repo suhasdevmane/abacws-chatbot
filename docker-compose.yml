@@ -125,7 +125,7 @@ services:
   action_server:
     build:
       context: ./rasa-ui/actions/
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-main
+    # image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-v.1.0.0
     container_name: rasa_action_server
     hostname: actionserverhost
     ports:
