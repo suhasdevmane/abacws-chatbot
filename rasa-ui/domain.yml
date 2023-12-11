@@ -10,12 +10,14 @@ intents:
   - bot_challenge
   - asked_temperature
   - asked_report
-  - asked_entities
+  # - asked_entities
+  - query_latest_sensor_data
 
 actions:
   - action_asked_temperature
   - action_asked_report
-  - action_asked_entities
+  # - action_asked_entities
+  - query_sql_node_sensor
 
 responses:
   utter_greet:
@@ -23,7 +25,7 @@ responses:
 
   utter_cheer_up:
     - text: "Here is something to cheer you up:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
+      image: "https://i.pinimg.com/564x/8d/dc/22/8ddc229afcaaa36e6bc53e15c3af2113.jpg"
 
   utter_did_that_help:
     - text: "Did that help you?"
@@ -38,5 +40,5 @@ responses:
     - text: "I am a bot, powered by Rasa."
 
 session_config:
-  session_expiration_time: 600
+  session_expiration_time: 6000
   carry_over_slots_to_new_session: true

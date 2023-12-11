@@ -21,12 +21,12 @@ rules:
       - intent: asked_report
       - action: action_asked_report
 
-  - rule: gives entities
-    steps:
-      - intent: asked_entities
-      - action: action_asked_entities
+  # - rule: gives entities
+  #   steps:
+  #     - intent: asked_entities
+  #     - action: action_asked_entities
 
-  - rule: Execute custom action
+  - rule: execute sql action
     steps:
-      - intent: action_intent
-      - action: custom_action
+      - intent: query_latest_sensor_data
+      - action: query_sql_node_sensor

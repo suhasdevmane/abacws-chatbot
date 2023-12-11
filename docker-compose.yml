@@ -130,15 +130,45 @@ services:
       - "./rasa-ui/credentials.yml:/app/credentials.yml"
       - "./rasa-ui/endpoints.yml:/app/endpoints.yml"
     command:
-      # - train
+      # - train # uncomment for training new nlu and core model
+      # - nlu # uncomment for training new nlu model
       - run
       - --cors
       - "*"
       - --enable-api
     networks:
       - my_bridge
+  # ==============rasa train and up ==================
+
+  #  train:
+  #     image: rasa/rasa:3.4.2-full
+  #     ports:
+  #       - 8080:8080
+  #     volumes:
+  #       - ./rasa_Chatbot:/app
+  #     command:
+  #       - train
+  #   rasa:
+  #     image: rasa/rasa:3.4.2-full
+  #     ports:
+  #       - 5005:5005
+  #     depends_on:
+  #       train:
+  #         condition: service_completed_successfully
+  #     volumes:
+  #       - ./rasa_Chatbot:/app
+  #     command:
+  #       - run
+  #       - -m
+  #       - models
+  #       - --enable-api
+  #       - --cors
+  #       - "*"
+
+  # ==================================
 
   action_server:
+    restart: always
     build:
       context: ./rasa-ui/actions/
     # image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-v.1.0.0
