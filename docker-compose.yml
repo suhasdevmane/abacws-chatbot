@@ -73,33 +73,49 @@ services:
       - my_bridge
 
   # ====================== Jena Fuseki =================
-  fuseki-db:
-    image: busybox
-    container_name: jena-fuseki-db
-    volumes:
-      - jena-data:/fuseki
-    command: tail -f /dev/null # Keep the container running in the background
-    networks:
-      - my_bridge
+  # fuseki-db:
+  #   image: busybox
+  #   container_name: jena-fuseki-db
+  #   volumes:
+  #     - jena-data:/fuseki
+  #   command: tail -f /dev/null # Keep the container running in the background
+  #   networks:
+  #     - my_bridge
 
-  jena-fuseki:
-    image: stain/jena-fuseki
-    container_name: jena-fuseki-rdf-store
-    ports:
-      - "3030:3030"
-    volumes_from:
-      - fuseki-db
-    volumes:
-      - ./trial/dataset:/fuseki-data
-      # - ./config.ttl:/fuseki/config.ttl
-      # - ./postgresql-42.7.0.jar:/fuseki/WEB-INF/lib/postgresql-42.7.0.jar
-    restart: always
-    environment:
-      - ADMIN_PASSWORD=Suhas@551993
-      # - FUSEKI_TDB_DATASET_1="tdb:location jdbc:postgresql://thingsboard:5432/thingsboard"
-    user: "root" # Specify the user as root
-    networks:
-      - my_bridge
+  # jena-fuseki:
+  #   image: stain/jena-fuseki
+  #   container_name: jena-fuseki-rdf-store
+  #   ports:
+  #     - "3030:3030"
+  #   volumes_from:
+  #     - fuseki-db
+  #   volumes:
+  #     - ./trial/dataset:/fuseki-data
+  #     # - ./config.ttl:/fuseki/config.ttl
+  #     # - ./postgresql-42.7.0.jar:/fuseki/WEB-INF/lib/postgresql-42.7.0.jar
+  #   restart: always
+  #   environment:
+  #     - ADMIN_PASSWORD=Suhas@551993
+  #     # - FUSEKI_TDB_DATASET_1="tdb:location jdbc:postgresql://thingsboard:5432/thingsboard"
+  #   user: "root" # Specify the user as root
+  #   networks:
+  #     - my_bridge
+  #  ============ GraphDB =========
+
+  # graphdb:
+  #   image: ontotext/graphdb:10.4.2
+  #   container_name: graphdb
+  #   restart: always
+  #   ports:
+  #     - "7200:7200"
+  #   volumes:
+  #     - ./graphDB:/opt/graphdb/home/
+  #   environment:
+  #     - GRAPHDB_HOME=/opt/graphdb/home
+  #     - GDB_USER=admin
+  #     - GDB_PASSWORD=Suhas@551993 #root is default password
+  #   networks:
+  # - my_bridge
 
   #   ============ Rasa ===========
   rasa:
@@ -132,8 +148,8 @@ services:
       - "5055:5055"
     depends_on:
       - rasa
-    volumes:
-      - ./rasa-ui/actions:/app/actions
+    # volumes:
+    # - ./rasa-ui/actions:/app/actions
     networks:
       - my_bridge
 
@@ -158,26 +174,26 @@ services:
       - my_bridge
 
   # ============================ jupyter ===============
-  jupyter:
-    image: 7499968836/jupyter_notebook:latest
-    # build:
-    #   context: ./notebooks/
-    container_name: jupyter_notebook
-    hostname: jupyter-notebook-host
-    restart: always
-    ports:
-      - "8888:8888"
-      - "8089:8089" #to see ontology
-    volumes:
-      - ./notebooks:/home/jovyan/work
-      - ./rasa-ui/actions:/home/jovyan/work/rasa-actions
-    environment:
-      - JUPYTER_ENABLE_LAB=yes
-      - JUPYTER_TOKEN=Suhas@551993
-    command:
-      - start-notebook.sh
-    networks:
-      - my_bridge
+  # jupyter:
+  #   image: 7499968836/jupyter_notebook:latest
+  #   # build:
+  #   #   context: ./notebooks/
+  #   container_name: jupyter_notebook
+  #   hostname: jupyter-notebook-host
+  #   restart: always
+  #   ports:
+  #     - "8888:8888"
+  #     - "8089:8089" #to see ontology
+  #   volumes:
+  #     - ./notebooks:/home/jovyan/work
+  #     - ./rasa-ui/actions:/home/jovyan/work/rasa-actions
+  #   environment:
+  #     - JUPYTER_ENABLE_LAB=yes
+  #     - JUPYTER_TOKEN=Suhas@551993
+  #   command:
+  #     - start-notebook.sh
+  #   networks:
+  #     - my_bridge
 
   # adminer:
   #   image: adminer
@@ -252,7 +268,7 @@ volumes:
     external: true
   mytb-logs:
     external: true
-  jena-data:
-  fuseki:
-# timescaledb-data:
-# postgres-data:
+  # jena-data:
+  # fuseki:
+  # timescaledb-data:
+  # postgres-data:

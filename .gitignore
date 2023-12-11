@@ -11,3 +11,4 @@ abacws-smat-building.pem
 abacws-smart-building.pem
 abacws.visualizer.pem
 .gitattributes
+graphDB/

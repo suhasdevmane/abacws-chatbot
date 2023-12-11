@@ -8,7 +8,6 @@ import json
 import csv
 
 
-
 class ActionAskedEntities(Action):
     def name(self) -> Text:
         return "action_asked_entities"

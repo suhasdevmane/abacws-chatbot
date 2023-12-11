@@ -11,13 +11,11 @@ intents:
   - asked_temperature
   - asked_report
   - asked_entities
-  - action_intent
 
 actions:
   - action_asked_temperature
   - action_asked_report
   - action_asked_entities
-  - custom_action
 
 responses:
   utter_greet:
