@@ -1,231 +1,41 @@
-Certainly, I've organized and improved the structure of your project's README file. Here's the revised README:
+To build a chatbot that understands and reasons over a Brick Schema ontology to answer users' questions. While OWL provides advanced reasoning capabilities, you can still achieve reasoning using specific approaches within the context of Brick Schema.
 
----
+Here's a general approach to building a chatbot without using OWL directly:
 
-# Abacws Data Visualizer
+### 1. Ontology-Based Chatbot Framework:
+   - Utilize a chatbot framework that supports ontology-based reasoning. Ensure it can handle queries and understand the structure of your Brick Schema ontology.
 
-**Note:** This project is currently under development.
+### 2. Natural Language Processing (NLP):
+   - Integrate Natural Language Processing capabilities to understand user queries in natural language. This involves parsing and extracting the intent and entities from user inputs.
 
-This project is designed to create a Python virtual environment for accessing different APIs. It allows you to visualize IoT data for devices in the Abacws building at Cardiff University. The repository contains both the API and the Visualizer tool, both of which are deployed using [Docker](https://www.docker.com/).
+### 3. Query Translation:
+   - Translate the natural language queries into queries that can be executed against the Brick Schema ontology. This may involve mapping user intents to specific classes, properties, or relationships in the ontology.
 
-You can find the production deployments of these tools at the following locations:
-- [API](https://abacws.ggrainger.uk/api/)
-- [Visualizer](https://abacws.ggrainger.uk/)
+### 4. Ontology Query Execution:
+   - Implement a mechanism to execute queries against the Brick Schema ontology. This could involve using SPARQL queries (if your ontology is represented in RDF) or custom query mechanisms specific to your ontology format.
 
-## Documentation
+### 5. Reasoning Rules:
+   - Define reasoning rules within your chatbot. These rules can be specific to the semantics of your ontology and may involve conditional logic, inference, or deduction based on the ontology's structure.
 
-You can view the documentation for the two separate services in their respective README files:
-- [API](./api/README.md)
-- [Visualizer](./visualizer/README.md)
+### 6. Response Generation:
+   - Based on the results of the ontology queries and reasoning, generate responses that are meaningful and relevant to the user's queries. This might involve formatting the results in a user-friendly way.
 
-## Setup
+### Example:
 
-To set up the project, follow these steps:
+User: "Which rooms have high temperature sensors?"
 
-1. Create a Python virtual environment to access different APIs:
+Chatbot:
+1. Translate to Ontology Query: Convert the query to an ontology query that seeks rooms with high-temperature sensors.
+2. Execute Ontology Query: Query the Brick Schema ontology to identify rooms with high-temperature sensors.
+3. Apply Reasoning: Apply any reasoning rules, such as inferring additional information based on the ontology.
+4. Generate Response: Provide a response such as "The following rooms have high-temperature sensors: Room A, Room B."
 
-   ```bash
-   python -m venv ./abacws-chatbot-venv
-   ```
+### Considerations:
 
-2. Activate the environment:
+- Ontology Structure: Ensure that your Brick Schema ontology is well-structured and represents the relevant information for answering user queries.
 
-   For Windows:
-   ```bash
-   ./abacwsenvs/Scripts/activate
-   ```
+- Chatbot Capabilities: Choose or build a chatbot framework that supports the integration of ontology-based reasoning and can handle the complexities of your ontology.
 
-3. Upgrade pip:
+- Scalability: Consider the scalability of your solution, especially if your ontology or user base grows.
 
-   ```bash
-   python.exe -m pip install --upgrade pip
-   ```
-
-4. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   python -m spacy download en_core_web_sm
-   ```
-
-## Docker Compose
-
-We recommend using Docker Compose to deploy this project to your server, alongside [Traefik](https://traefik.io/traefik/). Here's an example of a Docker Compose file:
-
-```yaml
-version: '3.8'
-services:
-  mongo:
-    image: mongo
-    container_name: abacws-mongo
-    restart: always
-    volumes:
-      - ./mongo:/data/db
-
-  api:
-    image: ghcr.io/randomman552/abacws-data-vis:api-latest
-    container_name: abacws-api
-    restart: always
-    depends_on:
-      - mongo
-
-  visualiser:
-    image: ghcr.io/randomman552/abacws-data-vis:visualiser-latest
-    container_name: abacws-visualiser
-    restart: always
-    depends_on:
-      - api
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
-      - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
-      - "traefik.http.routers.abacws-visualiser.entrypoints=https"
-      - "traefik.http.routers.abacws-visualiser.tls=true"
-```
-
-## Supported Tags
-
-| Tag                 | Description                 |
-|:-------------------:|:---------------------------:|
-| `visualiser-latest` | Production-ready visualizer |
-| `visualiser-main`   | Development visualizer      |
-| `visualiser-vx.y.z` | Specific visualizer version |
-| `api-latest`        | Production-ready API        |
-| `api-main`          | Development API             |
-| `api-vx.y.z`        | Specific API version        |
-
-## ThingsBoard/tb-Postgres
-
-ThingsBoard is an open-source IoT platform for data collection, processing, visualization, and device management.
-
-Before starting the Docker container, run the following commands to create directories for storing data and logs and change their ownership to the Docker container user:
-
-```bash
-$ mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
-$ mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
-```
-
-Execute the following command to run this Docker container:
-
-```bash
-$ docker run -it -p 9090:9090 -p 1883:1883 -p 7070:7070 -p 5683-5688:5683-5688/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb-postgres
-```
-
-After executing this command, you can open http://{your-host-ip}:9090 in your browser. You should see the ThingsBoard login page. Use the following default credentials:
-
-- System Administrator: sysadmin@thingsboard.org / sysadmin
-- Tenant Administrator: tenant@thingsboard.org / tenant
-- Customer User: customer@thingsboard.org / customer
-
-You can always change passwords for each account in the account profile page.
-
-All APIs and services are available on the following ports:
-
-- 8090: Abacws 3D Live visualization
-- 8090/api/: Abacws 3D backend data API for performing queries
-- 8080: IoT sensor data platform, Thingsboard GUI
-- 8080/swagger-ui/: Thingsboard data query API for all devices and sensors
-- 5050: PgAdmin GUI to connect to the Thingsboard PostgreSQL database
-- 3030: Apache Jena Fusuki Server to host PDF data and perform queries
-- 5005: Rasa Server Host
-- 5055: Rasa Action Server Host
-- 8082: Access Rasa Chatbot WEB UI to talk to the Abacws.
-
-To access all APIs and services, attach all containers to the same network. You can create a network using the command:
-
-```bash
-docker network create <network_name>
-```
-
-For example, we have used a network called 'Network abacws-chatbot_my_bridge' in the Docker Compose file.
-
-To run all containers, use the following command:
-
-```bash
-docker compose up -d
-```
-
-To inspect IP addresses assigned to your containers, run:
-
-```bash
-docker network inspect your_network_name
-```
-
-To extract the container IDs from the JSON output, run:
-
-```bash
-docker network inspect your_network_name | jq -r '.[0].Containers | keys[]'
-```
-
-For Windows, you can run:
-
-```bash
-FOR /f "tokens=*" %i IN ('docker ps -q') DO docker inspect -f "{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" %i
-```
-
-To see container IDs, their names, and the network they are connected to, run:
-
-```bash
-docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Networks}}"
-```
-
-## PostgreSQL and TimescaleDB
-
-You can access PostgreSQL and TimescaleDB using the following instructions:
-
-1. To log in to the Docker container as a root user to make changes, use:
-
-   ```bash
-   docker exec --user="root" -it <container_id> /bin/bash
-   ```
-
-2. To copy files from the container to the local repository to change configurations, use:
-
-   ```bash
-   docker cp <container_id>:<container_path> <local_path>
-   ```
-
-3. To install required packages to make changes, access the container as the root user and use package manager commands like `apt-get`:
-
-   ```bash
-
-
-   apt-get update
-   apt-get install <package_name>
-   ```
-
-## PostgreSQL and TimescaleDB
-
-You can access PostgreSQL and TimescaleDB as follows:
-
-1. To log in to the PostgreSQL command line tool inside the Docker container, use:
-
-   ```bash
-   docker exec -it <container_name> psql -U postgres
-   ```
-
-2. To create a new database in PostgreSQL, use:
-
-   ```sql
-   CREATE DATABASE <database_name>;
-   ```
-
-3. To create an extension, use:
-
-   ```sql
-   CREATE EXTENSION IF NOT EXISTS timescaledb;
-   ```
-
-4. To list available extensions, use:
-
-   ```sql
-   \dx
-   ```
-
-## Contact Information
-
-This project is maintained by Suhas Devmane as part of a PhD research project. For questions or inquiries, you can contact Suhas Devmane at [suhasdevmane@outlook.com](mailto:suhasdevmane@outlook.com).
-
----
-
-Feel free to make any additional modifications or updates based on your specific project details and requirements.
+By focusing on the reasoning capabilities within the context of Brick Schema, you can create a chatbot that effectively answers user questions related to building systems and automation.

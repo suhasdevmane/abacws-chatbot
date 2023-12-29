@@ -1,54 +1,54 @@
 version: "3.0"
 services:
   # ================ 3D Visuliser tool ================
-  mongo:
-    image: mongo
-    container_name: abacws-chatbot-mongo
-    hostname: mongohost
-    restart: always
-    volumes:
-      - mongo-data:/data/db
-    networks:
-      - my_bridge
-  api:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
-    # build:
-    #   context: ./api/
-    #   dockerfile: Dockerfile
-    hostname: apihost
-    container_name: abacws-api
-    restart: always
-    depends_on:
-      - mongo
-    environment:
-      - API_PORT=5000
-    ports:
-      - 8091:5000
-    volumes:
-      - ./api/src/api/data:/api/api/data
-    networks:
-      - my_bridge
+  # mongo:
+  #   image: mongo
+  #   container_name: abacws-chatbot-mongo
+  #   hostname: mongohost
+  #   restart: always
+  #   volumes:
+  #     - mongo-data:/data/db
+  #   networks:
+  #     - my_bridge
+  # api:
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
+  #   # build:
+  #   #   context: ./api/
+  #   #   dockerfile: Dockerfile
+  #   hostname: apihost
+  #   container_name: abacws-api
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     - API_PORT=5000
+  #   ports:
+  #     - 8091:5000
+  #   volumes:
+  #     - ./api/src/api/data:/api/api/data
+  #   networks:
+  #     - my_bridge
 
-  visualiser:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
-    # build:
-    #   context: ./visualiser/
-    #   dockerfile: Dockerfile
-    container_name: abacws-visualiser
-    hostname: visualiserhost
-    restart: always
-    depends_on:
-      - api
-    ports:
-      - 8090:80
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
-      - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
-      - "traefik.http.routers.abacws-visualiser.entrypoints=https"
-      - "traefik.http.routers.abacws-visualiser.tls=true"
-    networks:
-      - my_bridge
+  # visualiser:
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
+  #   # build:
+  #   #   context: ./visualiser/
+  #   #   dockerfile: Dockerfile
+  #   container_name: abacws-visualiser
+  #   hostname: visualiserhost
+  #   restart: always
+  #   depends_on:
+  #     - api
+  #   ports:
+  #     - 8090:80
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
+  #     - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
+  #     - "traefik.http.routers.abacws-visualiser.entrypoints=https"
+  #     - "traefik.http.routers.abacws-visualiser.tls=true"
+  #   networks:
+  #     - my_bridge
 
   # ================== thingsboard ==================
   mytb:
@@ -73,71 +73,71 @@ services:
       - my_bridge
 
   # ====================== Jena Fuseki =================
-  fuseki-db:
-    image: busybox
-    container_name: jena-fuseki-db
-    volumes:
-      - jena-data:/fuseki
-    command: tail -f /dev/null # Keep the container running in the background
-    networks:
-      - my_bridge
+  # fuseki-db:
+  #   image: busybox
+  #   container_name: jena-fuseki-db
+  #   volumes:
+  #     - jena-data:/fuseki
+  #   command: tail -f /dev/null # Keep the container running in the background
+  #   networks:
+  #     - my_bridge
 
-  jena-fuseki:
-    image: stain/jena-fuseki
-    container_name: jena-fuseki-rdf-store
-    ports:
-      - "3030:3030"
-    volumes_from:
-      - fuseki-db
-    volumes:
-      - ./trial/dataset:/fuseki-data
-      # - ./config.ttl:/fuseki/config.ttl
-      # - ./postgresql-42.7.0.jar:/fuseki/WEB-INF/lib/postgresql-42.7.0.jar
-    restart: always
-    environment:
-      - ADMIN_PASSWORD=Suhas@551993
-      # - FUSEKI_TDB_DATASET_1="tdb:location jdbc:postgresql://thingsboard:5432/thingsboard"
-    user: "root" # Specify the user as root
-    networks:
-      - my_bridge
-  #  ============ GraphDB =========
+  # jena-fuseki:
+  #   image: stain/jena-fuseki
+  #   container_name: jena-fuseki-rdf-store
+  #   ports:
+  #     - "3030:3030"
+  #   volumes_from:
+  #     - fuseki-db
+  #   volumes:
+  #     - ./trial/dataset:/fuseki-data
+  #     # - ./config.ttl:/fuseki/config.ttl
+  #     # - ./postgresql-42.7.0.jar:/fuseki/WEB-INF/lib/postgresql-42.7.0.jar
+  #   restart: always
+  #   environment:
+  #     - ADMIN_PASSWORD=Suhas@551993
+  #     # - FUSEKI_TDB_DATASET_1="tdb:location jdbc:postgresql://thingsboard:5432/thingsboard"
+  #   user: "root" # Specify the user as root
+  #   networks:
+  #     - my_bridge
+  # #  ============ GraphDB =========
 
-  graphdb:
-    image: ontotext/graphdb:10.4.2
-    container_name: graphdb
-    restart: always
-    ports:
-      - "7200:7200"
-    volumes:
-      - ./graphDB:/opt/graphdb/home/
-    environment:
-      - GRAPHDB_HOME=/opt/graphdb/home
-      - GDB_USER=admin
-      - GDB_PASSWORD=Suhas@551993 #root is default password
-    networks:
-      - my_bridge
+  # graphdb:
+  #   image: ontotext/graphdb:10.4.2
+  #   container_name: graphdb
+  #   restart: always
+  #   ports:
+  #     - "7200:7200"
+  #   volumes:
+  #     - ./graphDB:/opt/graphdb/home/
+  #   environment:
+  #     - GRAPHDB_HOME=/opt/graphdb/home
+  #     - GDB_USER=admin
+  #     - GDB_PASSWORD=Suhas@551993 #root is default password
+  #   networks:
+  #     - my_bridge
 
-  #   ============ Rasa ===========
-  rasa:
-    image: rasa/rasa:3.6.12-full
-    container_name: rasa
-    hostname: rasahost
-    ports:
-      - "5005:5005"
-    volumes:
-      - "./rasa-ui/:/app/"
-      - "./rasa-ui/config.yml:/app/config.yml"
-      - "./rasa-ui/credentials.yml:/app/credentials.yml"
-      - "./rasa-ui/endpoints.yml:/app/endpoints.yml"
-    command:
-      # - train # uncomment for training new nlu and core model
-      # - nlu # uncomment for training new nlu model
-      - run
-      - --cors
-      - "*"
-      - --enable-api
-    networks:
-      - my_bridge
+  # #   ============ Rasa ===========
+  # rasa:
+  #   image: rasa/rasa:3.6.12-full
+  #   container_name: rasa
+  #   hostname: rasahost
+  #   ports:
+  #     - "5005:5005"
+  #   volumes:
+  #     - "./rasa-ui/:/app/"
+  #     - "./rasa-ui/config.yml:/app/config.yml"
+  #     - "./rasa-ui/credentials.yml:/app/credentials.yml"
+  #     - "./rasa-ui/endpoints.yml:/app/endpoints.yml"
+  #   command:
+  #     # - train # uncomment for training new nlu and core model
+  #     # - nlu # uncomment for training new nlu model
+  #     - run
+  #     - --cors
+  #     - "*"
+  #     - --enable-api
+  #   networks:
+  #     - my_bridge
   # ==============rasa train and up ==================
 
   #  train:
@@ -167,21 +167,21 @@ services:
 
   # ==================================
 
-  action_server:
-    restart: always
-    build:
-      context: ./rasa-ui/actions/
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-v.1.0.0
-    container_name: rasa_action_server
-    hostname: actionserverhost
-    ports:
-      - "5055:5055"
-    depends_on:
-      - rasa
-    # volumes:
-    # - ./rasa-ui/actions:/app/actions
-    networks:
-      - my_bridge
+  # action_server:
+  #   restart: always
+  #   build:
+  #     context: ./rasa-ui/actions/
+  #   # image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-v.1.0.0
+  #   container_name: rasa_action_server
+  #   hostname: actionserverhost
+  #   ports:
+  #     - "5055:5055"
+  #   depends_on:
+  #     - rasa
+  #   # volumes:
+  #   # - ./rasa-ui/actions:/app/actions
+  #   networks:
+  #     - my_bridge
 
   # watchtower:
   #   image: containrrr/watchtower
@@ -189,72 +189,72 @@ services:
   #     - /var/run/docker.sock:/var/run/docker.sock
   #   command: --run-once action_server
 
-  web_ui:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
-    # build:
-    #   context: ./rasa-ui/ui
-    container_name: rasa-web-ui
-    hostname: webuihost
-    ports:
-      - "8082:80"
-    depends_on:
-      - action_server
-      - rasa
-    networks:
-      - my_bridge
+  # web_ui:
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
+  #   # build:
+  #   #   context: ./rasa-ui/ui
+  #   container_name: rasa-web-ui
+  #   hostname: webuihost
+  #   ports:
+  #     - "8082:80"
+  #   depends_on:
+  #     - action_server
+  #     - rasa
+  #   networks:
+  #     - my_bridge
 
   # ============================ jupyter ===============
-  jupyter:
-    image: 7499968836/jupyter_notebook:latest
-    # build:
-    #   context: ./notebooks/
-    container_name: jupyter_notebook
-    hostname: jupyter-notebook-host
-    restart: always
-    ports:
-      - "8888:8888"
-      - "8089:8089" #to see ontology
-    volumes:
-      - ./notebooks:/home/jovyan/work
-      - ./rasa-ui/actions:/home/jovyan/work/rasa-actions
-    environment:
-      - JUPYTER_ENABLE_LAB=yes
-      - JUPYTER_TOKEN=Suhas@551993
-    command:
-      - start-notebook.sh
-    networks:
-      - my_bridge
+  # jupyter:
+  #   image: 7499968836/jupyter_notebook:latest
+  #   # build:
+  #   #   context: ./notebooks/
+  #   container_name: jupyter_notebook
+  #   hostname: jupyter-notebook-host
+  #   restart: always
+  #   ports:
+  #     - "8888:8888"
+  #     - "8089:8089" #to see ontology
+  #   volumes:
+  #     - ./notebooks:/home/jovyan/work
+  #     - ./rasa-ui/actions:/home/jovyan/work/rasa-actions
+  #   environment:
+  #     - JUPYTER_ENABLE_LAB=yes
+  #     - JUPYTER_TOKEN=Suhas@551993
+  #   command:
+  #     - start-notebook.sh
+  #   networks:
+  #     - my_bridge
 
-  adminer:
-    image: adminer
-    restart: always
-    container_name: adminer
-    hostname: adminerhost
-    depends_on:
-      - mytb
-    ports:
-      - 8282:8080
-    networks:
-      - my_bridge
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   container_name: adminer
+  #   hostname: adminerhost
+  #   depends_on:
+  #     - mytb
+  #   ports:
+  #     - 8282:8080
+  #   networks:
+  #     - my_bridge
 
   #=============================== ADD ONNs ===========================
 
-  pgadmin:
-    restart: always
-    image: "dpage/pgadmin4"
-    container_name: pgadmin
-    hostname: pgadminhost
-    ports:
-      - "5050:80"
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
-      - PGADMIN_LISTEN_ADDRESS=0.0.0.0
-      - PGADMIN_SERVER_JSON_FILE=/pgadmin4/servers.json
-    volumes:
-      - ./notebooks/pgadmin/servers.json:/pgadmin4/servers.json
-    networks:
-      - my_bridge
+  # pgadmin:
+  #   restart: always
+  #   image: "dpage/pgadmin4"
+  #   container_name: pgadmin
+  #   hostname: pgadminhost
+  #   ports:
+  #     - "5050:80"
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
+  #     - PGADMIN_DEFAULT_PASSWORD=admin
+  #     - PGADMIN_LISTEN_ADDRESS=0.0.0.0
+  #     - PGADMIN_SERVER_JSON_FILE=/pgadmin4/servers.json
+  #   volumes:
+  #     - ./notebooks/pgadmin/servers.json:/pgadmin4/servers.json
+  #   networks:
+  #     - my_bridge
 
 # postgres:
 #   image: "postgres:14"
@@ -292,13 +292,13 @@ services:
 networks:
   my_bridge:
 volumes:
-  mongo-data:
-  api-data:
+  # mongo-data:
+  # api-data:
   mytb-data:
     external: true
   mytb-logs:
     external: true
-  jena-data:
-  fuseki:
+  # jena-data:
+  # fuseki:
   # timescaledb-data:
   # postgres-data:

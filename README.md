@@ -693,3 +693,6 @@ LIMIT 10;
 SELECT DISTINCT entity_id
 FROM ts_kv;
 
+
+ <!-- understand OWL -->
+ <!-- https://chrdebru.github.io/courses/ois/ -->
