@@ -278,3 +278,97 @@ class query_sql_node_sensor(Action):
             connection.close()
 
             return []
+    
+
+# class action_asked_q1(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q1"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+
+# class action_asked_q2(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q2"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q3(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q3"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q4(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q4"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q5(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q5"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q6(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q6"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q7(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q7"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q8(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q8"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q9(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q9"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+    
+# class action_asked_q10(Action):
+#     def name(self) -> Text:
+#         return "action_asked_q10"
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
+#             return []
+

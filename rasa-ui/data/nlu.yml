@@ -115,6 +115,51 @@ nlu:
       - generate a SPARQL report
       - ginerate a sparql result
 
+  - intent: asked_q1
+    examples: |
+      - What is the current PM2.5 level in Room 5.12?
+      - tell me the current PM2.5 level in Room 5.12.
+
+  - intent: asked_q2
+    examples: |
+      - Provide the latest oxygen level in Room 5.25.
+      - tell me the latest oxygen level in romm 5.25.
+
+  - intent: asked_q3
+    examples: |
+      - What is the average temperature of the building?
+      - tell me average temperature of the building.
+
+  - intent: asked_q4
+    examples: |
+      - What is the minimum CO2 level in the building over the last week?
+
+  - intent: asked_q5
+    examples: |
+      - Provide the average PM2.5 level on the third floor during working hours.
+
+  - intent: asked_q6
+    examples: |
+      - Provide the average temperature on the fourth floor during weekends.
+
+  - intent: asked_q7
+    examples: |
+      - What is the current CO2 level in the building on the 4th floor, if it is above 1000 ppm?
+
+  - intent: asked_q8
+    examples: |
+      - Find the rooms with abnormal oxygen levels, and if available, show the correlated CO2 levels.
+
+  - intent: asked_q9
+    examples: |
+      - Predict potential issues with temperature regulation in specific rooms based on historical data.
+
+  - intent: asked_q10
+    examples: |
+      - Predict the future CO2 levels in the building based on the current trend.
+
+
+
   - intent: query_latest_sensor_data
     examples: |
       - please tell me [node_5.03](sensor_nodes) [o2per](data_to_fetch)?
@@ -160,541 +205,541 @@ nlu:
       - what is the [node_5.07](sensor_nodes) [memsvalue](data_to_fetch)?
       - please tell me [node_5.20](sensor_nodes) [VOC](data_to_fetch)?
       - provide the [node_5.05](sensor_nodes) [tempreture](data_to_fetch)?
-      - please tell me [node_5.04](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.14](sensor_nodes) [co_gas](data_to_fetch)?
-      - can you provide [node_5.18](sensor_nodes) [o2per](data_to_fetch)?
-      - what is the [node_5.07](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - tell me readings for [node_5.25](sensor_nodes) [NO2](data_to_fetch)?
-      - can you provide [node_5.06](sensor_nodes) [VOC](data_to_fetch)?
-      - provide the [node_5.26](sensor_nodes) [tempreture](data_to_fetch)?
-      - can you provide [node_5.23](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - please tell me [node_5.22](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.07](sensor_nodes) [VOC](data_to_fetch)?
-      - please tell me [node_5.02](sensor_nodes) [NO2](data_to_fetch)?
-      - can you provide [node_5.13](sensor_nodes) [humidity](data_to_fetch)?
-      - can you provide [node_5.31](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.17](sensor_nodes) [humidity](data_to_fetch)?
-      - give me [node_5.10](sensor_nodes) [tempreture](data_to_fetch)?
-      - tell me readings for [node_5.24](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.30](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - give me [node_5.13](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.08](sensor_nodes) [co2value](data_to_fetch)?
-      - please tell me [node_5.15](sensor_nodes) [NO2](data_to_fetch)?
-      - tell me readings for [node_5.12](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - what is the [node_5.22](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - give me [node_5.33](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - give me [node_5.28](sensor_nodes) [NO2](data_to_fetch)?
-      - give me [node_5.06](sensor_nodes) [memsvalue](data_to_fetch)?
-      - tell me readings for [node_5.26](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.21](sensor_nodes) [NO2](data_to_fetch)?
-      - share the [node_5.16](sensor_nodes) [NO2](data_to_fetch)?
-      - provide the [node_5.05](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.01](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - tell me readings for [node_5.05](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - provide the [node_5.32](sensor_nodes) [co2value](data_to_fetch)?
-      - what is the [node_5.11](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - what is the [node_5.20](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - give me [node_5.08](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - share the [node_5.34](sensor_nodes) [NO2](data_to_fetch)?
-      - share the [node_5.24](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - tell me readings for [node_5.24](sensor_nodes) [tempreture](data_to_fetch)?
-      - what is the [node_5.08](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.23](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - give me [node_5.20](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - please tell me [node_5.23](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.05](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - share the [node_5.11](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - give me [node_5.29](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - please tell me [node_5.18](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - can you provide [node_5.09](sensor_nodes) [memsvalue](data_to_fetch)?
-      - what is the [node_5.19](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - what is the [node_5.03](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - can you provide [node_5.34](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - share the [node_5.07](sensor_nodes) [co_gas](data_to_fetch)?
-      - what is the [node_5.02](sensor_nodes) [memsvalue](data_to_fetch)?
-      - please tell me [node_5.03](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - what is the [node_5.14](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - give me [node_5.24](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.28](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - give me [node_5.20](sensor_nodes) [NO2](data_to_fetch)?
-      - tell me readings for [node_5.07](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - tell me readings for [node_5.31](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - can you provide [node_5.01](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.24](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - give me [node_5.17](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - what is the [node_5.07](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.26](sensor_nodes) [co_gas](data_to_fetch)?
-      - give me [node_5.24](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - share the [node_5.01](sensor_nodes) [NO2](data_to_fetch)?
-      - what is the [node_5.24](sensor_nodes) [co2value](data_to_fetch)?
-      - what is the [node_5.32](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - share the [node_5.06](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - can you provide [node_5.18](sensor_nodes) [humidity](data_to_fetch)?
-      - provide the [node_5.29](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.06](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - what is the [node_5.33](sensor_nodes) [tempreture](data_to_fetch)?
-      - tell me readings for [node_5.15](sensor_nodes) [memsvalue](data_to_fetch)?
-      - share the [node_5.12](sensor_nodes) [co_gas](data_to_fetch)?
-      - what is the [node_5.29](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - give me [node_5.32](sensor_nodes) [tempreture](data_to_fetch)?
-      - please tell me [node_5.09](sensor_nodes) [tempreture](data_to_fetch)?
-      - tell me readings for [node_5.20](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - provide the [node_5.26](sensor_nodes) [VOC](data_to_fetch)?
-      - can you provide [node_5.15](sensor_nodes) [tempreture](data_to_fetch)?
-      - can you provide [node_5.32](sensor_nodes) [lux](data_to_fetch)?
-      - provide the [node_5.09](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - share the [node_5.23](sensor_nodes) [o2per](data_to_fetch)?
-      - share the [node_5.08](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.20](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - tell me readings for [node_5.05](sensor_nodes) [lux](data_to_fetch)?
-      - can you provide [node_5.12](sensor_nodes) [NO2](data_to_fetch)?
-      - share the [node_5.03](sensor_nodes) [NO2](data_to_fetch)?
-      - give me [node_5.02](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.25](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - please tell me [node_5.12](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - give me [node_5.05](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - share the [node_5.27](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - tell me readings for [node_5.32](sensor_nodes) [humidity](data_to_fetch)?
-      - give me [node_5.34](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - share the [node_5.30](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.01](sensor_nodes) [humidity](data_to_fetch)?
-      - please tell me [node_5.20](sensor_nodes) [tempreture](data_to_fetch)?
-      - share the [node_5.28](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - what is the [node_5.08](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - provide the [node_5.08](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - give me [node_5.23](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - share the [node_5.16](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - share the [node_5.33](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - please tell me [node_5.22](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - what is the [node_5.24](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - what is the [node_5.18](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - share the [node_5.03](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - can you provide [node_5.20](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - can you provide [node_5.04](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - give me [node_5.11](sensor_nodes) [lux](data_to_fetch)?
-      - provide the [node_5.29](sensor_nodes) [lux](data_to_fetch)?
-      - what is the [node_5.12](sensor_nodes) [VOC](data_to_fetch)?
-      - can you provide [node_5.16](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.07](sensor_nodes) [NO2](data_to_fetch)?
-      - provide the [node_5.22](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - tell me readings for [node_5.33](sensor_nodes) [NO2](data_to_fetch)?
-      - share the [node_5.27](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - please tell me [node_5.21](sensor_nodes) [memsvalue](data_to_fetch)?
-      - share the [node_5.27](sensor_nodes) [memsvalue](data_to_fetch)?
-      - provide the [node_5.08](sensor_nodes) [humidity](data_to_fetch)?
-      - can you provide [node_5.17](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.31](sensor_nodes) [o2per](data_to_fetch)?
-      - what is the [node_5.29](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - can you provide [node_5.19](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - provide the [node_5.26](sensor_nodes) [o2per](data_to_fetch)?
-      - can you provide [node_5.31](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - can you provide [node_5.14](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - tell me readings for [node_5.15](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - tell me readings for [node_5.19](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - tell me readings for [node_5.03](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - give me [node_5.01](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - please tell me [node_5.25](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - what is the [node_5.28](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - provide the [node_5.09](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - please tell me [node_5.29](sensor_nodes) [VOC](data_to_fetch)?
-      - share the [node_5.18](sensor_nodes) [memsvalue](data_to_fetch)?
-      - please tell me [node_5.25](sensor_nodes) [co_gas](data_to_fetch)?
-      - please tell me [node_5.27](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - provide the [node_5.18](sensor_nodes) [lux](data_to_fetch)?
-      - provide the [node_5.32](sensor_nodes) [memsvalue](data_to_fetch)?
-      - tell me readings for [node_5.33](sensor_nodes) [VOC](data_to_fetch)?
-      - can you provide [node_5.22](sensor_nodes) [tempreture](data_to_fetch)?
-      - tell me readings for [node_5.08](sensor_nodes) [lux](data_to_fetch)?
-      - what is the [node_5.26](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - what is the [node_5.01](sensor_nodes) [memsvalue](data_to_fetch)?
-      - can you provide [node_5.12](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.15](sensor_nodes) [o2per](data_to_fetch)?
-      - provide the [node_5.25](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - provide the [node_5.28](sensor_nodes) [VOC](data_to_fetch)?
-      - provide the [node_5.08](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - tell me readings for [node_5.20](sensor_nodes) [humidity](data_to_fetch)?
-      - give me [node_5.34](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - what is the [node_5.29](sensor_nodes) [co_gas](data_to_fetch)?
-      - what is the [node_5.21](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - can you provide [node_5.05](sensor_nodes) [memsvalue](data_to_fetch)?
-      - can you provide [node_5.23](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - what is the [node_5.30](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - share the [node_5.02](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - can you provide [node_5.05](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - share the [node_5.17](sensor_nodes) [NO2](data_to_fetch)?
-      - what is the [node_5.29](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - tell me readings for [node_5.26](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - please tell me [node_5.11](sensor_nodes) [memsvalue](data_to_fetch)?
-      - what is the [node_5.34](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - give me [node_5.17](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - can you provide [node_5.10](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - tell me readings for [node_5.14](sensor_nodes) [memsvalue](data_to_fetch)?
-      - provide the [node_5.17](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.11](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - can you provide [node_5.33](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - share the [node_5.32](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - what is the [node_5.33](sensor_nodes) [humidity](data_to_fetch)?
-      - can you provide [node_5.34](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - please tell me [node_5.30](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - please tell me [node_5.15](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - tell me readings for [node_5.29](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - share the [node_5.19](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - provide the [node_5.13](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - tell me readings for [node_5.12](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - share the [node_5.08](sensor_nodes) [NO2](data_to_fetch)?
-      - provide the [node_5.19](sensor_nodes) [NO2](data_to_fetch)?
-      - give me [node_5.13](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - tell me readings for [node_5.07](sensor_nodes) [co2value](data_to_fetch)?
-      - can you provide [node_5.18](sensor_nodes) [co2value](data_to_fetch)?
-      - share the [node_5.10](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - share the [node_5.32](sensor_nodes) [VOC](data_to_fetch)?
-      - please tell me [node_5.15](sensor_nodes) [co_gas](data_to_fetch)?
-      - tell me readings for [node_5.18](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - share the [node_5.22](sensor_nodes) [lux](data_to_fetch)?
-      - give me [node_5.30](sensor_nodes) [lux](data_to_fetch)?
-      - share the [node_5.04](sensor_nodes) [VOC](data_to_fetch)?
-      - share the [node_5.25](sensor_nodes) [co2value](data_to_fetch)?
-      - what is the [node_5.09](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - can you provide [node_5.32](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - share the [node_5.16](sensor_nodes) [lux](data_to_fetch)?
-      - what is the [node_5.22](sensor_nodes) [co2value](data_to_fetch)?
-      - tell me readings for [node_5.33](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.26](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - share the [node_5.34](sensor_nodes) [co_gas](data_to_fetch)?
-      - provide the [node_5.11](sensor_nodes) [co_gas](data_to_fetch)?
-      - provide the [node_5.30](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - can you provide [node_5.11](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.11](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - share the [node_5.07](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - please tell me [node_5.15](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.25](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - give me [node_5.31](sensor_nodes) [VOC](data_to_fetch)?
-      - give me [node_5.30](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - please tell me [node_5.13](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - provide the [node_5.06](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - can you provide [node_5.23](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - tell me readings for [node_5.03](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - can you provide [node_5.15](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.30](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - what is the [node_5.17](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - can you provide [node_5.06](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.05](sensor_nodes) [NO2](data_to_fetch)?
-      - share the [node_5.25](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - tell me readings for [node_5.26](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - provide the [node_5.28](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.26](sensor_nodes) [NO2](data_to_fetch)?
-      - can you provide [node_5.11](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - share the [node_5.21](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - give me [node_5.09](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - provide the [node_5.23](sensor_nodes) [lux](data_to_fetch)?
-      - share the [node_5.19](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.23](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - can you provide [node_5.25](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - tell me readings for [node_5.34](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.05](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - share the [node_5.27](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - tell me readings for [node_5.09](sensor_nodes) [co2value](data_to_fetch)?
-      - what is the [node_5.22](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.23](sensor_nodes) [VOC](data_to_fetch)?
-      - what is the [node_5.16](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - share the [node_5.04](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - can you provide [node_5.11](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - give me [node_5.08](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - share the [node_5.16](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - tell me readings for [node_5.30](sensor_nodes) [o2per](data_to_fetch)?
-      - provide the [node_5.34](sensor_nodes) [VOC](data_to_fetch)?
-      - please tell me [node_5.26](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - give me [node_5.12](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.14](sensor_nodes) [NO2](data_to_fetch)?
-      - please tell me [node_5.13](sensor_nodes) [o2per](data_to_fetch)?
-      - can you provide [node_5.16](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - please tell me [node_5.25](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.27](sensor_nodes) [o2per](data_to_fetch)?
-      - provide the [node_5.05](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - please tell me [node_5.08](sensor_nodes) [co_gas](data_to_fetch)?
-      - tell me readings for [node_5.04](sensor_nodes) [tempreture](data_to_fetch)?
-      - what is the [node_5.10](sensor_nodes) [lux](data_to_fetch)?
-      - what is the [node_5.30](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.10](sensor_nodes) [humidity](data_to_fetch)?
-      - share the [node_5.04](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - please tell me [node_5.26](sensor_nodes) [lux](data_to_fetch)?
-      - give me [node_5.30](sensor_nodes) [NO2](data_to_fetch)?
-      - please tell me [node_5.27](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - give me [node_5.32](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - can you provide [node_5.25](sensor_nodes) [lux](data_to_fetch)?
-      - provide the [node_5.33](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - provide the [node_5.11](sensor_nodes) [VOC](data_to_fetch)?
-      - what is the [node_5.03](sensor_nodes) [VOC](data_to_fetch)?
-      - please tell me [node_5.03](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.20](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - can you provide [node_5.24](sensor_nodes) [memsvalue](data_to_fetch)?
-      - what is the [node_5.22](sensor_nodes) [memsvalue](data_to_fetch)?
-      - what is the [node_5.02](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.34](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - please tell me [node_5.25](sensor_nodes) [memsvalue](data_to_fetch)?
-      - tell me readings for [node_5.28](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.17](sensor_nodes) [lux](data_to_fetch)?
-      - tell me readings for [node_5.18](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - give me [node_5.06](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - can you provide [node_5.29](sensor_nodes) [o2per](data_to_fetch)?
-      - provide the [node_5.28](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - share the [node_5.14](sensor_nodes) [VOC](data_to_fetch)?
-      - provide the [node_5.15](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - share the [node_5.06](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - tell me readings for [node_5.01](sensor_nodes) [tempreture](data_to_fetch)?
-      - what is the [node_5.25](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - provide the [node_5.28](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - tell me readings for [node_5.09](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - tell me readings for [node_5.18](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.28](sensor_nodes) [tempreture](data_to_fetch)?
-      - please tell me [node_5.16](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - give me [node_5.27](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.08](sensor_nodes) [o2per](data_to_fetch)?
-      - tell me readings for [node_5.28](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - what is the [node_5.17](sensor_nodes) [o2per](data_to_fetch)?
-      - what is the [node_5.31](sensor_nodes) [memsvalue](data_to_fetch)?
-      - tell me readings for [node_5.06](sensor_nodes) [NO2](data_to_fetch)?
-      - what is the [node_5.22](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - what is the [node_5.15](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - give me [node_5.03](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - share the [node_5.04](sensor_nodes) [NO2](data_to_fetch)?
-      - please tell me [node_5.02](sensor_nodes) [lux](data_to_fetch)?
-      - what is the [node_5.21](sensor_nodes) [co2value](data_to_fetch)?
-      - share the [node_5.14](sensor_nodes) [co2value](data_to_fetch)?
-      - share the [node_5.27](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - please tell me [node_5.02](sensor_nodes) [co_gas](data_to_fetch)?
-      - what is the [node_5.19](sensor_nodes) [co2value](data_to_fetch)?
-      - can you provide [node_5.14](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.13](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - tell me readings for [node_5.19](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.21](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - can you provide [node_5.32](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - please tell me [node_5.21](sensor_nodes) [lux](data_to_fetch)?
-      - provide the [node_5.12](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - what is the [node_5.15](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.21](sensor_nodes) [humidity](data_to_fetch)?
-      - please tell me [node_5.14](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.15](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - tell me readings for [node_5.26](sensor_nodes) [co2value](data_to_fetch)?
-      - provide the [node_5.33](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - can you provide [node_5.12](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.31](sensor_nodes) [co_gas](data_to_fetch)?
-      - can you provide [node_5.31](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - please tell me [node_5.33](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - provide the [node_5.16](sensor_nodes) [co_gas](data_to_fetch)?
-      - give me [node_5.31](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - can you provide [node_5.01](sensor_nodes) [VOC](data_to_fetch)?
-      - please tell me [node_5.02](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - tell me readings for [node_5.21](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - can you provide [node_5.12](sensor_nodes) [memsvalue](data_to_fetch)?
-      - share the [node_5.16](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - can you provide [node_5.34](sensor_nodes) [o2per](data_to_fetch)?
-      - what is the [node_5.01](sensor_nodes) [o2per](data_to_fetch)?
-      - provide the [node_5.29](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - can you provide [node_5.21](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.09](sensor_nodes) [co_gas](data_to_fetch)?
-      - give me [node_5.28](sensor_nodes) [co_gas](data_to_fetch)?
-      - give me [node_5.09](sensor_nodes) [NO2](data_to_fetch)?
-      - give me [node_5.11](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - tell me readings for [node_5.02](sensor_nodes) [humidity](data_to_fetch)?
-      - can you provide [node_5.05](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - can you provide [node_5.29](sensor_nodes) [NO2](data_to_fetch)?
-      - please tell me [node_5.27](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.04](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - tell me readings for [node_5.13](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.14](sensor_nodes) [humidity](data_to_fetch)?
-      - provide the [node_5.14](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - can you provide [node_5.10](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - please tell me [node_5.24](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - please tell me [node_5.27](sensor_nodes) [co2value](data_to_fetch)?
-      - tell me readings for [node_5.27](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - can you provide [node_5.14](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - what is the [node_5.23](sensor_nodes) [humidity](data_to_fetch)?
-      - please tell me [node_5.32](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - please tell me [node_5.18](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - tell me readings for [node_5.26](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - what is the [node_5.34](sensor_nodes) [co2value](data_to_fetch)?
-      - share the [node_5.08](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - provide the [node_5.16](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.10](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.18](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - please tell me [node_5.27](sensor_nodes) [lux](data_to_fetch)?
-      - tell me readings for [node_5.13](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - please tell me [node_5.24](sensor_nodes) [NO2](data_to_fetch)?
-      - what is the [node_5.34](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - tell me readings for [node_5.31](sensor_nodes) [lux](data_to_fetch)?
-      - what is the [node_5.10](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - give me [node_5.10](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - provide the [node_5.32](sensor_nodes) [o2per](data_to_fetch)?
-      - what is the [node_5.01](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - provide the [node_5.16](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - provide the [node_5.17](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - share the [node_5.24](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.01](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - provide the [node_5.02](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - please tell me [node_5.30](sensor_nodes) [co_gas](data_to_fetch)?
-      - give me [node_5.33](sensor_nodes) [lux](data_to_fetch)?
-      - give me [node_5.12](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - please tell me [node_5.09](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.25](sensor_nodes) [tempreture](data_to_fetch)?
-      - can you provide [node_5.33](sensor_nodes) [memsvalue](data_to_fetch)?
-      - provide the [node_5.04](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - can you provide [node_5.19](sensor_nodes) [humidity](data_to_fetch)?
-      - can you provide [node_5.05](sensor_nodes) [VOC](data_to_fetch)?
-      - share the [node_5.06](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - provide the [node_5.02](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - tell me readings for [node_5.17](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - give me [node_5.12](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.31](sensor_nodes) [co2value](data_to_fetch)?
-      - tell me readings for [node_5.15](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - can you provide [node_5.05](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.15](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.19](sensor_nodes) [memsvalue](data_to_fetch)?
-      - what is the [node_5.19](sensor_nodes) [tempreture](data_to_fetch)?
-      - tell me readings for [node_5.22](sensor_nodes) [co_gas](data_to_fetch)?
-      - provide the [node_5.10](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - share the [node_5.19](sensor_nodes) [lux](data_to_fetch)?
-      - provide the [node_5.21](sensor_nodes) [tempreture](data_to_fetch)?
-      - what is the [node_5.08](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - share the [node_5.22](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - can you provide [node_5.21](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.09](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.17](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - what is the [node_5.13](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.16](sensor_nodes) [o2per](data_to_fetch)?
-      - tell me readings for [node_5.01](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.01](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - please tell me [node_5.01](sensor_nodes) [co2value](data_to_fetch)?
-      - tell me readings for [node_5.25](sensor_nodes) [o2per](data_to_fetch)?
-      - can you provide [node_5.12](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - what is the [node_5.01](sensor_nodes) [lux](data_to_fetch)?
-      - tell me readings for [node_5.01](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - what is the [node_5.02](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.14](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - provide the [node_5.31](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.32](sensor_nodes) [NO2](data_to_fetch)?
-      - tell me readings for [node_5.12](sensor_nodes) [co2value](data_to_fetch)?
-      - what is the [node_5.12](sensor_nodes) [tempreture](data_to_fetch)?
-      - provide the [node_5.09](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - provide the [node_5.22](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - please tell me [node_5.14](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - tell me readings for [node_5.07](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - give me [node_5.20](sensor_nodes) [lux](data_to_fetch)?
-      - tell me readings for [node_5.29](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.13](sensor_nodes) [memsvalue](data_to_fetch)?
-      - tell me readings for [node_5.23](sensor_nodes) [memsvalue](data_to_fetch)?
-      - tell me readings for [node_5.10](sensor_nodes) [memsvalue](data_to_fetch)?
-      - give me [node_5.11](sensor_nodes) [o2per](data_to_fetch)?
-      - provide the [node_5.21](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - please tell me [node_5.16](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - give me [node_5.31](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.29](sensor_nodes) [co2value](data_to_fetch)?
-      - tell me readings for [node_5.27](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - please tell me [node_5.30](sensor_nodes) [tempreture](data_to_fetch)?
-      - share the [node_5.10](sensor_nodes) [NO2](data_to_fetch)?
-      - what is the [node_5.13](sensor_nodes) [NO2](data_to_fetch)?
-      - what is the [node_5.07](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - what is the [node_5.22](sensor_nodes) [VOC](data_to_fetch)?
-      - share the [node_5.03](sensor_nodes) [co_gas](data_to_fetch)?
-      - can you provide [node_5.05](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - share the [node_5.30](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.08](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - share the [node_5.21](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - share the [node_5.33](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - please tell me [node_5.17](sensor_nodes) [tempreture](data_to_fetch)?
-      - give me [node_5.16](sensor_nodes) [humidity](data_to_fetch)?
-      - what is the [node_5.26](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - what is the [node_5.24](sensor_nodes) [co_gas](data_to_fetch)?
-      - tell me readings for [node_5.14](sensor_nodes) [tempreture](data_to_fetch)?
-      - tell me readings for [node_5.28](sensor_nodes) [co2value](data_to_fetch)?
-      - please tell me [node_5.10](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - please tell me [node_5.04](sensor_nodes) [lux](data_to_fetch)?
-      - tell me readings for [node_5.32](sensor_nodes) [co_gas](data_to_fetch)?
-      - can you provide [node_5.11](sensor_nodes) [co2value](data_to_fetch)?
-      - can you provide [node_5.23](sensor_nodes) [tempreture](data_to_fetch)?
-      - what is the [node_5.17](sensor_nodes) [co_gas](data_to_fetch)?
-      - give me [node_5.20](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - please tell me [node_5.05](sensor_nodes) [humidity](data_to_fetch)?
-      - provide the [node_5.09](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - tell me readings for [node_5.02](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - what is the [node_5.19](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - share the [node_5.03](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - what is the [node_5.17](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - please tell me [node_5.14](sensor_nodes) [o2per](data_to_fetch)?
-      - can you provide [node_5.24](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - what is the [node_5.19](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - can you provide [node_5.10](sensor_nodes) [VOC](data_to_fetch)?
-      - tell me readings for [node_5.24](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - share the [node_5.33](sensor_nodes) [co_gas](data_to_fetch)?
-      - can you provide [node_5.19](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - what is the [node_5.28](sensor_nodes) [humidity](data_to_fetch)?
-      - share the [node_5.06](sensor_nodes) [co_gas](data_to_fetch)?
-      - give me [node_5.06](sensor_nodes) [o2per](data_to_fetch)?
-      - can you provide [node_5.33](sensor_nodes) [o2per](data_to_fetch)?
-      - give me [node_5.26](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - give me [node_5.19](sensor_nodes) [o2per](data_to_fetch)?
-      - what is the [node_5.11](sensor_nodes) [humidity](data_to_fetch)?
-      - please tell me [node_5.06](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - please tell me [node_5.18](sensor_nodes) [VOC](data_to_fetch)?
-      - can you provide [node_5.02](sensor_nodes) [co2value](data_to_fetch)?
-      - please tell me [node_5.03](sensor_nodes) [lux](data_to_fetch)?
-      - please tell me [node_5.23](sensor_nodes) [rsroratio2](data_to_fetch)?
-      - please tell me [node_5.25](sensor_nodes) [humidity](data_to_fetch)?
-      - give me [node_5.03](sensor_nodes) [tempreture](data_to_fetch)?
-      - provide the [node_5.04](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
-      - tell me readings for [node_5.20](sensor_nodes) [memsvalue](data_to_fetch)?
-      - please tell me [node_5.10](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.22](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - can you provide [node_5.34](sensor_nodes) [humidity](data_to_fetch)?
-      - tell me readings for [node_5.06](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.21](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - give me [node_5.26](sensor_nodes) [memsvalue](data_to_fetch)?
-      - what is the [node_5.07](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.22](sensor_nodes) [NO2](data_to_fetch)?
-      - can you provide [node_5.23](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - what is the [node_5.24](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.17](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - give me [node_5.09](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.06](sensor_nodes) [humidity](data_to_fetch)?
-      - provide the [node_5.15](sensor_nodes) [rsroratio3](data_to_fetch)?
-      - provide the [node_5.04](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - give me [node_5.09](sensor_nodes) [humidity](data_to_fetch)?
-      - share the [node_5.34](sensor_nodes) [lux](data_to_fetch)?
-      - can you provide [node_5.30](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - what is the [node_5.25](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - please tell me [node_5.09](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - can you provide [node_5.15](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - provide the [node_5.16](sensor_nodes) [VOC](data_to_fetch)?
-      - what is the [node_5.27](sensor_nodes) [VOC](data_to_fetch)?
-      - give me [node_5.02](sensor_nodes) [o2per](data_to_fetch)?
-      - share the [node_5.13](sensor_nodes) [VOC](data_to_fetch)?
-      - share the [node_5.13](sensor_nodes) [hchoppmvalue](data_to_fetch)?
-      - share the [node_5.31](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - provide the [node_5.20](sensor_nodes) [o2per](data_to_fetch)?
-      - provide the [node_5.22](sensor_nodes) [o2per](data_to_fetch)?
-      - tell me readings for [node_5.11](sensor_nodes) [NO2](data_to_fetch)?
-      - give me [node_5.07](sensor_nodes) [tempreture](data_to_fetch)?
-      - tell me readings for [node_5.18](sensor_nodes) [NO2](data_to_fetch)?
-      - please tell me [node_5.23](sensor_nodes) [co2value](data_to_fetch)?
-      - can you provide [node_5.04](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.04](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.05](sensor_nodes) [co2value](data_to_fetch)?
-      - what is the [node_5.04](sensor_nodes) [co_gas](data_to_fetch)?
-      - share the [node_5.06](sensor_nodes) [lux](data_to_fetch)?
-      - tell me readings for [node_5.27](sensor_nodes) [NO2](data_to_fetch)?
-      - what is the [node_5.01](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - can you provide [node_5.14](sensor_nodes) [rsroratio5](data_to_fetch)?
-      - provide the [node_5.03](sensor_nodes) [co2value](data_to_fetch)?
-      - tell me readings for [node_5.32](sensor_nodes) [airQualityValue](data_to_fetch)?
-      - tell me readings for [node_5.13](sensor_nodes) [co_gas](data_to_fetch)?
-      - can you provide [node_5.32](sensor_nodes) [c2h5ch](data_to_fetch)?
-      - what is the [node_5.07](sensor_nodes) [o2per](data_to_fetch)?
-      - please tell me [node_5.18](sensor_nodes) [co_gas](data_to_fetch)?
-      - please tell me [node_5.04](sensor_nodes) [humidity](data_to_fetch)?
-      - share the [node_5.10](sensor_nodes) [co2value](data_to_fetch)?
-      - give me [node_5.13](sensor_nodes) [rsroratio9](data_to_fetch)?
-      - share the [node_5.03](sensor_nodes) [humidity](data_to_fetch)?
-      - please tell me [node_5.16](sensor_nodes) [co2value](data_to_fetch)?
+      # - please tell me [node_5.04](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.14](sensor_nodes) [co_gas](data_to_fetch)?
+      # - can you provide [node_5.18](sensor_nodes) [o2per](data_to_fetch)?
+      # - what is the [node_5.07](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - tell me readings for [node_5.25](sensor_nodes) [NO2](data_to_fetch)?
+      # - can you provide [node_5.06](sensor_nodes) [VOC](data_to_fetch)?
+      # - provide the [node_5.26](sensor_nodes) [tempreture](data_to_fetch)?
+      # - can you provide [node_5.23](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - please tell me [node_5.22](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.07](sensor_nodes) [VOC](data_to_fetch)?
+      # - please tell me [node_5.02](sensor_nodes) [NO2](data_to_fetch)?
+      # - can you provide [node_5.13](sensor_nodes) [humidity](data_to_fetch)?
+      # - can you provide [node_5.31](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.17](sensor_nodes) [humidity](data_to_fetch)?
+      # - give me [node_5.10](sensor_nodes) [tempreture](data_to_fetch)?
+      # - tell me readings for [node_5.24](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.30](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - give me [node_5.13](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.08](sensor_nodes) [co2value](data_to_fetch)?
+      # - please tell me [node_5.15](sensor_nodes) [NO2](data_to_fetch)?
+      # - tell me readings for [node_5.12](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - what is the [node_5.22](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - give me [node_5.33](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - give me [node_5.28](sensor_nodes) [NO2](data_to_fetch)?
+      # - give me [node_5.06](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - tell me readings for [node_5.26](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.21](sensor_nodes) [NO2](data_to_fetch)?
+      # - share the [node_5.16](sensor_nodes) [NO2](data_to_fetch)?
+      # - provide the [node_5.05](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.01](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - tell me readings for [node_5.05](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - provide the [node_5.32](sensor_nodes) [co2value](data_to_fetch)?
+      # - what is the [node_5.11](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - what is the [node_5.20](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - give me [node_5.08](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - share the [node_5.34](sensor_nodes) [NO2](data_to_fetch)?
+      # - share the [node_5.24](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - tell me readings for [node_5.24](sensor_nodes) [tempreture](data_to_fetch)?
+      # - what is the [node_5.08](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.23](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - give me [node_5.20](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - please tell me [node_5.23](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.05](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - share the [node_5.11](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - give me [node_5.29](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - please tell me [node_5.18](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - can you provide [node_5.09](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - what is the [node_5.19](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - what is the [node_5.03](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - can you provide [node_5.34](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - share the [node_5.07](sensor_nodes) [co_gas](data_to_fetch)?
+      # - what is the [node_5.02](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - please tell me [node_5.03](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - what is the [node_5.14](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - give me [node_5.24](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.28](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - give me [node_5.20](sensor_nodes) [NO2](data_to_fetch)?
+      # - tell me readings for [node_5.07](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - tell me readings for [node_5.31](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - can you provide [node_5.01](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.24](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - give me [node_5.17](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - what is the [node_5.07](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.26](sensor_nodes) [co_gas](data_to_fetch)?
+      # - give me [node_5.24](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - share the [node_5.01](sensor_nodes) [NO2](data_to_fetch)?
+      # - what is the [node_5.24](sensor_nodes) [co2value](data_to_fetch)?
+      # - what is the [node_5.32](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - share the [node_5.06](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - can you provide [node_5.18](sensor_nodes) [humidity](data_to_fetch)?
+      # - provide the [node_5.29](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.06](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - what is the [node_5.33](sensor_nodes) [tempreture](data_to_fetch)?
+      # - tell me readings for [node_5.15](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - share the [node_5.12](sensor_nodes) [co_gas](data_to_fetch)?
+      # - what is the [node_5.29](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - give me [node_5.32](sensor_nodes) [tempreture](data_to_fetch)?
+      # - please tell me [node_5.09](sensor_nodes) [tempreture](data_to_fetch)?
+      # - tell me readings for [node_5.20](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - provide the [node_5.26](sensor_nodes) [VOC](data_to_fetch)?
+      # - can you provide [node_5.15](sensor_nodes) [tempreture](data_to_fetch)?
+      # - can you provide [node_5.32](sensor_nodes) [lux](data_to_fetch)?
+      # - provide the [node_5.09](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - share the [node_5.23](sensor_nodes) [o2per](data_to_fetch)?
+      # - share the [node_5.08](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.20](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - tell me readings for [node_5.05](sensor_nodes) [lux](data_to_fetch)?
+      # - can you provide [node_5.12](sensor_nodes) [NO2](data_to_fetch)?
+      # - share the [node_5.03](sensor_nodes) [NO2](data_to_fetch)?
+      # - give me [node_5.02](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.25](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - please tell me [node_5.12](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - give me [node_5.05](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - share the [node_5.27](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - tell me readings for [node_5.32](sensor_nodes) [humidity](data_to_fetch)?
+      # - give me [node_5.34](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - share the [node_5.30](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.01](sensor_nodes) [humidity](data_to_fetch)?
+      # - please tell me [node_5.20](sensor_nodes) [tempreture](data_to_fetch)?
+      # - share the [node_5.28](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - what is the [node_5.08](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - provide the [node_5.08](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - give me [node_5.23](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - share the [node_5.16](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - share the [node_5.33](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - please tell me [node_5.22](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - what is the [node_5.24](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - what is the [node_5.18](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - share the [node_5.03](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - can you provide [node_5.20](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - can you provide [node_5.04](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - give me [node_5.11](sensor_nodes) [lux](data_to_fetch)?
+      # - provide the [node_5.29](sensor_nodes) [lux](data_to_fetch)?
+      # - what is the [node_5.12](sensor_nodes) [VOC](data_to_fetch)?
+      # - can you provide [node_5.16](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.07](sensor_nodes) [NO2](data_to_fetch)?
+      # - provide the [node_5.22](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - tell me readings for [node_5.33](sensor_nodes) [NO2](data_to_fetch)?
+      # - share the [node_5.27](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - please tell me [node_5.21](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - share the [node_5.27](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - provide the [node_5.08](sensor_nodes) [humidity](data_to_fetch)?
+      # - can you provide [node_5.17](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.31](sensor_nodes) [o2per](data_to_fetch)?
+      # - what is the [node_5.29](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - can you provide [node_5.19](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - provide the [node_5.26](sensor_nodes) [o2per](data_to_fetch)?
+      # - can you provide [node_5.31](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - can you provide [node_5.14](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - tell me readings for [node_5.15](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - tell me readings for [node_5.19](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - tell me readings for [node_5.03](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - give me [node_5.01](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - please tell me [node_5.25](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - what is the [node_5.28](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - provide the [node_5.09](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - please tell me [node_5.29](sensor_nodes) [VOC](data_to_fetch)?
+      # - share the [node_5.18](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - please tell me [node_5.25](sensor_nodes) [co_gas](data_to_fetch)?
+      # - please tell me [node_5.27](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - provide the [node_5.18](sensor_nodes) [lux](data_to_fetch)?
+      # - provide the [node_5.32](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - tell me readings for [node_5.33](sensor_nodes) [VOC](data_to_fetch)?
+      # - can you provide [node_5.22](sensor_nodes) [tempreture](data_to_fetch)?
+      # - tell me readings for [node_5.08](sensor_nodes) [lux](data_to_fetch)?
+      # - what is the [node_5.26](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - what is the [node_5.01](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - can you provide [node_5.12](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.15](sensor_nodes) [o2per](data_to_fetch)?
+      # - provide the [node_5.25](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - provide the [node_5.28](sensor_nodes) [VOC](data_to_fetch)?
+      # - provide the [node_5.08](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - tell me readings for [node_5.20](sensor_nodes) [humidity](data_to_fetch)?
+      # - give me [node_5.34](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - what is the [node_5.29](sensor_nodes) [co_gas](data_to_fetch)?
+      # - what is the [node_5.21](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - can you provide [node_5.05](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - can you provide [node_5.23](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - what is the [node_5.30](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - share the [node_5.02](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - can you provide [node_5.05](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - share the [node_5.17](sensor_nodes) [NO2](data_to_fetch)?
+      # - what is the [node_5.29](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - tell me readings for [node_5.26](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - please tell me [node_5.11](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - what is the [node_5.34](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - give me [node_5.17](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - can you provide [node_5.10](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - tell me readings for [node_5.14](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - provide the [node_5.17](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.11](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - can you provide [node_5.33](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - share the [node_5.32](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - what is the [node_5.33](sensor_nodes) [humidity](data_to_fetch)?
+      # - can you provide [node_5.34](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - please tell me [node_5.30](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - please tell me [node_5.15](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - tell me readings for [node_5.29](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - share the [node_5.19](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - provide the [node_5.13](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - tell me readings for [node_5.12](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - share the [node_5.08](sensor_nodes) [NO2](data_to_fetch)?
+      # - provide the [node_5.19](sensor_nodes) [NO2](data_to_fetch)?
+      # - give me [node_5.13](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - tell me readings for [node_5.07](sensor_nodes) [co2value](data_to_fetch)?
+      # - can you provide [node_5.18](sensor_nodes) [co2value](data_to_fetch)?
+      # - share the [node_5.10](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - share the [node_5.32](sensor_nodes) [VOC](data_to_fetch)?
+      # - please tell me [node_5.15](sensor_nodes) [co_gas](data_to_fetch)?
+      # - tell me readings for [node_5.18](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - share the [node_5.22](sensor_nodes) [lux](data_to_fetch)?
+      # - give me [node_5.30](sensor_nodes) [lux](data_to_fetch)?
+      # - share the [node_5.04](sensor_nodes) [VOC](data_to_fetch)?
+      # - share the [node_5.25](sensor_nodes) [co2value](data_to_fetch)?
+      # - what is the [node_5.09](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - can you provide [node_5.32](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - share the [node_5.16](sensor_nodes) [lux](data_to_fetch)?
+      # - what is the [node_5.22](sensor_nodes) [co2value](data_to_fetch)?
+      # - tell me readings for [node_5.33](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.26](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - share the [node_5.34](sensor_nodes) [co_gas](data_to_fetch)?
+      # - provide the [node_5.11](sensor_nodes) [co_gas](data_to_fetch)?
+      # - provide the [node_5.30](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - can you provide [node_5.11](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.11](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - share the [node_5.07](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - please tell me [node_5.15](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.25](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - give me [node_5.31](sensor_nodes) [VOC](data_to_fetch)?
+      # - give me [node_5.30](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - please tell me [node_5.13](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - provide the [node_5.06](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - can you provide [node_5.23](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - tell me readings for [node_5.03](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - can you provide [node_5.15](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.30](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - what is the [node_5.17](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - can you provide [node_5.06](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.05](sensor_nodes) [NO2](data_to_fetch)?
+      # - share the [node_5.25](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - tell me readings for [node_5.26](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - provide the [node_5.28](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.26](sensor_nodes) [NO2](data_to_fetch)?
+      # - can you provide [node_5.11](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - share the [node_5.21](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - give me [node_5.09](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - provide the [node_5.23](sensor_nodes) [lux](data_to_fetch)?
+      # - share the [node_5.19](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.23](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - can you provide [node_5.25](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - tell me readings for [node_5.34](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.05](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - share the [node_5.27](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - tell me readings for [node_5.09](sensor_nodes) [co2value](data_to_fetch)?
+      # - what is the [node_5.22](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.23](sensor_nodes) [VOC](data_to_fetch)?
+      # - what is the [node_5.16](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - share the [node_5.04](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - can you provide [node_5.11](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - give me [node_5.08](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - share the [node_5.16](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - tell me readings for [node_5.30](sensor_nodes) [o2per](data_to_fetch)?
+      # - provide the [node_5.34](sensor_nodes) [VOC](data_to_fetch)?
+      # - please tell me [node_5.26](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - give me [node_5.12](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.14](sensor_nodes) [NO2](data_to_fetch)?
+      # - please tell me [node_5.13](sensor_nodes) [o2per](data_to_fetch)?
+      # - can you provide [node_5.16](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - please tell me [node_5.25](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.27](sensor_nodes) [o2per](data_to_fetch)?
+      # - provide the [node_5.05](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - please tell me [node_5.08](sensor_nodes) [co_gas](data_to_fetch)?
+      # - tell me readings for [node_5.04](sensor_nodes) [tempreture](data_to_fetch)?
+      # - what is the [node_5.10](sensor_nodes) [lux](data_to_fetch)?
+      # - what is the [node_5.30](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.10](sensor_nodes) [humidity](data_to_fetch)?
+      # - share the [node_5.04](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - please tell me [node_5.26](sensor_nodes) [lux](data_to_fetch)?
+      # - give me [node_5.30](sensor_nodes) [NO2](data_to_fetch)?
+      # - please tell me [node_5.27](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - give me [node_5.32](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - can you provide [node_5.25](sensor_nodes) [lux](data_to_fetch)?
+      # - provide the [node_5.33](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - provide the [node_5.11](sensor_nodes) [VOC](data_to_fetch)?
+      # - what is the [node_5.03](sensor_nodes) [VOC](data_to_fetch)?
+      # - please tell me [node_5.03](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.20](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - can you provide [node_5.24](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - what is the [node_5.22](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - what is the [node_5.02](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.34](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - please tell me [node_5.25](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - tell me readings for [node_5.28](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.17](sensor_nodes) [lux](data_to_fetch)?
+      # - tell me readings for [node_5.18](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - give me [node_5.06](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - can you provide [node_5.29](sensor_nodes) [o2per](data_to_fetch)?
+      # - provide the [node_5.28](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - share the [node_5.14](sensor_nodes) [VOC](data_to_fetch)?
+      # - provide the [node_5.15](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - share the [node_5.06](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - tell me readings for [node_5.01](sensor_nodes) [tempreture](data_to_fetch)?
+      # - what is the [node_5.25](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - provide the [node_5.28](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - tell me readings for [node_5.09](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - tell me readings for [node_5.18](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.28](sensor_nodes) [tempreture](data_to_fetch)?
+      # - please tell me [node_5.16](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - give me [node_5.27](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.08](sensor_nodes) [o2per](data_to_fetch)?
+      # - tell me readings for [node_5.28](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - what is the [node_5.17](sensor_nodes) [o2per](data_to_fetch)?
+      # - what is the [node_5.31](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - tell me readings for [node_5.06](sensor_nodes) [NO2](data_to_fetch)?
+      # - what is the [node_5.22](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - what is the [node_5.15](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - give me [node_5.03](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - share the [node_5.04](sensor_nodes) [NO2](data_to_fetch)?
+      # - please tell me [node_5.02](sensor_nodes) [lux](data_to_fetch)?
+      # - what is the [node_5.21](sensor_nodes) [co2value](data_to_fetch)?
+      # - share the [node_5.14](sensor_nodes) [co2value](data_to_fetch)?
+      # - share the [node_5.27](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - please tell me [node_5.02](sensor_nodes) [co_gas](data_to_fetch)?
+      # - what is the [node_5.19](sensor_nodes) [co2value](data_to_fetch)?
+      # - can you provide [node_5.14](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.13](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - tell me readings for [node_5.19](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.21](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - can you provide [node_5.32](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - please tell me [node_5.21](sensor_nodes) [lux](data_to_fetch)?
+      # - provide the [node_5.12](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - what is the [node_5.15](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.21](sensor_nodes) [humidity](data_to_fetch)?
+      # - please tell me [node_5.14](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.15](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - tell me readings for [node_5.26](sensor_nodes) [co2value](data_to_fetch)?
+      # - provide the [node_5.33](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - can you provide [node_5.12](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.31](sensor_nodes) [co_gas](data_to_fetch)?
+      # - can you provide [node_5.31](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - please tell me [node_5.33](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - provide the [node_5.16](sensor_nodes) [co_gas](data_to_fetch)?
+      # - give me [node_5.31](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - can you provide [node_5.01](sensor_nodes) [VOC](data_to_fetch)?
+      # - please tell me [node_5.02](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - tell me readings for [node_5.21](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - can you provide [node_5.12](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - share the [node_5.16](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - can you provide [node_5.34](sensor_nodes) [o2per](data_to_fetch)?
+      # - what is the [node_5.01](sensor_nodes) [o2per](data_to_fetch)?
+      # - provide the [node_5.29](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - can you provide [node_5.21](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.09](sensor_nodes) [co_gas](data_to_fetch)?
+      # - give me [node_5.28](sensor_nodes) [co_gas](data_to_fetch)?
+      # - give me [node_5.09](sensor_nodes) [NO2](data_to_fetch)?
+      # - give me [node_5.11](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - tell me readings for [node_5.02](sensor_nodes) [humidity](data_to_fetch)?
+      # - can you provide [node_5.05](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - can you provide [node_5.29](sensor_nodes) [NO2](data_to_fetch)?
+      # - please tell me [node_5.27](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.04](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - tell me readings for [node_5.13](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.14](sensor_nodes) [humidity](data_to_fetch)?
+      # - provide the [node_5.14](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - can you provide [node_5.10](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - please tell me [node_5.24](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - please tell me [node_5.27](sensor_nodes) [co2value](data_to_fetch)?
+      # - tell me readings for [node_5.27](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - can you provide [node_5.14](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - what is the [node_5.23](sensor_nodes) [humidity](data_to_fetch)?
+      # - please tell me [node_5.32](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - please tell me [node_5.18](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - tell me readings for [node_5.26](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - what is the [node_5.34](sensor_nodes) [co2value](data_to_fetch)?
+      # - share the [node_5.08](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - provide the [node_5.16](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.10](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.18](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - please tell me [node_5.27](sensor_nodes) [lux](data_to_fetch)?
+      # - tell me readings for [node_5.13](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - please tell me [node_5.24](sensor_nodes) [NO2](data_to_fetch)?
+      # - what is the [node_5.34](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - tell me readings for [node_5.31](sensor_nodes) [lux](data_to_fetch)?
+      # - what is the [node_5.10](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - give me [node_5.10](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - provide the [node_5.32](sensor_nodes) [o2per](data_to_fetch)?
+      # - what is the [node_5.01](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - provide the [node_5.16](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - provide the [node_5.17](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - share the [node_5.24](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.01](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - provide the [node_5.02](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - please tell me [node_5.30](sensor_nodes) [co_gas](data_to_fetch)?
+      # - give me [node_5.33](sensor_nodes) [lux](data_to_fetch)?
+      # - give me [node_5.12](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - please tell me [node_5.09](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.25](sensor_nodes) [tempreture](data_to_fetch)?
+      # - can you provide [node_5.33](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - provide the [node_5.04](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - can you provide [node_5.19](sensor_nodes) [humidity](data_to_fetch)?
+      # - can you provide [node_5.05](sensor_nodes) [VOC](data_to_fetch)?
+      # - share the [node_5.06](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - provide the [node_5.02](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - tell me readings for [node_5.17](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - give me [node_5.12](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.31](sensor_nodes) [co2value](data_to_fetch)?
+      # - tell me readings for [node_5.15](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - can you provide [node_5.05](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.15](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.19](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - what is the [node_5.19](sensor_nodes) [tempreture](data_to_fetch)?
+      # - tell me readings for [node_5.22](sensor_nodes) [co_gas](data_to_fetch)?
+      # - provide the [node_5.10](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - share the [node_5.19](sensor_nodes) [lux](data_to_fetch)?
+      # - provide the [node_5.21](sensor_nodes) [tempreture](data_to_fetch)?
+      # - what is the [node_5.08](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - share the [node_5.22](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - can you provide [node_5.21](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.09](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.17](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - what is the [node_5.13](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.16](sensor_nodes) [o2per](data_to_fetch)?
+      # - tell me readings for [node_5.01](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.01](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - please tell me [node_5.01](sensor_nodes) [co2value](data_to_fetch)?
+      # - tell me readings for [node_5.25](sensor_nodes) [o2per](data_to_fetch)?
+      # - can you provide [node_5.12](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - what is the [node_5.01](sensor_nodes) [lux](data_to_fetch)?
+      # - tell me readings for [node_5.01](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - what is the [node_5.02](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.14](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - provide the [node_5.31](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.32](sensor_nodes) [NO2](data_to_fetch)?
+      # - tell me readings for [node_5.12](sensor_nodes) [co2value](data_to_fetch)?
+      # - what is the [node_5.12](sensor_nodes) [tempreture](data_to_fetch)?
+      # - provide the [node_5.09](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - provide the [node_5.22](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - please tell me [node_5.14](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - tell me readings for [node_5.07](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - give me [node_5.20](sensor_nodes) [lux](data_to_fetch)?
+      # - tell me readings for [node_5.29](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.13](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - tell me readings for [node_5.23](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - tell me readings for [node_5.10](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - give me [node_5.11](sensor_nodes) [o2per](data_to_fetch)?
+      # - provide the [node_5.21](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - please tell me [node_5.16](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - give me [node_5.31](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.29](sensor_nodes) [co2value](data_to_fetch)?
+      # - tell me readings for [node_5.27](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - please tell me [node_5.30](sensor_nodes) [tempreture](data_to_fetch)?
+      # - share the [node_5.10](sensor_nodes) [NO2](data_to_fetch)?
+      # - what is the [node_5.13](sensor_nodes) [NO2](data_to_fetch)?
+      # - what is the [node_5.07](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - what is the [node_5.22](sensor_nodes) [VOC](data_to_fetch)?
+      # - share the [node_5.03](sensor_nodes) [co_gas](data_to_fetch)?
+      # - can you provide [node_5.05](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - share the [node_5.30](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.08](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - share the [node_5.21](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - share the [node_5.33](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - please tell me [node_5.17](sensor_nodes) [tempreture](data_to_fetch)?
+      # - give me [node_5.16](sensor_nodes) [humidity](data_to_fetch)?
+      # - what is the [node_5.26](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - what is the [node_5.24](sensor_nodes) [co_gas](data_to_fetch)?
+      # - tell me readings for [node_5.14](sensor_nodes) [tempreture](data_to_fetch)?
+      # - tell me readings for [node_5.28](sensor_nodes) [co2value](data_to_fetch)?
+      # - please tell me [node_5.10](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - please tell me [node_5.04](sensor_nodes) [lux](data_to_fetch)?
+      # - tell me readings for [node_5.32](sensor_nodes) [co_gas](data_to_fetch)?
+      # - can you provide [node_5.11](sensor_nodes) [co2value](data_to_fetch)?
+      # - can you provide [node_5.23](sensor_nodes) [tempreture](data_to_fetch)?
+      # - what is the [node_5.17](sensor_nodes) [co_gas](data_to_fetch)?
+      # - give me [node_5.20](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - please tell me [node_5.05](sensor_nodes) [humidity](data_to_fetch)?
+      # - provide the [node_5.09](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - tell me readings for [node_5.02](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - what is the [node_5.19](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - share the [node_5.03](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - what is the [node_5.17](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - please tell me [node_5.14](sensor_nodes) [o2per](data_to_fetch)?
+      # - can you provide [node_5.24](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - what is the [node_5.19](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - can you provide [node_5.10](sensor_nodes) [VOC](data_to_fetch)?
+      # - tell me readings for [node_5.24](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - share the [node_5.33](sensor_nodes) [co_gas](data_to_fetch)?
+      # - can you provide [node_5.19](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - what is the [node_5.28](sensor_nodes) [humidity](data_to_fetch)?
+      # - share the [node_5.06](sensor_nodes) [co_gas](data_to_fetch)?
+      # - give me [node_5.06](sensor_nodes) [o2per](data_to_fetch)?
+      # - can you provide [node_5.33](sensor_nodes) [o2per](data_to_fetch)?
+      # - give me [node_5.26](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - give me [node_5.19](sensor_nodes) [o2per](data_to_fetch)?
+      # - what is the [node_5.11](sensor_nodes) [humidity](data_to_fetch)?
+      # - please tell me [node_5.06](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - please tell me [node_5.18](sensor_nodes) [VOC](data_to_fetch)?
+      # - can you provide [node_5.02](sensor_nodes) [co2value](data_to_fetch)?
+      # - please tell me [node_5.03](sensor_nodes) [lux](data_to_fetch)?
+      # - please tell me [node_5.23](sensor_nodes) [rsroratio2](data_to_fetch)?
+      # - please tell me [node_5.25](sensor_nodes) [humidity](data_to_fetch)?
+      # - give me [node_5.03](sensor_nodes) [tempreture](data_to_fetch)?
+      # - provide the [node_5.04](sensor_nodes) [PM10Atmospheric](data_to_fetch)?
+      # - tell me readings for [node_5.20](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - please tell me [node_5.10](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.22](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - can you provide [node_5.34](sensor_nodes) [humidity](data_to_fetch)?
+      # - tell me readings for [node_5.06](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.21](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - give me [node_5.26](sensor_nodes) [memsvalue](data_to_fetch)?
+      # - what is the [node_5.07](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.22](sensor_nodes) [NO2](data_to_fetch)?
+      # - can you provide [node_5.23](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - what is the [node_5.24](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.17](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - give me [node_5.09](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.06](sensor_nodes) [humidity](data_to_fetch)?
+      # - provide the [node_5.15](sensor_nodes) [rsroratio3](data_to_fetch)?
+      # - provide the [node_5.04](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - give me [node_5.09](sensor_nodes) [humidity](data_to_fetch)?
+      # - share the [node_5.34](sensor_nodes) [lux](data_to_fetch)?
+      # - can you provide [node_5.30](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - what is the [node_5.25](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - please tell me [node_5.09](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - can you provide [node_5.15](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - provide the [node_5.16](sensor_nodes) [VOC](data_to_fetch)?
+      # - what is the [node_5.27](sensor_nodes) [VOC](data_to_fetch)?
+      # - give me [node_5.02](sensor_nodes) [o2per](data_to_fetch)?
+      # - share the [node_5.13](sensor_nodes) [VOC](data_to_fetch)?
+      # - share the [node_5.13](sensor_nodes) [hchoppmvalue](data_to_fetch)?
+      # - share the [node_5.31](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - provide the [node_5.20](sensor_nodes) [o2per](data_to_fetch)?
+      # - provide the [node_5.22](sensor_nodes) [o2per](data_to_fetch)?
+      # - tell me readings for [node_5.11](sensor_nodes) [NO2](data_to_fetch)?
+      # - give me [node_5.07](sensor_nodes) [tempreture](data_to_fetch)?
+      # - tell me readings for [node_5.18](sensor_nodes) [NO2](data_to_fetch)?
+      # - please tell me [node_5.23](sensor_nodes) [co2value](data_to_fetch)?
+      # - can you provide [node_5.04](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.04](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.05](sensor_nodes) [co2value](data_to_fetch)?
+      # - what is the [node_5.04](sensor_nodes) [co_gas](data_to_fetch)?
+      # - share the [node_5.06](sensor_nodes) [lux](data_to_fetch)?
+      # - tell me readings for [node_5.27](sensor_nodes) [NO2](data_to_fetch)?
+      # - what is the [node_5.01](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - can you provide [node_5.14](sensor_nodes) [rsroratio5](data_to_fetch)?
+      # - provide the [node_5.03](sensor_nodes) [co2value](data_to_fetch)?
+      # - tell me readings for [node_5.32](sensor_nodes) [airQualityValue](data_to_fetch)?
+      # - tell me readings for [node_5.13](sensor_nodes) [co_gas](data_to_fetch)?
+      # - can you provide [node_5.32](sensor_nodes) [c2h5ch](data_to_fetch)?
+      # - what is the [node_5.07](sensor_nodes) [o2per](data_to_fetch)?
+      # - please tell me [node_5.18](sensor_nodes) [co_gas](data_to_fetch)?
+      # - please tell me [node_5.04](sensor_nodes) [humidity](data_to_fetch)?
+      # - share the [node_5.10](sensor_nodes) [co2value](data_to_fetch)?
+      # - give me [node_5.13](sensor_nodes) [rsroratio9](data_to_fetch)?
+      # - share the [node_5.03](sensor_nodes) [humidity](data_to_fetch)?
+      # - please tell me [node_5.16](sensor_nodes) [co2value](data_to_fetch)?
 
   # - intent: asked_entities
   #   examples: |

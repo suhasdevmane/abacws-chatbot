@@ -12,7 +12,7 @@ function init() {
     document.getElementsByTagName('head')[0].appendChild(script);
 
     //--------------------------- Important Variables----------------------------
-    botLogoPath = "./imgs/bot-logo.png"
+    botLogoPath = "./imgs/bot-logo.png" 
 
     //--------------------------- Chatbot Frontend -------------------------------
     const chatContainer = document.getElementById("chat-container");
@@ -43,7 +43,7 @@ function init() {
 			</div> -->
 
 			<!-- <div class='bot-msg'>
-				<img class='msg-image' src = "https://i.imgur.com/nGF1K8f.jpg" />
+				<img class='msg-image' src = "https://zenquotes.io/api/image" />
 			</div> -->
 
 			<!-- <div class='user-msg'>
@@ -202,7 +202,7 @@ function send(message) {
 
 //------------------------------------ Set bot response -------------------------------------
 function setBotResponse(val) {
-    setTimeout(function() {
+    setTimeout(function () {
         if (val.length < 1) {
             //if there is no response from Rasa
             // msg = 'I couldn\'t get that. Let\' try something else!';
@@ -214,9 +214,9 @@ function setBotResponse(val) {
             chatInput.focus();
 
         } else {
-            //if we get response from Rasa
+            //if we get a response from Rasa
             for (i = 0; i < val.length; i++) {
-                //check if there is text message
+                // check if there is a text message
                 if (val[i].hasOwnProperty("text")) {
                     const botMsg = val[i].text;
                     if (botMsg.includes("password")) {
@@ -227,15 +227,13 @@ function setBotResponse(val) {
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
 
-                //check if there is image
+                // check if there is an image
                 if (val[i].hasOwnProperty("image")) {
-                    var BotResponse = "<div class='bot-msg'>" + "<img class='bot-img' src ='${botLogoPath}' />"
-                    '<img class="msg-image" src="' + val[i].image + '">' +
-                        '</div>'
+                    var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><img class='msg-image' src='${val[i].image}' /></div>`;
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
 
-                //check if there are buttons
+                // check if there are buttons
                 if (val[i].hasOwnProperty("buttons")) {
                     var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><div class='response-btns'>`
 

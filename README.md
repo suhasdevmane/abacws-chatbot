@@ -309,7 +309,6 @@ Username- thingsboard
 password-  postgres
 database- thingsboard
 
-
 result-
 id- uuid
 cretaed time - bigint
@@ -696,3 +695,10 @@ FROM ts_kv;
 
  <!-- understand OWL -->
  <!-- https://chrdebru.github.io/courses/ois/ -->
+
+ <!-- RASA TEXTTO SPEECH -->
+ <!-- https://github.com/Anwarvic/RasaChatbot-with-ASR-and-TTS -->
+ <!-- https://github.com/srichakradhar/rasa-chatbot -->
+
+<!-- rasa full -->
+ <!-- https://vimeo.com/254777331 -->
