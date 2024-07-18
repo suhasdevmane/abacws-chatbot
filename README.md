@@ -118,8 +118,9 @@ Systen Administrator: sysadmin@thingsboard.org / sysadmin
 Tenant Administrator: tenant@thingsboard.org / tenant
 Customer User: customer@thingsboard.org / customer
 You can always change passwords for each account in account profile page.
-```
 
+```
+## Add your data to the thingsboard devices to talk to the building in natural language and receive data from the database.
 
 All API's and Services are available in following ports:
 
