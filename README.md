@@ -193,13 +193,10 @@ Note: Not recommended for any evaluation or production usage and is used only fo
 # Thingsboard Credentials
 
 sysadmin- use default credentials
-sysadmin@thingsboard.org / sysadmin
-tenant@thingsboard.org / tenant
-customer@thingsboard.org / customer
+id- sysadmin@thingsboard.org / pass- sysadmin
+id- tenant@thingsboard.org / pass-  tenant
+id- customer@thingsboard.org / pass- customer
 
-docker Thingsboard local
-tenant login id- suhasdevmanemail@gmail.com
-pass - Suhas@551993
 
 docker compose up -d            #to up docker compose
 docker compose down             # to stop docker-compose 
