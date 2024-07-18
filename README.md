@@ -505,8 +505,8 @@ thingsboard=# \dx
 
 
 
-  # This project is maintained by Suhas Devmane and under the PhD research project.
-  Please Contact DevamneSp1@cardiff@ac.uk
+  # This project is maintained by Suhas **** and under the PhD research project.
+
 
 
 
@@ -517,8 +517,8 @@ To Create a image of the API for 3d Visulisation in github, comment 'build-api' 
 To Create a image of the visuliser for 3d Visulisation in github, comment 'build-visualiser' triggers the build process of visuliser using github actions. 
 
 
-Owner: Suhas Devmane\
-Contact: suhasdevmane@outlook.com
+Owner: Suhas\
+Contact: will be provided
 
 
 
