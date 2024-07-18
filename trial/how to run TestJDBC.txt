@@ -1,6 +1,0 @@
-cd to trial
-java -cp .;C:\_PHD_\Github\abacws-chatbot\trial\postgresql-42.7.0.jar TestJDBC
-
-
-test connection when docker up
-docker logs test-jdbc
