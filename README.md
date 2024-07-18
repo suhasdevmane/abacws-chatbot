@@ -22,7 +22,10 @@ Install dependencies
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 
-
+# To start this project use docker-compose file and turn ON all services using
+```
+docker-compose up
+```
 
 # Abacws Data Visualiser
 Web application made to visualise IoT data for devices in the Abacws building at Cardiff University.\
@@ -37,63 +40,19 @@ You can view the documentation for the two separate services in their respective
 - [API](./api/README.md)
 - [Visualiser](./visualiser/README.md)
 
-## Docker compose
-I recommend using docker compose to deploy this to your own server alongside [traefik](https://traefik.io/traefik/).\
+## Docker compose for Abacws Data Visualiser
+We recommend using docker compose to deploy this to your own server alongside [traefik](https://traefik.io/traefik/).\
 An example compose file can be seen below.
 
-```yml
-version: '3.8'
-services:
-  mongo:
-    image: mongo
-    container_name: abacws-mongo
-    restart: always
-    volumes:
-      - ./mongo:/data/db
-
-  api:
-    image: ghcr.io/randomman552/abacws-data-vis:api-latest
-    container_name: abacws-api
-    restart: always
-    depends_on:
-      - mongo
-
-  visualiser:
-    image: ghcr.io/randomman552/abacws-data-vis:visualiser-latest
-    container_name: abacws-visualiser
-    restart: always
-    depends_on:
-      - api
-    # Traefik is recommended, you can set up a NGINX or Apache proxy instead, but traefik is much easier.
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
-      - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
-      - "traefik.http.routers.abacws-visualiser.entrypoints=https"
-      - "traefik.http.routers.abacws-visualiser.tls=true"
-```
-
-## Supported tags
-| Tag                 | Description                 |
-|:-------------------:|:---------------------------:|
-| `visualiser-latest` | Production ready visualiser |
-| `visualiser-main`   | Development visualiser      |
-| `visualiser-vx.y.z`  | Specific visualiser version |
-| `api-latest`        | Production ready API        |
-| `api-main`          | Development API             |
-| `api-vx.y.z`         | Specific API version        |
-
-
-
- # thingsboard/tb-postgres
- ThingsBoard is an open-source IoT platform for data collection, processing, visualization, and device management.
+# thingsboard/tb-postgres
+ThingsBoard is an open-source IoT platform for data collection, processing, visualization, and device management.
 
 Before starting Docker container run following commands to create a directory for storing data and logs and then change its owner to docker container user, to be able to change user, chown command is used, which requires sudo permissions (command will request password for a sudo access):
 ```
 $ mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
 $ mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 ```
-Execute the following command to run this docker directly:
+Execute the following command to run this docker seperately:
 
 $ docker run -it -p 9090:9090 -p 1883:1883 -p 7070:7070 -p 5683-5688:5683-5688/udp -v ~/.mytb-data:/data -v ~/.mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb-postgres
 
