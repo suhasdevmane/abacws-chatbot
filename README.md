@@ -206,9 +206,9 @@ docker compose stop mytb
 docker compose start mytb
 
 docker volumes are saved at \\wsl.localhost\docker-desktop-data\data\docker\volumes\mytb-data\_data\db
-
 windows 11- \\wsl.localhost\docker-desktop-data\data\docker\volumes
-ref - https://www.jianshu.com/p/9f2cd43098bb
+reference - https://www.jianshu.com/p/9f2cd43098bb
+
 ===========================
 
 # lOGIN TO SHELL
