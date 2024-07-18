@@ -318,7 +318,7 @@ etc
 
 
 
-networking
+networking for developers only
 read https://docs.docker.com/engine/tutorials/networkingcontainers/#:~:text=Docker%20networking%20allows%20you%20to,web%20app%20to%20the%20my_bridge%20.
 
 a] Inspecting the network is an easy way to find out the container's IP address.
@@ -402,15 +402,6 @@ thingsboard-# \dx
 
 ================================================================
 
-login succeeed if -
-name: <any name you want>
-host: host.docker.internal
-database: postgres
-user: postgres
-password: postgres
-PORT-5432
-
-
 
 Node_5.01
 device token- bW9z8pFxLGQWmmRauup6
@@ -452,8 +443,6 @@ Adjust JWT token expiry in thingsboard cnfiguration file.
 docker exec -it <thingsboard container id>> /bin/bash
 ```
 
-========================================= timescaledb ==============================
-
 1. used image
   timescale:
     image: "timescale/timescaledb:latest-pg14"
@@ -475,121 +464,6 @@ networks:
 volumes:
   timescaledb-data:
 
-  2. login into container psql 
-     
-     docker exec -it timescale psql -U postgres        <timescalle is a container name> <postgres is user>
-    docker exec -it 26d02ee6c574 psql -U thingsboard  <thingsboard is User>
-
-  3. login to psql from any terminal command line
-   
-    psql -p 5433 -h localhost -U postgres        
-
-  4. run query to see installed version of postgres 
-
-    select version();
-
-  5. create a database
-  
-     postgres=# create database thingsboard;
-
-6. enter into the database
-
-  postgres=# \c thingsboard
-
-7. Create extension
-
- thingsboard=# CREATE EXTENSION IF NOT EXISTS timescaledb;
-
- 8. List available extension in the database
-
-thingsboard=# \dx
-
-
-
-  # This project is maintained by Suhas **** and under the PhD research project.
-
-
-
-
-
-
-
-To Create a image of the API for 3d Visulisation in github, comment 'build-api' triggers the build process of API using github actions. \
-To Create a image of the visuliser for 3d Visulisation in github, comment 'build-visualiser' triggers the build process of visuliser using github actions. 
-
-
-Owner: Suhas\
-Contact: will be provided
-
-
-
-or build custom api
-// docker cp api\src\api\data\devices.json :/api/api/data/devices.json
-
-my ARCCA host
-username - ubuntu
-key - abacws-smart-building.pem
-
-
-to add git/la/hub files
-cd existing_repo
-git remote add origin https://gitlab.com/IOTGarage/talking-buildings.git
-git branch -M main
-git push -uf origin main
-                                                                      
-for gitlab :
-git commit -m "initial commit"
-git status
-git push -uf origin main
-git config --global user.name "devmanesp1@cardiff.ac.uk"
-git config --global user.email "devmanesp1@cardiff.ac.uk"
-git config --global --list
->git status
-git remote show origin
->git push origin main
-git pull
-git branch --set-upstream-to=origin/main main                      #use to set your origin to main as default
-git pull --allow-unrelated-histories
-git pull
-git push origin main
-
-
-
-
-curl -X 'PUT' 'http://localhost:8090/api/devices/node_5.05/data' -H 'accept: */*' -H 'Content-Type: application/json' -d '{ "temperature": {"value": 21, units": °C"}}'
-
-
-
-
-Hosting Abacws 3d tool on ARCCA
-TO SHOW NETWORKS USE=>  nmcli -p device show
-
-to check public ip address => curl ifconfig.me     or wget -qO- ifconfig.me
-
-ssh -i ".ssh/abacws-smat-building.pem" ubuntu@abaces-smart-building.arcca.cloud
-10.0.3.48
-172.17.0.1
-172.18.0.1
-
-ssh -i ".ssh/abacws-visualizer.pem" ubuntu@abacws-visualizer.arcca.cloud
-10.0.3.45 172.19.0.1 172.17.0.1
-
-https://7465-3-252-98-203.ngrok.io
-
-
-curl -s https://checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'  
-dig +short myip.opendns.com @resolver1.opendns.com      3.252.98.203
-$ host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | awk '{print $4}'
- wget -qO- http://ipecho.net/plain | xargs echo
-
- ngrok http 8080
-
-  docker run -it -e NGROK_AUTHTOKEN=2XzP2J1VpPiGZlzfOf2igFdIjhh_hg4kYbuU19h1UaoaSp8v ngrok/ngrok http 8080
-  ngrok config add-authtoken 2XzP2J1VpPiGZlzfOf2igFdIjhh_hg4kYbuU19h1UaoaSp8v  
-
-   https://6320-34-254-240-101.ngrok-free.app
-
-   sudo socat TCP-LISTEN:80,fork TCP:localhost:80
 
 
 <!-- ========================= installiing timescaleDB ============================= -->
@@ -611,92 +485,5 @@ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main"
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 
 
-7. apt install timescaledb-2-postgresql-12
-
-8.apt-get update
-
-9. apt-get install postgresql-client
-
-10. exit root
-
-11. docker exec -it <container id> psql 
-
-12. CREATE EXTENSION IF NOT EXISTS timescaledb;
-
-13 add shared_preload_libraries = 'timescaledb' into the path /data/db/postgresql.conf and restart the thingsboard service
- docker restart postgres_container_id_or_name
-
-14. docker exec -it postgres_container_id_or_name psql
-
-15. CREATE EXTENSION IF NOT EXISTS timescaledb;
-
-16. \dx to check extensions
-
-17. To add UUID to each sensor reading in ThingsBoard, you can use the `uuid-ossp` extension provided by PostgreSQL. Here are the steps:
-
-1. **Connect to your ThingsBoard PostgreSQL Database:**
-   Open your PostgreSQL client (e.g., pgAdmin) and connect to your ThingsBoard database.
-
-2. **Enable the `uuid-ossp` Extension:**
-   Run the following SQL command to enable the `uuid-ossp` extension in your database:
-   ```sql
-   CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-   ```
-
-3. **Add a UUID Column to the Table Storing Sensor Readings (ts_kv):**
-   Assuming that the sensor readings are stored in the `ts_kv` table, you can add a new column for UUID:
-   ```sql
-   ALTER TABLE ts_kv
-   ADD COLUMN IF NOT EXISTS uuid UUID DEFAULT uuid_generate_v4();
-   ```
-
-   This command adds a new column named `uuid` to the `ts_kv` table with the default value generated by `uuid_generate_v4()`.
-
-4. **Update Existing Rows with UUIDs (Optional):**
-   If you want to populate the newly added `uuid` column for existing rows, you can run the following SQL command:
-   ```sql
-   UPDATE ts_kv
-   SET uuid = uuid_generate_v4()
-   WHERE uuid IS NULL;
-   ```
-
-   This command sets a UUID for rows where the `uuid` column is currently NULL.
-
-5. **View the UUID Column in pgAdmin:**
-   Open pgAdmin and navigate to your ThingsBoard database. In the "Objects" tab, go to "Tables" and find the `ts_kv` table. You should see the newly added `uuid` column.
-
-6. **Query Data with UUIDs:**
-   You can now query data with the UUIDs. For example, to retrieve data with UUIDs, you can use a query like this:
 
 
-`
-
-   Replace the column names with the actual column names used in your `ts_kv` table.
-
-By following these steps, you'll add a UUID column to your sensor readings in ThingsBoard, and you should be able to view and query it in pgAdmin. Remember to adjust the column names if your actual table structure differs.
-
-
-SELECT entity_id, ts, key, long_v, dbl_v, bool_v, str_v, uuid
-FROM ts_kv
-ORDER BY ts DESC  -- Assuming you want to order by the timestamp in descending order
-LIMIT 50;
-
-
-SELECT entity_id, ts, key, uuid
-FROM ts_kv
-ORDER BY ts DESC  -- Assuming you want to order by the timestamp in descending order
-LIMIT 10;
-
-SELECT DISTINCT entity_id
-FROM ts_kv;
-
-
- <!-- understand OWL -->
- <!-- https://chrdebru.github.io/courses/ois/ -->
-
- <!-- RASA TEXTTO SPEECH -->
- <!-- https://github.com/Anwarvic/RasaChatbot-with-ASR-and-TTS -->
- <!-- https://github.com/srichakradhar/rasa-chatbot -->
-
-<!-- rasa full -->
- <!-- https://vimeo.com/254777331 -->
