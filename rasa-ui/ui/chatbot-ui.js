@@ -25,7 +25,7 @@ function init() {
 			<div class='chatbot-img'>
 				<img src='${botLogoPath}' alt='Chat Bot image' class='bot-img'> 
 			</div>
-			<h3 class='bot-title'>Covid Bot</h3>
+			<h3 class='bot-title'>Abacws Bot</h3>
 			<button class = "expand-chat-window" ><img src="./icons/open_fullscreen.png" class="icon" ></button>
 		</div>
 
@@ -219,11 +219,12 @@ function setBotResponse(val) {
                 // check if there is a text message
                 if (val[i].hasOwnProperty("text")) {
                     const botMsg = val[i].text;
+                    const botMsgWithLink = processCustomLink(botMsg);
                     if (botMsg.includes("password")) {
                         chatInput.type = "password";
                         passwordInput = true;
                     }
-                    var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${val[i].text}</span></div>`;
+                    var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${botMsgWithLink}</span></div>`;
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
 
@@ -257,7 +258,13 @@ function setBotResponse(val) {
     }, 500);
 }
 
+function processCustomLink(text) {
+    // Regular expression to identify a custom pattern for a link
+    const customLinkRegex = /\[Click here\]\s?\((https?:\/\/[^\s]+)\)/g;
 
+    // Replace all occurrences of the custom link pattern with HTML links
+    return text.replace(customLinkRegex, '<a href="$1" target="_blank">Click here</a>');
+}
 
 
 function mobileView() {
@@ -286,8 +293,8 @@ function chatbotTheme(theme) {
     }
 
     const purple = {
-        color: "#B721FF",
-        background: "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)"
+        color: "#89CFF0",
+        background: "linear-gradient(19deg, #21D4FD 0%, #89CFF0 100%)"
     }
 
 
