@@ -1,0 +1,64 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - query_actions
+
+entities:
+  - start_date
+  - end_date
+
+
+actions:
+  - action_nl2sparql_jena
+
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.pinimg.com/564x/8d/dc/22/8ddc229afcaaa36e6bc53e15c3af2113.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_no_results:
+    - text: "No results found."
+
+  utter_translation_error:
+    - text: "Unable to translate the query to SPARQL."
+
+  utter_error:
+    - text: "An error occurred: {error_message}"
+
+slots:
+  start_date:
+    type: text
+  end_date:
+    type: text
+  sparql_query:
+    type: unfeaturized
+  formatted_results:
+    type: unfeaturized
+  overall_average:
+    type: unfeaturized
+session_config:
+  session_expiration_time: 6000
+  carry_over_slots_to_new_session: true

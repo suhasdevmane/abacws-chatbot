@@ -1,0 +1,146 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+      - i am happy
+      - happy
+      - enjoying
+      - fine
+      - doing great
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+
+
+  - intent: query_actions
+    examples: |
+      - Where is Room 5.02 located?
+      - Can you tell me the location of Room 5.02?
+      - Where can I find Room 5.02?
+      - What is the location of Room 5.02?
+      - Where is the room 5.02?
+      - Room 5.02 location?
+      - What zones does Room5.02 belongs from?
+      - What type is co5.17?
+      - What is cotwo5.53?
+      - What type is voc5.17?
+      - What type is sound 5.53?
+      - What type is co 5.17?
+      - What floor is Room5.69 part of?
+      - What type is light5.48?
+      - What type is hcho5.12?
+      - What is pir5.02?
+      - What  sensors does Room5.12 have?
+      - What type is mqnine 5.26?
+      - What type is c2h5ch5.27?
+      - What type is dust 5.24?
+      - What parts does north-Zone have?
+      - What type is cotwo5.05?
+      - What is Room5.23?
+      - What is voc5.30?
+      - What type is voc 5.14?
+      - Where is cotwo5.08 located?
+      - Where is mqthree5.26 located?
+      - Which room has co5.08?
+      - Which room has voc5.71?
+      - What type of entity is Room5.29?
+      - What type is pir5.69?
+      - Which room has voc5.44?
+      - Which room has mqtwo5.60?
+      - What type is mqfive5.17?
+      - Which room has airq5.07?
+      - Where is cotwo5.38 located?
+      - Which floor is Room 5.23 part of?
+      - Where is airq5.71 located?
+      - Which room has mqnine5.48?
+      - What type is dust5.17?
+      - What type is co 5.55?
+      - What type is oxy5.05?
+      - What type is c2h5ch5.17?
+      - Which room has airq5.04?
+      - Which floor has Room5.03?

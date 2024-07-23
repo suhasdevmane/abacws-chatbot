@@ -1,0 +1,72 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background: url(./imgs/white-bg.jpg);
+  background-size: cover;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #f8f9fa;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #343a40 !important; /* Navbar brand text color */
+}
+
+.navbar-nav .nav-link {
+  color: #343a40 !important; /* Navbar links text color */
+}
+
+.navbar-toggler-icon {
+  background-color: #343a40; /* Navbar toggler icon color */
+}
+
+/* Chat Container Styles */
+#chat-container {
+  /* Add styles for the chat container if needed */
+}
+
+/* Service Container Styles */
+.service-container {
+  margin-top: 40px;
+}
+
+.service-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  max-height: 150px; /* Adjust the height of service images */
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  color: #6c757d; /* Service description text color */
+}
+
+.btn-primary {
+  background-color: #7952b3; /* Primary button color */
+  border-color: #7952b3; /* Primary button border color */
+}
+
+.btn-primary:hover {
+  background-color: #6c42a3; /* Primary button hover color */
+  border-color: #6c42a3; /* Primary button hover border color */
+}
+
+/* Customize as needed based on your design preferences */
