@@ -288,10 +288,9 @@ function chatbotTheme(theme) {
     }
 
     const purple = {
-        color: "#B721FF",
-        background: "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)"
+        color: "#318CE7",
+        background: "linear-gradient(19deg, #21D4FD 0%, #318CE7 100%)"
     }
-
 
 
     if (theme === "orange") {
