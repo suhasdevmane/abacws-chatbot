@@ -8,9 +8,9 @@
 :root {
     --chat-window-total-width: 380px;
     --chat-window-height: 500px;
-    --chat-window-color-theme: #1e90ff;
+    --chat-window-color-theme: #000080;
     --chat-window-bg-color: #fff;
-    --chat-send-button: #1e90ff;
+    --chat-send-button: #000080;
     --chat-user-msg-bg: #ddd;
     --chat-header-bg: linear-gradient(160deg, dodgerblue 0%, #80D0C7 100%);
 }
@@ -110,6 +110,11 @@
 .bot-img {
     width: 30px;
     margin-right: 15px;
+}
+
+a {
+    color: black; /* Change the color to black or any other color you prefer */
+    text-decoration: underline; /* Add an underline to indicate it's a link */
 }
 
 .bot-msg .msg {
