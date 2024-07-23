@@ -25,11 +25,7 @@ function init() {
 			<div class='chatbot-img'>
 				<img src='${botLogoPath}' alt='Chat Bot image' class='bot-img'> 
 			</div>
-<<<<<<< HEAD
 			<h3 class='bot-title'>Abacws Bot</h3>
-=======
-			<h3 class='bot-title'>Covid Bot</h3>
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
 			<button class = "expand-chat-window" ><img src="./icons/open_fullscreen.png" class="icon" ></button>
 		</div>
 
@@ -223,19 +219,12 @@ function setBotResponse(val) {
                 // check if there is a text message
                 if (val[i].hasOwnProperty("text")) {
                     const botMsg = val[i].text;
-<<<<<<< HEAD
                     const botMsgWithLink = processCustomLink(botMsg);
-=======
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
                     if (botMsg.includes("password")) {
                         chatInput.type = "password";
                         passwordInput = true;
                     }
-<<<<<<< HEAD
                     var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${botMsgWithLink}</span></div>`;
-=======
-                    var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${val[i].text}</span></div>`;
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
 
@@ -269,7 +258,6 @@ function setBotResponse(val) {
     }, 500);
 }
 
-<<<<<<< HEAD
 function processCustomLink(text) {
     // Regular expression to identify a custom pattern for a link
     const customLinkRegex = /\[Click here\]\s?\((https?:\/\/[^\s]+)\)/g;
@@ -277,9 +265,6 @@ function processCustomLink(text) {
     // Replace all occurrences of the custom link pattern with HTML links
     return text.replace(customLinkRegex, '<a href="$1" target="_blank">Click here</a>');
 }
-=======
-
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
 
 
 function mobileView() {
@@ -308,13 +293,8 @@ function chatbotTheme(theme) {
     }
 
     const purple = {
-<<<<<<< HEAD
         color: "#89CFF0",
         background: "linear-gradient(19deg, #21D4FD 0%, #89CFF0 100%)"
-=======
-        color: "#B721FF",
-        background: "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)"
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
     }
 
 

@@ -11,13 +11,9 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 action_endpoint:
-<<<<<<< HEAD
   # url: "http://action_server:5055/webhook" # use the service name not the container name
     url: "http://actionserverhost:5055/webhook" # use the service name not the container name
 
-=======
-  url: "http://action_server:5055/webhook" # use the service name not the container name
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
 
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.
