@@ -12,8 +12,4 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_pass http://${API_HOST}/;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
 }

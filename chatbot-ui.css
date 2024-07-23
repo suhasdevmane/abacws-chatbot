@@ -8,36 +8,16 @@
 :root {
     --chat-window-total-width: 380px;
     --chat-window-height: 500px;
-<<<<<<< HEAD
-<<<<<<< HEAD
     --chat-window-color-theme: #0000FF;
     --chat-window-bg-color: #fff;
     --chat-send-button: #0000FF;
-=======
-    --chat-window-color-theme: #1e90ff;
-    --chat-window-bg-color: #fff;
-    --chat-send-button: #1e90ff;
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
-=======
-    --chat-window-color-theme: #0000FF;
-    --chat-window-bg-color: #fff;
-    --chat-send-button: #0000FF;
->>>>>>> bbb81bcf48433c9e82d368a909b444e50e73a165
     --chat-user-msg-bg: #ddd;
     --chat-header-bg: linear-gradient(160deg, dodgerblue 0%, #80D0C7 100%);
 }
 
 .chat-btn {
     position: fixed;
-<<<<<<< HEAD
-<<<<<<< HEAD
     left: 50px;
-=======
-    right: 50px;
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
-=======
-    left: 50px;
->>>>>>> bbb81bcf48433c9e82d368a909b444e50e73a165
     bottom: 50px;
     border: none;
     outline: none;
@@ -66,15 +46,7 @@
     display: none;
     position: fixed;
     bottom: 80px;
-<<<<<<< HEAD
-<<<<<<< HEAD
     left: 120px;
-=======
-    right: 120px;
->>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
-=======
-    left: 120px;
->>>>>>> bbb81bcf48433c9e82d368a909b444e50e73a165
     height: var(--chat-window-height);
     width: var(--chat-window-total-width);
     background-color: var(--chat-window-bg-color);
