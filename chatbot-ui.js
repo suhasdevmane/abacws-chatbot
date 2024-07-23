@@ -289,6 +289,7 @@ function chatbotTheme(theme) {
 
     const purple = {
 <<<<<<< HEAD
+<<<<<<< HEAD
         color: "#318CE7",
         background: "linear-gradient(19deg, #21D4FD 0%, #318CE7 100%)"
     }
@@ -302,6 +303,13 @@ function chatbotTheme(theme) {
 
 
 >>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
+=======
+        color: "#318CE7",
+        background: "linear-gradient(19deg, #21D4FD 0%, #318CE7 100%)"
+    }
+
+
+>>>>>>> bbb81bcf48433c9e82d368a909b444e50e73a165
     if (theme === "orange") {
         root.style.setProperty('--chat-window-color-theme', orange.color);
         gradientHeader.style.backgroundImage = orange.background;
