@@ -1,0 +1,224 @@
+version: "3.0"
+services:
+  # mongo:
+  #   image: mongo
+  #   container_name: abacws-chatbot-mongo
+  #   hostname: mongohost
+  #   restart: always
+  #   volumes:
+  #     - mongo-data:/data/db
+  #   networks:
+  #     - my_bridge
+  # api:
+  #   # image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
+  #   build:
+  #     context: ./api/
+  #     dockerfile: Dockerfile
+  #   hostname: apihost
+  #   container_name: abacws-api
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     - API_PORT=5000
+  #   ports:
+  #     - 8091:5000
+  #   volumes:
+  #     - ./api/src/api/data:/api/api/data
+  #   networks:
+  #     - my_bridge
+
+  # visualiser:
+  #   # image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
+  #   build:
+  #     context: ./visualiser/
+  #     dockerfile: Dockerfile
+  #   container_name: abacws-visualiser
+  #   hostname: visualiserhost
+  #   restart: always
+  #   depends_on:
+  #     - api
+  #   ports:
+  #     - 8090:80
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.services.abacws-visualiser.loadbalancer.server.port=80"
+  #     - "traefik.http.routers.abacws-visualiser.rule=Host(`visualiser.abacws.example.com`)"
+  #     - "traefik.http.routers.abacws-visualiser.entrypoints=https"
+  #     - "traefik.http.routers.abacws-visualiser.tls=true"
+  #   networks:
+  #     - my_bridge
+
+  mytb:
+    restart: always
+    # image: "thingsboard-jupyter:1.0"
+    image: 7499968836/my-thingsboard:1.0
+    container_name: thingsboard
+    hostname: thingsboardhost
+    ports:
+      - "8080:9090"
+      - "1883:1883"
+      - "7070:7070"
+      - "5683-5688:5683-5688/udp"
+      - "8081:8081"
+      - "5432:5432"
+    environment:
+      TB_QUEUE_TYPE: in-memory
+    volumes:
+      - ~/.mytb-data:/data
+      - ~/.mytb-logs:/var/log/thingsboards
+    networks:
+      - my_bridge
+
+  # jena-fuseki:
+  #   image: stain/jena-fuseki
+  #   container_name: jena-fuseki-rdf-store
+  #   hostname: jenahost
+  #   ports:
+  #     - "3030:3030"
+  #   volumes:
+  #     - jena-data:/data
+  #   environment:
+  #     - ADMIN_PASSWORD=Suhas@551993
+  #   restart: always
+  #   networks:
+  #     - my_bridge
+
+  # rasa:
+  #   image: rasa/rasa:3.6.12-full
+  #   container_name: rasa
+  #   hostname: rasahost
+  #   ports:
+  #     - "5005:5005"
+  #   volumes:
+  #     - "./rasa-ui/:/app/"
+  #     - "./rasa-ui/config.yml:/app/config.yml"
+  #     - "./rasa-ui/credentials.yml:/app/credentials.yml"
+  #     - "./rasa-ui/endpoints.yml:/app/endpoints.yml"
+  #   command:
+  #     # - train
+  #     - run
+  #     - --cors
+  #     - "*"
+  #     - --enable-api
+  #   networks:
+  #     - my_bridge
+
+  # action_server:
+  #   # build:
+  #   #   context: ./rasa-ui/actions/
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-main
+  #   container_name: rasa_action_server
+  #   hostname: actionserverhost
+  #   ports:
+  #     - "5055:5055"
+  #   volumes:
+  #     - ./rasa-ui/actions:/app/actions
+  #   networks:
+  #     - my_bridge
+
+  # web_ui:
+  #   image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
+  #   # build:
+  #   #   context: ./rasa-ui/ui
+  #   container_name: rasa-web-ui
+  #   hostname: webuihost
+  #   ports:
+  #     - "8082:80"
+  #   depends_on:
+  #     - action_server
+  #     - rasa
+  #   networks:
+  #     - my_bridge
+
+  jupyter:
+    image: 7499968836/jupyter_notebook:latest
+    # build:
+    #   context: ./notebooks/
+    container_name: jupyter_notebook
+    hostname: jupyter-notebook-host
+    restart: always
+    ports:
+      - "8888:8888"
+      - "8089:8089" #to see ontology
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=Suhas@551993
+    command:
+      - start-notebook.sh
+    networks:
+      - my_bridge
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   container_name: adminer
+  #   hostname: adminerhost
+  #   depends_on:
+  #     - mytb
+  #   ports:
+  #     - 8282:8080
+  #   networks:
+  #     - my_bridge
+
+#=================================================================
+# pgadmin:
+#   restart: always
+#   image: "dpage/pgadmin4"
+#   container_name: pgadmin
+#   hostname: pgadminhost
+#   ports:
+#     - "5050:80"
+#   environment:
+#     - PGADMIN_DEFAULT_EMAIL=pgadmin@example.com
+#     - PGADMIN_DEFAULT_PASSWORD=admin
+#   networks:
+#     - my_bridge
+
+# postgres:
+#   image: "postgres:14"
+#   container_name: postgres
+#   hostname: postgreshost
+#   environment:
+#     - POSTGRES_PASSWORD=postgres
+#     - POSTGRES_USER=postgres
+#     - POSTGRES_DB=thingsboard
+#   # ports:
+#   #   - "5433:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
+#   volumes:
+#     - postgres-data:/var/lib/postgresql/data
+#   networks:
+#     - my_bridge
+
+# timescaledb:
+#   image: "timescale/timescaledb:latest-pg12"
+#   container_name: timescaledb
+#   hostname: timescalehost
+#   environment:
+#     - POSTGRES_PASSWORD=postgres
+#     - POSTGRES_USER=postgres
+#     - POSTGRES_DB=thingsboard
+#   ports:
+#     - "5432:5432" # PostgreSQL Port (use a different host port to avoid conflicts)
+#   volumes:
+#     - timescaledb-data:/var/lib/postgresql/data
+#   depends_on:
+#     - thingsboard
+#   command: ["-c", "shared_preload_libraries=timescaledb"]
+#   networks:
+#     - my_bridge
+# =============================================================
+networks:
+  my_bridge:
+volumes:
+  # mongo-data:
+  # api-data:
+  mytb-data:
+    external: true
+  mytb-logs:
+    external: true
+  # jena-data:
+# timescaledb-data:
+# postgres-data:

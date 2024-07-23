@@ -1,10 +1,7 @@
 This project is under development.
-## To run this project use docker 
-```
-docker-compose up 
-```
 
-## To test and develope the project use following setup
+
+
 
 Create a python virtual environment to access different APIs.
 ```

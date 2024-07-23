@@ -11,7 +11,69 @@ rules:
       - intent: bot_challenge
       - action: utter_iamabot
 
+<<<<<<< HEAD
   - rule: Query actions
     steps:
       - intent: query_actions
       - action: action_nl2sparql_jena
+=======
+  - rule: gives temperature
+    steps:
+      - intent: asked_temperature
+      - action: action_asked_temperature
+
+  - rule: gives report
+    steps:
+      - intent: asked_report
+      - action: action_asked_report
+
+  # - rule: gives entities
+  #   steps:
+  #     - intent: asked_entities
+  #     - action: action_asked_entities
+
+  - rule: execute sql action
+    steps:
+      - intent: query_latest_sensor_data
+      - action: query_sql_node_sensor
+  - rule: gives_q1
+    steps:
+      - intent: asked_q1
+      - action: utter_asked_q1
+  - rule: gives_q2
+    steps:
+      - intent: asked_q2
+      - action: utter_asked_q2
+  - rule: gives_q3
+    steps:
+      - intent: asked_q3
+      - action: utter_asked_q3
+  - rule: gives_q4
+    steps:
+      - intent: asked_q4
+      - action: utter_asked_q4
+  - rule: gives_q5
+    steps:
+      - intent: asked_q5
+      - action: utter_asked_q5
+  - rule: gives_q6
+    steps:
+      - intent: asked_q6
+      - action: utter_asked_q6
+  - rule: gives_q7
+    steps:
+      - intent: asked_q7
+      - action: utter_asked_q7
+  - rule: gives_q8
+    steps:
+      - intent: asked_q8
+      - action: utter_asked_q8
+  - rule: gives_q9
+    steps:
+      - intent: asked_q9
+      - action: utter_asked_q9
+  - rule: gives_q10
+    steps:
+      - intent: asked_q10
+      - action: utter_asked_q10
+>>>>>>> d43c0ebbd314716768d4380424349e8f915e277e

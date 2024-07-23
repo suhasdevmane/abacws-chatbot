@@ -1,0 +1,20 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX abacws: <http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2/> \r\nPREFIX owl: <http://www.w3.org/2002/07/owl#> \r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \r\nPREFIX xml: <http://www.w3.org/XML/1998/namespace> \r\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \r\nPREFIX untitled-ontology-2: <http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2#> \r\nBASE <http://www.semanticweb.org/c21054458/ontologies/2023/6/untitled-ontology-2/>\r\n\r\nSELECT ?subject ?predicate ?object\r\nWHERE {\r\n  ?subject ?predicate ?object\r\n}\r\nLIMIT 5",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "SELECT ?subject ?predicate ?object\r\nWHERE {\r\n  ?subject ?temperature ?object\r\n}\r\nLIMIT 15",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nSELECT * WHERE {\r\n  ?sub ?pred ?obj .\r\n} LIMIT 10",
+    "metadata": {}
+  }
+]

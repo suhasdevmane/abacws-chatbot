@@ -112,11 +112,14 @@
     margin-right: 15px;
 }
 
+<<<<<<< HEAD
 a {
     color: black; /* Change the color to black or any other color you prefer */
     text-decoration: underline; /* Add an underline to indicate it's a link */
 }
 
+=======
+>>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
 .bot-msg .msg {
     background-color: var(--chat-window-color-theme);
     color: white;

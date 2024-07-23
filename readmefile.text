@@ -1,0 +1,41 @@
+To build a chatbot that understands and reasons over a Brick Schema ontology to answer users' questions. While OWL provides advanced reasoning capabilities, you can still achieve reasoning using specific approaches within the context of Brick Schema.
+
+Here's a general approach to building a chatbot without using OWL directly:
+
+### 1. Ontology-Based Chatbot Framework:
+   - Utilize a chatbot framework that supports ontology-based reasoning. Ensure it can handle queries and understand the structure of your Brick Schema ontology.
+
+### 2. Natural Language Processing (NLP):
+   - Integrate Natural Language Processing capabilities to understand user queries in natural language. This involves parsing and extracting the intent and entities from user inputs.
+
+### 3. Query Translation:
+   - Translate the natural language queries into queries that can be executed against the Brick Schema ontology. This may involve mapping user intents to specific classes, properties, or relationships in the ontology.
+
+### 4. Ontology Query Execution:
+   - Implement a mechanism to execute queries against the Brick Schema ontology. This could involve using SPARQL queries (if your ontology is represented in RDF) or custom query mechanisms specific to your ontology format.
+
+### 5. Reasoning Rules:
+   - Define reasoning rules within your chatbot. These rules can be specific to the semantics of your ontology and may involve conditional logic, inference, or deduction based on the ontology's structure.
+
+### 6. Response Generation:
+   - Based on the results of the ontology queries and reasoning, generate responses that are meaningful and relevant to the user's queries. This might involve formatting the results in a user-friendly way.
+
+### Example:
+
+User: "Which rooms have high temperature sensors?"
+
+Chatbot:
+1. Translate to Ontology Query: Convert the query to an ontology query that seeks rooms with high-temperature sensors.
+2. Execute Ontology Query: Query the Brick Schema ontology to identify rooms with high-temperature sensors.
+3. Apply Reasoning: Apply any reasoning rules, such as inferring additional information based on the ontology.
+4. Generate Response: Provide a response such as "The following rooms have high-temperature sensors: Room A, Room B."
+
+### Considerations:
+
+- Ontology Structure: Ensure that your Brick Schema ontology is well-structured and represents the relevant information for answering user queries.
+
+- Chatbot Capabilities: Choose or build a chatbot framework that supports the integration of ontology-based reasoning and can handle the complexities of your ontology.
+
+- Scalability: Consider the scalability of your solution, especially if your ontology or user base grows.
+
+By focusing on the reasoning capabilities within the context of Brick Schema, you can create a chatbot that effectively answers user questions related to building systems and automation.

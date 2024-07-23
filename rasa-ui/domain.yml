@@ -8,6 +8,7 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+<<<<<<< HEAD
   - query_actions
 
 entities:
@@ -17,6 +18,38 @@ entities:
 
 actions:
   - action_nl2sparql_jena
+=======
+  - asked_temperature
+  - asked_report
+  # - asked_entities
+  - query_latest_sensor_data
+  - asked_q1
+  - asked_q2
+  - asked_q3
+  - asked_q4
+  - asked_q5
+  - asked_q6
+  - asked_q7
+  - asked_q8
+  - asked_q9
+  - asked_q10
+
+actions:
+  - action_asked_temperature
+  - action_asked_report
+  # - action_asked_entities
+  - query_sql_node_sensor
+  - action_asked_q1
+  - action_asked_q2
+  - action_asked_q3
+  - action_asked_q4
+  - action_asked_q5
+  - action_asked_q6
+  - action_asked_q7
+  - action_asked_q8
+  - action_asked_q9
+  - action_asked_q10
+>>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
 
 
 responses:
@@ -39,6 +72,7 @@ responses:
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
 
+<<<<<<< HEAD
   utter_no_results:
     - text: "No results found."
 
@@ -59,6 +93,40 @@ slots:
     type: unfeaturized
   overall_average:
     type: unfeaturized
+=======
+  utter_asked_q1:
+    - text: "The current PM2.5 level in Room 5.12 is 15 micrograms per cubic meter, which is within the recommended daily limit in the United Kingdom."
+
+  utter_asked_q2:
+    - text: "The latest oxygen level in Room 5.25 is 21%, indicating a normal and healthy environment."
+
+  utter_asked_q3:
+    - text: "The average temperature of the building is around 22 degrees Celsius, providing a comfortable atmosphere for occupants."
+
+  utter_asked_q4:
+    - text: "The minimum CO2 level in the building over the last week is 400 parts per million, which is within the acceptable range."
+
+  utter_asked_q5:
+    - text: "The average PM2.5 level on the third floor during working hours is 12 micrograms per cubic meter, well below the recommended limit."
+
+  utter_asked_q6:
+    - text: "The average temperature on the fourth floor during weekends is around 20 degrees Celsius, ensuring a pleasant environment."
+
+  utter_asked_q7:
+    - text: "The current CO2 level on the 4th floor is 800 parts per million, within the normal range and safe for occupants."
+
+  utter_asked_q8:
+    - text: "No rooms with abnormal oxygen levels were found. Correlated CO2 levels are also within the normal range, providing a healthy indoor environment."
+
+  utter_asked_q9:
+    - text: "Based on historical data, there are no predicted issues with temperature regulation in specific rooms, ensuring consistent comfort."
+
+  utter_asked_q10:
+    - text: "Predicted future CO2 levels in the building, based on the current trend, are expected to remain around 500 parts per million, maintaining a healthy indoor air quality."
+
+
+
+>>>>>>> d43c0ebbd314716768d4380424349e8f915e277e
 session_config:
   session_expiration_time: 6000
   carry_over_slots_to_new_session: true

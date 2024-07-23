@@ -1,0 +1,125 @@
+
+a]
+
+1.Setup environment
+(conda create --prefix C:/_PHD_/Github/sirius-web/abacwsenvs python=3.10.0)
+or i will try python venv for this sirius project
+
+==>   python -m venv ./abacws_cahtbot_env
+
+2. conda activate environment
+(conda activate C:/_PHD_/Github/sirius-web/siriusenvs)
+
+==>  ./abacws_cahtbot_env/Scripts/activate
+
+or 
+use ctrl + shift + p for choose python enterpreter to activate the conda env
+
+3. upgrade pip
+
+==>  python.exe -m pip install --upgrade pip
+
+
+4. Install rasa 3.0
+
+ ==>  pip3 install rasa==3.6.4
+
+5. check rasa installed correctly
+
+==> rasa -h
+==> rasa --version
+
+6. ==> rasa init
+7. ==> rasa train
+
+8. if you get error websocket
+
+==> pip install websockets==10.0
+
+9. enable rasa apis
+
+==> rasa run --cors "*" --enable-api
+
+==> rasa run -m models --enable-api --cors "*" 
+or debug 
+==> rasa run -m models --enable-api --cors "*" --debug
+
+10. ==> rasa run actions
+
+
+LegacyVersion iSSUE SOLUTION
+In rasa/shared/utils/validation.py, LegacyVersion is imported to check if the parsed training data format 
+is a ‘LegacyVersion’ and then throws an error if it is. Since LegacyVersion is not available in the recent
+ 2 releases from packaging, having this check might not be necessary? I got around the issue by commenting 
+ out lines 6 and 250-251.
+
+
+
+
+
+
+
+6. ==> pip install nodejs
+
+7. ==> pip install npm
+
+8. pip install -r requirements.txt
+
+9. python -m spacy download en_core_web_sm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+B] APACHE JENA FUSEKI_BASE
+
+
+==> cd apache-jena-fuseki-4.9.0
+==> fuseki-server --update --mem /ds     # it will create a dataset as ds
+then go got localhost:3030
+
+or persistant DB
+==> fuseki-server --desc tdb.ttl /ds
+
+If you want to run fuseki server with persistent data store then use the following command:
+
+fuseki-server  --loc=datastore --update /ds
+fuseki-server  --loc=datastore --update /rice_hall
+
+remember to add a folder in local directory as datastore to compile above command
+
+ 
+python3 -m venv ./venv  => to create env but it this version is not supported yet
+virtualenv venv --python=python2.7
+conda create -n $PYTHON3.10_ENV_NAME python=3.10    => if you are using conda
+conda create --name $PYTHON3.10_ENV_NAME python=3.10    => if you are using conda
+.\venv\Scripts\activate    => to activate pyhton env 
+conda activate $PYTHON3.10_ENV_NAME => to activate conda env
+deactivate  => to deactive the python or conda env
+python.exe -m pip install --upgrade pip    => to upgrade pip
+conda install ujson => dependency installation
+conda install tensorflow => dependency
+pip install rasa==3.0  => to install rasa
+
+
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/suhasdevmane/dsjdjghfbdcx-.git
+git push -u origin main
+
+
+
