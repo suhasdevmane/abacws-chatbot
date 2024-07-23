@@ -1,5 +1,6 @@
 node_modules/
 Transformers/
+notebooks/
 .rasa/
 .vscode/
 abacws_chatbot_env/
