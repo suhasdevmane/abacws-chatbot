@@ -11,10 +11,9 @@ services:
     networks:
       - my_bridge
   api:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:api-v.1.1.0
-    # build:
-    #   context: ./api/
-    #   dockerfile: Dockerfile
+    build:
+      context: ./api/
+      dockerfile: Dockerfile
     hostname: apihost
     container_name: abacws-api
     restart: always
@@ -30,10 +29,9 @@ services:
       - my_bridge
 
   visualiser:
-    image: ghcr.io/suhasdevmane/abacws-chatbot:visualiser-v.1.0.0
-    # build:
-    #   context: ./visualiser/
-    #   dockerfile: Dockerfile
+    build:
+      context: ./visualiser/
+      dockerfile: Dockerfile
     container_name: abacws-visualiser
     hostname: visualiserhost
     restart: always
@@ -189,7 +187,6 @@ services:
     restart: always
     build:
       context: ./rasa-ui/actions/
-    # image: ghcr.io/suhasdevmane/abacws-chatbot:acion-server-v.1.0.0
     container_name: rasa_action_server
     hostname: actionserverhost
     ports:
@@ -209,9 +206,8 @@ services:
 
   web_ui:
     restart: always
-    image: ghcr.io/suhasdevmane/abacws-chatbot:web_ui-main # or build locally
-    # build:
-    #   context: ./rasa-ui/ui
+    build:
+      context: ./rasa-ui/ui
     container_name: rasa-web-ui
     hostname: webuihost
     ports:
