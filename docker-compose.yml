@@ -198,11 +198,11 @@ services:
     networks:
       - my_bridge
 
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: --run-once action_server
+  # watchtower:
+  #   image: containrrr/watchtower
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   command: --run-once action_server
 
   web_ui:
     restart: always
@@ -327,9 +327,9 @@ volumes:
   # mongo-data:
   # api-data:
   # mytb-data:
-  #   external: true
+    # external: true
   # mytb-logs:
-  #   external: true
+    # external: true
   jena-data:
   fuseki:
   # timescaledb-data:
