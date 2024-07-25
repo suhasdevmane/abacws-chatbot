@@ -106,7 +106,7 @@ services:
       # - ./postgresql-42.7.0.jar:/fuseki/WEB-INF/lib/postgresql-42.7.0.jar
     restart: always
     environment:
-      - ADMIN_PASSWORD=Suhas@551993
+      - ADMIN_PASSWORD=Admin@12345
       # - FUSEKI_TDB_DATASET_1="tdb:location jdbc:postgresql://thingsboard:5432/thingsboard"
     user: "root" # Specify the user as root
     networks:
@@ -307,13 +307,13 @@ services:
 
 
 # ===============================Trasformer model endpoint==============================
-  bart-t5:
+  t5-t5:
       build:
         context: ./Transformers
       # image: "7499968836/transformer-nl2sparql-model:latest"
       restart: always
-      container_name: bart-t5
-      hostname: bart-t5-host
+      container_name: t5-t5
+      hostname: t5-t5-host
       ports:
         - "5001:5000"
       depends_on:

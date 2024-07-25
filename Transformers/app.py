@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # Load the model and tokenizer for BART
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model_path1 = "./BART-NL2SPARQL/trained"
+model_path1 = "./T5-NL2SPARQL/trained"
 tokenizer1 = BartTokenizer.from_pretrained(model_path1)
 model1 = BartForConditionalGeneration.from_pretrained(model_path1).to(device)
 

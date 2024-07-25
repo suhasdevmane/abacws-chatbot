@@ -14,10 +14,8 @@ entities:
   - start_date
   - end_date
 
-
 actions:
   - action_nl2sparql_jena
-
 
 responses:
   utter_greet:
@@ -51,14 +49,27 @@ responses:
 slots:
   start_date:
     type: text
+    mappings:
+      - type: from_entity
+        entity: start_date
   end_date:
     type: text
+    mappings:
+      - type: from_entity
+        entity: end_date
   sparql_query:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_text
   formatted_results:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_text
   overall_average:
-    type: unfeaturized
+    type: any
+    mappings:
+      - type: from_text
+
 session_config:
   session_expiration_time: 6000
   carry_over_slots_to_new_session: true

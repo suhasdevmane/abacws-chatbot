@@ -25,8 +25,8 @@ RUN apt-get update && apt-get install -y \
 
 # Copy the rest of the application code into the container
 COPY app.py .
-COPY ./BART-NL2SPARQL/trained /app/BART-NL2SPARQL/trained
-COPY ./T5-SPARQL2QA/trained /app/T5-SPARQL2QA/trained
+COPY ./T5-SPARQL2QA/trained  /app/T5-SPARQL2QA/trained 
+COPY ./T5-NL2SPARQL/trained  /app/T5-NL2SPARQL/trained 
 
 # Expose the port the app runs on
 EXPOSE 5000
