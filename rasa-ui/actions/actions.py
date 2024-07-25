@@ -8,16 +8,14 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 import psycopg2
 from psycopg2.extras import DictCursor
-from datetime import datetime
-import time
 import SPARQLWrapper
 from SPARQLWrapper import SPARQLWrapper, JSON
 from datetime import datetime
 import time
 
-class ActionQueryHandler(Action):
+class action_nl2sparql_jena(Action):
     def name(self) -> str:
-        return "action_query_handler"
+        return "action_nl2sparql_jena"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -26,16 +24,22 @@ class ActionQueryHandler(Action):
         # Step 1: Translate user query to SPARQL
         user_query = tracker.latest_message['text']
         translate_url = "http://localhost:5002/translate"
+        endpoint_url = "http://localhost:3030/abacws-sensor-network/sparql"
+        summarize_url = "http://localhost:5000/generate_explanation"
         headers = {"Content-Type": "application/json"}
         payload = {"query": user_query}
 
-        response = requests.post(translate_url, headers=headers, json=payload)
-
-        if response.status_code != 200 or not response.json().get("sparql_query"):
-            dispatcher.utter_message(text="Error: Unable to translate the query to SPARQL.")
+        try:
+            response = requests.post(translate_url, headers=headers, json=payload)
+            response.raise_for_status()
+        except requests.exceptions.RequestException as e:
+            dispatcher.utter_message(text="Error: Unable to translate your question to machine understanding language. Please try again using different words.")
             return []
 
         sparql_query = response.json().get("sparql_query")
+        if not sparql_query:
+            dispatcher.utter_message(text="Error: Translation service did not return a SPARQL query. Please try again.")
+            return []
 
         # Step 2: Execute SPARQL query
         final_sparql_query_template = """
@@ -50,91 +54,41 @@ class ActionQueryHandler(Action):
         """
         final_sparql_query = final_sparql_query_template + sparql_query
 
-        endpoint_url = "http://localhost:3030/abacws-sensor-network/sparql"
         results = self.execute_sparql_query(final_sparql_query, endpoint_url)
 
         if not results:
-            dispatcher.utter_message(text="No results found.")
+            dispatcher.utter_message(text="No results found in database. Their is no data to show.")
             return []
 
         formatted_results = self.format_results(results, self.prefix_mappings())
 
-        # Step 3: Query PostgreSQL and calculate the average temperature
-        conn_params = {
-            'database': 'thingsboard',
-            'user': 'thingsboard',
-            'password': 'postgres',
-            'host': 'localhost',
-            'port': 5432,
+        # Step 3: Summarize the sparql response in natural language
+        data = {
+            "en": user_query,
+            "response": formatted_results
         }
-
-        start_date = tracker.get_slot("start_date")
-        end_date = tracker.get_slot("end_date")
-        start_date_unix = int(time.mktime(datetime.strptime(start_date, "%d/%m/%Y %H:%M:%S").timetuple()) * 1000)
-        end_date_unix = int(time.mktime(datetime.strptime(end_date, "%d/%m/%Y %H:%M:%S").timetuple()) * 1000)
 
         try:
-            conn = psycopg2.connect(**conn_params)
-            cur = conn.cursor(cursor_factory=DictCursor)
-
-            total_value = 0
-            count = 0
-
-            for result in formatted_results:
-                entity_id = result['timeseries_id']
-                key = result['timeseries_key_id']
-                
-                sql_query = """
-                SELECT AVG(COALESCE(bool_v::TEXT, str_v, long_v::TEXT, dbl_v::TEXT, json_v::TEXT)::numeric) AS average_value
-                FROM ts_kv
-                WHERE entity_id = %s AND key = %s AND ts BETWEEN %s AND %s;
-                """
-                cur.execute(sql_query, (entity_id, key, start_date_unix, end_date_unix))
-                
-                sql_result = cur.fetchone()
-                if sql_result and sql_result[0] is not None:
-                    total_value += sql_result[0]
-                    count += 1
-
-            overall_average = total_value / count if count > 0 else None
-
-        except Exception as e:
-            dispatcher.utter_message(text=f"An error occurred: {e}")
-            return []
-
-        finally:
-            if cur:
-                cur.close()
-            if conn:
-                conn.close()
-
-        # Step 4: Summarize the response
-        if overall_average is None:
-            dispatcher.utter_message(text="Could not calculate the average temperature.")
-            return []
-
-        summarize_url = "http://localhost:5000/generate_explanation"
-        data = {
-            "en": "What is the average temperature?",
-            "response": f"Overall average temperature: {overall_average}"
-        }
-
-        response = requests.post(summarize_url, json=data)
-
-        if response.status_code == 200:
-            explanation = response.json().get('explanation')
-            dispatcher.utter_message(text=f"Explanation: {explanation}")
-        else:
+            response = requests.post(summarize_url, json=data)
+            response.raise_for_status()
+        except requests.exceptions.RequestException as e:
             dispatcher.utter_message(text=f"Failed to receive response. Status code: {response.status_code}")
+            return []
+
+        explanation = response.json().get('explanation', "No explanation available.")
+        dispatcher.utter_message(text=f"{explanation}")
 
         return []
 
     def execute_sparql_query(self, sparql_query, endpoint_url):
-        sparql = SPARQLWrapper(endpoint_url)
-        sparql.setQuery(sparql_query)
-        sparql.setReturnFormat(JSON)
-        results = sparql.query().convert()
-        return results
+        try:
+            sparql = SPARQLWrapper(endpoint_url)
+            sparql.setQuery(sparql_query)
+            sparql.setReturnFormat(JSON)
+            results = sparql.query().convert()
+            return results["results"]["bindings"]
+        except Exception as e:
+            return []
 
     def prefix_mappings(self):
         return {
@@ -162,96 +116,3 @@ class ActionQueryHandler(Action):
             formatted_bindings.append(formatted_binding)
         return formatted_bindings
     
-
-# class action_asked_q1(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q1"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-
-# class action_asked_q2(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q2"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q3(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q3"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q4(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q4"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q5(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q5"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q6(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q6"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q7(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q7"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q8(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q8"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q9(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q9"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-    
-# class action_asked_q10(Action):
-#     def name(self) -> Text:
-#         return "action_asked_q10"
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-#             dispatcher.utter_message(text="could'nt get current temperature. please try again")
-#             return []
-

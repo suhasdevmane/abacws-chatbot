@@ -1,5 +1,10 @@
 node_modules/
-Transformers/
+Transformers/.ipynb_checkpoints/
+Transformers/BART-NL2SPARQL/
+Transformers/Dataset/
+Transformers/GPT/
+Transformers/T5-NL2SPARQL/
+Transformers/T5-SPARQL2QA/
 notebooks/
 .rasa/
 .vscode/

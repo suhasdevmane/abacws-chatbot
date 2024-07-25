@@ -1,0 +1,13 @@
+version: '3.0'
+
+services:
+  BARTandT5:
+    build: 
+      context: .
+    restart: always
+    container_name: BARTandT5
+    hostname: BARTandT5-host
+    ports:
+      - "5001:5000"
+
+
