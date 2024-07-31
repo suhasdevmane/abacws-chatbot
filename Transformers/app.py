@@ -1,9 +1,14 @@
+# app.py
+
 from flask import Flask, request, jsonify, render_template_string
 from transformers import BartTokenizer, BartForConditionalGeneration, T5Tokenizer, T5ForConditionalGeneration
 from SPARQLWrapper import SPARQLWrapper, JSON
 import torch
 import logging
-
+# Constants for API endpoints
+TRANSLATE_URL = "http://t5-t5:5000/translate"
+SUMMARIZE_URL = "http://t5-t5:5000/summarize"
+SPARQL_ENDPOINT = "http://jena-fuseki:3030/abacws-sensor-network/sparql"
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)
 
@@ -12,8 +17,11 @@ app = Flask(__name__)
 # Load the model and tokenizer for BART
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model_path1 = "./T5-NL2SPARQL/trained"
-tokenizer1 = BartTokenizer.from_pretrained(model_path1)
-model1 = BartForConditionalGeneration.from_pretrained(model_path1).to(device)
+tokenizer1 = T5Tokenizer.from_pretrained(model_path1)
+model1 = T5ForConditionalGeneration.from_pretrained(model_path1).to(device)
+# model_path1 = "./BART-NL2SPARQL/trained"                  # USE THIS MODEL ALTERNATEVELY
+# tokenizer1 = BartTokenizer.from_pretrained(model_path1)
+# model1 = BartForConditionalGeneration.from_pretrained(model_path1).to(device)
 
 # Load the model and tokenizer for T5
 model_path2 = "./T5-SPARQL2QA/trained"
@@ -117,7 +125,7 @@ html_template = '''
             <h2>Translate Natural Language to SPARQL</h2>
             <form action="/translate" method="post">
                 <label for="query">Enter your natural language query:</label><br><br>
-                <input type="text" id="query" name="query" style="width: 100%;"><br><br>
+                <input type="text" id="query" name="query" value="{{ query or '' }}" style="width: 100%;"><br><br>
                 <input type="submit" value="Translate">
             </form>
             {% if sparql_query %}
@@ -130,7 +138,7 @@ html_template = '''
             <h2>Formatted SPARQL Query</h2>
             <form action="/execute_sparql" method="post">
                 <label for="sparql_query">Enter Generated SPARQL query from the first box:</label><br><br>
-                <textarea id="sparql_query" name="sparql_query" rows="10" cols="50"></textarea><br><br>
+                <textarea id="sparql_query" name="sparql_query" rows="10" cols="50">{{ sparql_query or '' }}</textarea><br><br>
                 <input type="submit" value="Execute">
             </form>
             {% if formatted_results %}
@@ -143,9 +151,9 @@ html_template = '''
             <h2>Explain SPARQL Output</h2>
             <form action="/summarize" method="post">
                 <label for="en">Enter your natural language query used in first box:</label><br><br>
-                <input type="text" id="en" name="en" style="width: 100%;"><br><br>
-                <label for="response">Enter your formatted sparql query generated in second box.:</label><br><br>
-                <input type="text" id="response" name="response" style="width: 100%;"><br><br>
+                <input type="text" id="en" name="en" value="{{ en or '' }}" style="width: 100%;"><br><br>
+                <label for="response">Enter your formatted SPARQL query generated in the second box:</label><br><br>
+                <input type="text" id="response" name="response" value="{{ response or '' }}" style="width: 100%;"><br><br>
                 <input type="submit" value="Translate">
             </form>
             {% if explanation %}
@@ -156,7 +164,6 @@ html_template = '''
     </div>
 </body>
 </html>
-
 '''
 
 @app.route('/')
@@ -182,8 +189,8 @@ def translate():
         outputs = model1.generate(
             **inputs,
             max_length=300,
-            num_beams=5,
-            no_repeat_ngram_size=2,
+            num_beams=4,
+            no_repeat_ngram_size=10,
             early_stopping=True
         )
         generated_text1 = tokenizer1.decode(outputs[0], skip_special_tokens=True)
@@ -195,41 +202,55 @@ def translate():
     except Exception as e:
         logging.error(f"Error in translate: {e}")
         return jsonify({"error": str(e)}), 500
-
+    
 @app.route('/summarize', methods=['POST'])
 def summarize():
     try:
+        # Initialize variable for the input data
+        input_data = None
+
+        # Check the content type to determine how to process the input
         if request.content_type == 'application/json':
             data = request.json
             en = data.get('en')
             response = data.get('response')
+            if not en or not response:
+                return jsonify({"error": "No input question and formatted query provided"}), 400
+            input_data = en + " " + response
+        elif request.content_type == 'text/plain':
+            # Handle plain text input as a single string
+            input_data = request.data.decode('utf-8')
         else:
             en = request.form.get('en')
             response = request.form.get('response')
-        
-        if not en or not response:
-            if request.content_type == 'application/json':
-                return jsonify({"error": "No Input question and formatted query provided"}), 400
-            else:
+            if not en or not response:
                 return render_template_string(html_template, explanation="Invalid input. Please provide both the natural language query and the SPARQL response.")
+            input_data = en + " " + response
 
-        test_query = en + " " + response
-        inputs = tokenizer2(test_query, return_tensors="pt", max_length=1024, truncation=True).to(device)
+        # Validate input_data
+        if not input_data:
+            return jsonify({"error": "No valid input provided"}), 400
+
+        inputs = tokenizer2(input_data, return_tensors="pt", max_length=1024, truncation=True).to(device)
 
         outputs = model2.generate(
             **inputs,
             max_length=350,
-            num_beams=5,
-            no_repeat_ngram_size=2,
+            num_beams=4,
+            no_repeat_ngram_size=10,
             early_stopping=True
         )
 
         generated_text2 = tokenizer2.decode(outputs[0], skip_special_tokens=True)
 
+        # Return the summary based on the request type
         if request.content_type == 'application/json':
             return jsonify({'explanation': generated_text2})
+        elif request.content_type == 'text/plain':
+            return generated_text2  # Return plain text
         else:
             return render_template_string(html_template, explanation=generated_text2)
+
     except Exception as e:
         logging.error(f"Error in summarize: {e}")
         return jsonify({"error": str(e)}), 500
@@ -310,4 +331,4 @@ def execute_sparql():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

@@ -311,9 +311,11 @@ services:
       build:
         context: ./Transformers
       # image: "7499968836/transformer-nl2sparql-model:latest"
-      restart: always
+      # restart: always
       container_name: t5-t5
       hostname: t5-t5-host
+      volumes:
+        - ./Transformers/app.py:/app/app.py
       ports:
         - "5001:5000"
       depends_on:

@@ -1,17 +1,12 @@
-# actions.py
-
 import requests
 import json
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-import psycopg2
-from psycopg2.extras import DictCursor
-import SPARQLWrapper
 from SPARQLWrapper import SPARQLWrapper, JSON
 from datetime import datetime
-import time
+import logging
 
 class action_nl2sparql_jena(Action):
     def name(self) -> str:
@@ -19,13 +14,14 @@ class action_nl2sparql_jena(Action):
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: dict) -> list:
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         # Step 1: Translate user query to SPARQL
         user_query = tracker.latest_message['text']
-        translate_url = "http://localhost:5002/translate"
-        endpoint_url = "http://localhost:3030/abacws-sensor-network/sparql"
-        summarize_url = "http://localhost:5000/generate_explanation"
+        logging.debug(f"user query is: {user_query}")
+        translate_url = "http://t5-t5:5000/translate"
+        endpoint_url = "http://jena-fuseki:3030/abacws-sensor-network/sparql"
+        summarize_url = "http://t5-t5:5000/summarize"
         headers = {"Content-Type": "application/json"}
         payload = {"query": user_query}
 
@@ -34,9 +30,11 @@ class action_nl2sparql_jena(Action):
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
             dispatcher.utter_message(text="Error: Unable to translate your question to machine understanding language. Please try again using different words.")
+            logging.error(f"Error during translation: {e}")
             return []
 
         sparql_query = response.json().get("sparql_query")
+        logging.debug(f"sparql query received: {sparql_query}")
         if not sparql_query:
             dispatcher.utter_message(text="Error: Translation service did not return a SPARQL query. Please try again.")
             return []
@@ -52,31 +50,58 @@ class action_nl2sparql_jena(Action):
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX ref: <https://brickschema.org/schema/Brick/ref#>
         """
-        final_sparql_query = final_sparql_query_template + sparql_query
+        if sparql_query:
+            final_sparql_query = final_sparql_query_template + sparql_query
+        else:
+            final_sparql_query = None
 
-        results = self.execute_sparql_query(final_sparql_query, endpoint_url)
+        # Execute the SPARQL query
+        if final_sparql_query:
+            results = self.execute_sparql_query(final_sparql_query, endpoint_url)
+            logging.debug(f"result received from SPARQL endpoint")
+        else:
+            logging.error("Error: No SPARQL query to execute.")
+            return []
 
         if not results:
-            dispatcher.utter_message(text="No results found in database. Their is no data to show.")
+            dispatcher.utter_message(text="No results found in the database. There is no data to show.")
             return []
 
-        formatted_results = self.format_results(results, self.prefix_mappings())
+        results_bindings = results.get("results", {}).get("bindings", [])
+        if results_bindings:
+            formatted_results = self.format_results(results_bindings, self.prefix_mappings())
+            logging.debug("Formatted Results:")
+            logging.debug(formatted_results)
+        else:
+            dispatcher.utter_message(text="No results found.")
+            return []
 
-        # Step 3: Summarize the sparql response in natural language
-        data = {
-            "en": user_query,
-            "response": formatted_results
-        }
-
+        # Step 3: Summarize the SPARQL response in natural language
+        formatted_results_cleaned = formatted_results.replace('\n', ' ').replace('{', '').replace('}', '')
+        data = user_query + " " + formatted_results_cleaned
+        logging.debug(f"data sending to the summarization: {data}")
+        headers1 = {"Content-Type": "text/plain"}
         try:
-            response = requests.post(summarize_url, json=data)
+            response = requests.post(summarize_url, headers=headers1, data=data)
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            dispatcher.utter_message(text=f"Failed to receive response. Status code: {response.status_code}")
-            return []
 
-        explanation = response.json().get('explanation', "No explanation available.")
-        dispatcher.utter_message(text=f"{explanation}")
+            # Check if response is JSON
+            try:
+                # explanation = response.json().get('explanation', "No explanation available.")
+                explanation = response.text
+            except json.JSONDecodeError:
+                logging.error(f"Failed to decode JSON from response: {response.text}")
+                dispatcher.utter_message(text="Failed to decode the summary response.")
+                return []
+
+            dispatcher.utter_message(text=f"{explanation}")
+
+        except requests.exceptions.RequestException as e:
+            logging.error(f"Error during summarization: {str(e)}")
+            if response is not None:
+                logging.error(f"Response content: {response.text}")  # Log response content for debugging
+            dispatcher.utter_message(text="Failed to receive response from summarization. Please try again later.")
+            return []
 
         return []
 
@@ -86,8 +111,9 @@ class action_nl2sparql_jena(Action):
             sparql.setQuery(sparql_query)
             sparql.setReturnFormat(JSON)
             results = sparql.query().convert()
-            return results["results"]["bindings"]
+            return results
         except Exception as e:
+            logging.error(f"Error executing SPARQL query: {e}")
             return []
 
     def prefix_mappings(self):
@@ -99,7 +125,7 @@ class action_nl2sparql_jena(Action):
             "http://www.w3.org/2002/07/owl#": "owl:",
             "http://www.w3.org/ns/shacl#": "sh:",
             "http://www.w3.org/2001/XMLSchema#": "xsd:",
-            "https://w3id.org/rec#": "rec",
+            "https://w3id.org/rec#": "rec:",
             "https://brickschema.org/schema/Brick/ref#": "ref:"
         }
 
@@ -113,6 +139,5 @@ class action_nl2sparql_jena(Action):
         formatted_bindings = []
         for binding in results_bindings:
             formatted_binding = {var: self.remove_prefix(binding[var]['value'], prefix_mappings) for var in binding}
-            formatted_bindings.append(formatted_binding)
-        return formatted_bindings
-    
+            formatted_bindings.append(", ".join(f"{var}: {formatted_binding[var]}" for var in formatted_binding))
+        return ", ".join(formatted_bindings)
