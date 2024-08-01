@@ -2,7 +2,8 @@ version: "3.0"
 services:
   # ================ 3D Visuliser tool ================
   # mongo:
-  #   image: mongo
+  #   image: mongo      #or
+  #   # image: devmanenvision/mongo:latest
   #   container_name: abacws-chatbot-mongo
   #   hostname: mongohost
   #   restart: always
@@ -14,6 +15,7 @@ services:
   #   build:
   #     context: ./api/
   #     dockerfile: Dockerfile
+  #   # image: devmanenvision/abacws-api:latest
   #   hostname: apihost
   #   container_name: abacws-api
   #   restart: always
@@ -32,6 +34,7 @@ services:
   #   build:
   #     context: ./visualiser/
   #     dockerfile: Dockerfile
+  #   # image: devmanenvision/abacws-visualiser:latest
   #   container_name: abacws-visualiser
   #   hostname: visualiserhost
   #   restart: always
@@ -53,6 +56,7 @@ services:
   #   # restart: always
   #   # image: "thingsboard-jupyter:1.0"
   #   image: 7499968836/my-thingsboard:1.1
+  #   # image: devmanenvision/devmanenvision/my-thingsboard:latest
   #   container_name: thingsboard
   #   hostname: thingsboardhost
   #   ports:
@@ -70,21 +74,10 @@ services:
   #   networks:
   #     - my_bridge
 
-# ======================== sensor auto restart =============
-
-  # flask-web-app:
-  #   build:
-  #     context: ./flask-python
-  #     dockerfile: Dockerfile
-  #   container_name: flask-web-app
-  #   volumes:
-  #     - ./flask-python/:/app
-  #   ports:
-  #     - "5000:5000"
-
   # ====================== Jena Fuseki =================
   fuseki-db:
     image: busybox
+    # image: devmanenvision/busybox:latest
     container_name: jena-fuseki-db
     volumes:
       - jena-data:/fuseki
@@ -94,6 +87,7 @@ services:
 
   jena-fuseki:
     image: stain/jena-fuseki
+    # image: devmanenvision/jena-fuseki:latest
     container_name: jena-fuseki-rdf-store
     hostname: jenafusekihost
     ports:
@@ -119,6 +113,7 @@ services:
 
   # graphdb:
   #   image: ontotext/graphdb:10.4.2
+  #   # image: devmanenvision/graphdb:latest
   #   container_name: graphdb
   #   restart: always
   #   ports:
@@ -135,6 +130,7 @@ services:
   # #   ============ Rasa ===========
   rasa:
     image: rasa/rasa:3.6.12-full
+    # image: devmanenvision/rasa:3.6.12-full
     container_name: rasa
     hostname: rasahost
     ports:
@@ -187,6 +183,7 @@ services:
     restart: always
     build:
       context: ./rasa-ui/actions/
+    # image: devmanenvision/rasa_action_server:latest
     container_name: rasa_action_server
     hostname: actionserverhost
     ports:
@@ -208,6 +205,7 @@ services:
     restart: always
     build:
       context: ./rasa-ui/ui
+    # image: devmanenvision/rasa-web-ui:latest
     container_name: rasa-web-ui
     hostname: webuihost
     ports:
@@ -221,6 +219,7 @@ services:
   # ============================ jupyter ===============
   # jupyter:
   #   image: 7499968836/jupyter_notebook:latest
+  #   # image: devmanenvision/jupyter_notebook:latest
   #   # build:
   #   #   context: ./notebooks/
   #   container_name: jupyter_notebook
@@ -242,6 +241,7 @@ services:
 
   # adminer:
   #   image: adminer
+  #   # image: devmanenvision/adminer:latest
   #   restart: always
   #   container_name: adminer
   #   hostname: adminerhost
@@ -252,11 +252,30 @@ services:
   #   networks:
   #     - my_bridge
 
-  #=============================== ADD ONNs ===========================
+ 
+# ===============================Trasformer model endpoint==============================
+  t5-t5:
+      build:
+        context: ./Transformers
+      # image: "7499968836/transformer-nl2sparql-model:latest"
+      # image: devmanenvision/t5-t5:latest
+      restart: always
+      container_name: t5-t5
+      hostname: t5-t5-host
+      volumes:
+        - ./Transformers/app.py:/app/app.py
+      ports:
+        - "5001:5000"
+      depends_on:
+        - jena-fuseki
+      networks:
+        - my_bridge
+ #=============================== ADD ONNs ===========================
 
   # pgadmin:
   #   restart: always
   #   image: "dpage/pgadmin4"
+  #   # image: devmanenvision/pgadmin:latest
   #   container_name: pgadmin
   #   hostname: pgadminhost
   #   ports:
@@ -303,26 +322,7 @@ services:
   #   command: ["-c", "shared_preload_libraries=timescaledb"]
   #   networks:
   #     - my_bridge
-
-
-
-# ===============================Trasformer model endpoint==============================
-  t5-t5:
-      build:
-        context: ./Transformers
-      # image: "7499968836/transformer-nl2sparql-model:latest"
-      # restart: always
-      container_name: t5-t5
-      hostname: t5-t5-host
-      volumes:
-        - ./Transformers/app.py:/app/app.py
-      ports:
-        - "5001:5000"
-      depends_on:
-        - jena-fuseki
-      networks:
-        - my_bridge
-
+  
 networks:
   my_bridge:
 volumes:
