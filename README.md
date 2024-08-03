@@ -26,6 +26,7 @@ python -m spacy download en_core_web_sm
 ```
 docker-compose up
 ```
+# To see all services and access GUI oprn index.html in your browser
 
 # Abacws Data Visualiser
 Web application made to visualise IoT data for devices in the Abacws building at Cardiff University.\
