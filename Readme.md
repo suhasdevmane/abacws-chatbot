@@ -1,1 +1,1 @@
-This repository is moved to https://github.com/suhasdevmane/Brickbot . Please see latest updates on new repository. 
+This repository is moved to https://github.com/suhasdevmane/OntoBot . Please see latest updates on new repository. 
